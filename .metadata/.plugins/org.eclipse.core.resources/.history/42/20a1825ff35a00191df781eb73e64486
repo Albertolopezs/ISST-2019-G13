@@ -37,6 +37,7 @@ h5{
 </style>
 	
 <body>
+	<a href="EditUsuarioProfileView.jsp?usuario=${usuario}">Modificar datos</a><a href="ChangePasswordUsuarioView.jsp?email=${usuario.email}">Cambiar contraseña</a>
 	<h1>${usuario.name}${usuario.apell1}${usuario.apell2}</h1>
 	
 	<div> <img id="imagenUsuario" src="" /> </div>
@@ -58,6 +59,6 @@ h5{
 		</ul>
 	  </div>
 	<p>
-	<div><a href="EditUsuarioProfileView.jsp?email=${usuario.email}">Modificar datos</a><a href="ChangePasswordUsuarioView.jsp?email=${usuario.email}">Cambiar contraseña</a></div>
+	<div><a href="EditUsuarioProfileView.jsp?email=${usuario.email}">Modificar datos</a></div>
 </body>
 </html>

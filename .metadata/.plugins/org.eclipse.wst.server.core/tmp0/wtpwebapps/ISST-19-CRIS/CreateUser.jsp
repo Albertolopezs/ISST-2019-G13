@@ -5,19 +5,54 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Create User</title>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   <title>Create User</title>
 </head>
+
+<style type="text/css">
+body {
+     background-image:url('https://ae01.alicdn.com/kf/HTB1HtgvJFXXXXasXpXXq6xXFXXXL/1-25-x1-5-h-m-edificios-fondo-atractivo-retrato-fondos-de-vinilo-de-moda-de.jpg_640x640.jpg');
+     background-size: cover;
+}
+h1{
+     text-align: center;
+}
+div{
+     font-size: medium;
+     font-family: Times New Roman;
+     font-weight: bold;
+}
+button {
+	border-color: #708090;
+	border-radius: 25px;
+	background-color: #708090;
+	font-size: medium;
+	font-family: Times New Roman;
+	font-weight: bold;
+}
+</style>
 <body>
-	<h2>Creación de cuenta de usuario</h2>
+	<h1>Completa con tus datos:</h1>
 	<form action="SignUpUserServlet" method="post">
-		<div>E-mail: <input type="text" name="email" placeholder="Email" /></div>
-		<div>Contraseña: <input type="password" name="password" placeholder="Password" /></div>
-		<div>Nombre: <input type="text" name="nombre" /></div>
-		<div>Primer apellido: <input type="text" name="apellido1" /></div>
-		<div>Segundo apellido: <input type="text" name="apellido2" placeholder="Deja en blanco si carece de ello" /></div>
-		<div><button type="submit">Crear cuenta</button></div>
+		<p>
+		<div>E-mail:</div>
+		<input type="text" name="email"/>
+		<p>
+		<div>Contraseña:</div> 
+		<input type="password" name="password"/>
+		<p>
+		<div>Nombre:</div>
+		<input type="text" name="nombre" />
+		<p>
+		<div>Primer apellido:</div>
+		<input type="text" name="apellido1" />
+		<p>
+		<div>Segundo apellido:</div>
+		<input type="text" name="apellido2" placeholder="Escribe '-' en caso de no tener" />
+		<p>
+		<button type="submit">Crear cuenta</button>
 	</form>
 </body>
 </html>

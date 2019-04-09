@@ -36,6 +36,14 @@ button {
 <body>
 	<h1>Completa con tus datos:</h1>
 	<form action="SignUpUserServlet" method="post">
+<<<<<<< HEAD
+		<div>E-mail: <input type="text" name="email" placeholder="Email" /></div>
+		<div>Contraseña: <input type="password" name="password" placeholder="Password" /></div>
+		<div>Nombre: <input type="text" name="nombre" /></div>
+		<div>Primer apellido: <input type="text" name="apellido1" /></div>
+		<div>Segundo apellido: <input type="text" name="apellido2" placeholder="Deja en blanco si carece de ello" /></div>
+		<div><button type="submit">Crear cuenta</button></div>
+=======
 		<p>
 		<div>E-mail:</div>
 		<input type="text" name="email"/>
@@ -53,6 +61,7 @@ button {
 		<input type="text" name="apellido2" placeholder="Escribe '-' en caso de no tener" />
 		<p>
 		<button type="submit">Crear cuenta</button>
+>>>>>>> 2c384642308da2f80083b65a763e8252a37b850a
 	</form>
 </body>
 </html>

@@ -9,15 +9,44 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Sign Up</title>
 </head>
+<style type="text/css">
+body {
+	background-image:
+		url('https://ae01.alicdn.com/kf/HTB1HtgvJFXXXXasXpXXq6xXFXXXL/1-25-x1-5-h-m-edificios-fondo-atractivo-retrato-fondos-de-vinilo-de-moda-de.jpg_640x640.jpg');
+	background-size: cover;
+}
+
+h1 {
+	text-align: center;
+	text-decoration: blink;
+}
+
+div {
+	font-size: medium;
+	font-family: Times New Roman;
+	font-weight: bold;
+}
+input {
+	border-color: #708090;
+	border-radius: 25px;
+	background-color: #708090;
+	font-size: medium;
+	font-family: Times New Roman;
+	font-weight: bold;
+}
+</style>
 <body>
-	<h1>¡Registrarse ahora!</h1>
+	<h1>Registro</h1>
 	<form action="CreateAccountSelectionServlet" method="post">
-		Usted es: <select name="papel">
-			<option value="" disabled selected>Elija si usted es</option>
-			<option value="empresa">Empresa</option>
-			<option value="particular">Particular</option>
-		</select>
-		<input type="submit" value="Siguiente">
+		<div>
+			Desea registrarse como: <select name="papel">
+				<option value="" disabled selected>Escoja su caso</option>
+				<option value="empresa">Empresa</option>
+				<option value="particular">Particular</option>
+			</select>
+		</div>
+		<p>
+			<input type="submit" value="Siguiente">
 	</form>
 </body>
 </html>
