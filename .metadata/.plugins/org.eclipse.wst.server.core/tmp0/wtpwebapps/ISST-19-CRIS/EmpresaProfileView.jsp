@@ -10,7 +10,7 @@
 <title>Perfil empresa</title>
 </head>
 <body>
-<a href="EditEmpresaProfileView.jsp?email=${empresa.email}">Modificar datos</a>
+<a href="EditEmpresaProfileView.jsp?empresa=${empresa}">Modificar datos</a><a href="ChangePasswordEmpresaView.jsp?email=${empresa.email}">Cambiar contraseña</a>
 <h1>${empresa.name}</h1>
 <div>Categoría: ${empresa.category} }</div>
 <div>Descripción: ${empresa.description}</div>

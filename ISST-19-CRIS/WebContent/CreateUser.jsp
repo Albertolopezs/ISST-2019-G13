@@ -16,7 +16,7 @@
 		<div>Contraseña: <input type="password" name="password" placeholder="Password" /></div>
 		<div>Nombre: <input type="text" name="nombre" /></div>
 		<div>Primer apellido: <input type="text" name="apellido1" /></div>
-		<div>Segundo apellido: <input type="text" name="apellido2" placeholder="Deja un - si no se tiene" /></div>
+		<div>Segundo apellido: <input type="text" name="apellido2" placeholder="Deja en blanco si carece de ello" /></div>
 		<div><button type="submit">Crear cuenta</button></div>
 	</form>
 </body>
