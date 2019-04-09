@@ -21,7 +21,6 @@
 		<a href="Signup.jsp">Registrarse</a>
 
 	</shiro:guest>
-
 	<shiro:user>
     Welcome back <shiro:principal />! Click <a href="LogoutServlet">here</a> to logout.
 	</shiro:user>

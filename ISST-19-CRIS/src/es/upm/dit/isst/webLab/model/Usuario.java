@@ -14,6 +14,7 @@ import javax.persistence.OneToMany;
 public class Usuario implements Serializable {
 	@Id
 	private String email;
+	
 	private String password;
 	private String name;
 	private String apell1;
