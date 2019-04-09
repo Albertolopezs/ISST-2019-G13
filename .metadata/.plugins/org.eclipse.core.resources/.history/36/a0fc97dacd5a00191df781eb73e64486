@@ -35,7 +35,7 @@ public class SignUpUserServlet extends HttpServlet {
 		UsuarioDAO udao = UsuarioDAOImplementation.getInstance();
 		udao.create( user );
 		
-		resp.sendRedirect( req.getContextPath() + "/LoginView" );
+		resp.sendRedirect( req.getContextPath() + "/AdminServlet" );
 	
 	}
 }

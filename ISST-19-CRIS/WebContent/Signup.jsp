@@ -11,11 +11,11 @@
 </head>
 <body>
 	<h1>¡Registrarse ahora!</h1>
-	<form action="CreateAccountSelectionServlet" method="get">
+	<form action="CreateAccountSelectionServlet" method="post">
 		Usted es: <select name="papel">
 			<option value="" disabled selected>Elija si usted es</option>
-			<option value="1">Empresa</option>
-			<option value="2">Particular</option>
+			<option value="empresa">Empresa</option>
+			<option value="particular">Particular</option>
 		</select>
 		<input type="submit" value="Siguiente">
 	</form>

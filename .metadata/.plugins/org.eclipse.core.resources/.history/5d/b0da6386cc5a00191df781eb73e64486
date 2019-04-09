@@ -13,9 +13,10 @@ public class CreateAccountSelectionServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String papel = req.getParameter( "papel" );
-		if ( papel.contentEquals("empresa") ) {
+		System.out.println(papel);
+		if ( papel == "empresa" ) {
 			req.getRequestDispatcher( "/CreateCompany.jsp" ).forward( req, resp );
-		} else if( papel.contentEquals("particular") ) {
+		} else if( papel == "particular" ) {
 			req.getRequestDispatcher( "/CreateUser.jsp" ).forward( req, resp );
 		}
 	}

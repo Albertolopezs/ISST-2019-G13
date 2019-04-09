@@ -10,7 +10,7 @@
 <title>Create Company</title>
 </head>
 <body>
-	<h2>Creación de cuenta de empresa</h2>
+	<h1>Creación de cuenta de empresa</h2>
 	<form action="SignUpCompanyServlet" method="post">
 		<div>E-mail: <input type="text" name="email" placeholder="Email" /></div>
 		<div>Contraseña: <input type="password" name="password" placeholder="Password" /></div>

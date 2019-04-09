@@ -11,12 +11,12 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/CreateAccountSelectionServlet")
 public class CreateAccountSelectionServlet extends HttpServlet {
 
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String papel = req.getParameter( "papel" );
-		if ( papel.contentEquals("empresa") ) {
-			req.getRequestDispatcher( "/CreateCompany.jsp" ).forward( req, resp );
-		} else if( papel.contentEquals("particular") ) {
-			req.getRequestDispatcher( "/CreateUser.jsp" ).forward( req, resp );
+		if ( papel == "2") {
+			getServletContext().getRequestDispatcher( "/CreateCompany.jsp" ).forward( req, resp );
+		} else {
+			getServletContext().getRequestDispatcher( "/CreateUser.jsp" ).forward( req, resp );
 		}
 	}
 }

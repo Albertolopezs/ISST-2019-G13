@@ -31,6 +31,6 @@ public class SignUpCompanyServlet extends HttpServlet {
 		EmpresaDAO edao = EmpresaDAOImplementation.getInstance();
 		edao.create( empresa );
 		
-		resp.sendRedirect( req.getContextPath() + "/LoginView" );
+		resp.sendRedirect( req.getContextPath() + "/AdminServlet" );
 	}
 }

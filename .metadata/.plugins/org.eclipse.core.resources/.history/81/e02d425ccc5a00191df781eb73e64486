@@ -7,15 +7,17 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Create Company</title>
+<title>Sign Up</title>
 </head>
 <body>
-	<h2>Creación de cuenta de empresa</h2>
-	<form action="SignUpCompanyServlet" method="post">
-		<div>E-mail: <input type="text" name="email" placeholder="Email" /></div>
-		<div>Contraseña: <input type="password" name="password" placeholder="Password" /></div>
-		<div>Nombre: <input type="text" name="nombre de la empresa" /></div>
-		<div><button type="submit">Crear cuenta</button></div>
+	<h1>¡Registrarse ahora!</h1>
+	<form action="CreateAccountSelectionServlet" method="get">
+		Usted es: <select name="papel">
+			<option value="" disabled selected>Elija si usted es</option>
+			<option value="empresa">Empresa</option>
+			<option value="particular">Particular</option>
+		</select>
+		<input type="submit" value="Siguiente">
 	</form>
 </body>
 </html>
