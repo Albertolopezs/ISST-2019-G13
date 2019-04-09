@@ -26,6 +26,14 @@ div {
 	font-family: Times New Roman;
 	font-weight: bold;
 }
+input {
+	border-color: #708090;
+	border-radius: 25px;
+	background-color: #708090;
+	font-size: medium;
+	font-family: Times New Roman;
+	font-weight: bold;
+}
 </style>
 <body>
 	<h1>Registro</h1>
