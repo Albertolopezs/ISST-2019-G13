@@ -12,6 +12,9 @@ import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 
+import es.upm.dit.isst.webLab.dao.ProfessorDAO;
+import es.upm.dit.isst.webLab.dao.ProfessorDAOImplementation;
+
 @WebServlet({ "/LoginServlet", "/" })
 public class LoginServlet extends HttpServlet {
 	
@@ -29,16 +32,16 @@ public class LoginServlet extends HttpServlet {
 			UsernamePasswordToken token = new UsernamePasswordToken( email, pass );
 			try {
 				currentUser.login( token );
-				if ( currentUser.hasRole( "admin" ) ) {
-					resp.sendRedirect( req.getContextPath() + "/AdminServlet" );}
-				else if ( currentUser.hasRole( "empresa" ) ) {
-					resp.sendRedirect( req.getContextPath() + "/EmpresaServlet?email=" + currentUser.getPrincipal() );}
-				else  {
-					resp.sendRedirect( req.getContextPath() + "/UsuarioServlet?email=" + currentUser.getPrincipal() );}
+				if ( currentUser.hasRole( "admin" ) )
+					resp.sendRedirect( req.getContextPath() + "/AdminServlet" );
+				else if ( currentUser.hasRole( "empresa" ) )
+					resp.sendRedirect( req.getContextPath() + "/EmpresaServlet?email=" + currentUser.getPrincipal() );
+				else 
+					resp.sendRedirect( req.getContextPath() + "/UsuarioServlet?email=" + currentUser.getPrincipal() );
 			} catch ( Exception e ) {
 				resp.sendRedirect( req.getContextPath() + "/LoginServlet" );
 			}
-		} else {
-			resp.sendRedirect( req.getContextPath() + "/LoginServlet" );}
+		} else
+			resp.sendRedirect( req.getContextPath() + "/LoginServlet" );
 	}
 }

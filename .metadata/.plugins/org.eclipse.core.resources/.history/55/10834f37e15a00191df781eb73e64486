@@ -14,7 +14,7 @@ document.getElementById("imagenUsuario").src = "data:image/png;base64," + {usuar
 </head>
 <body>
 <a href="EditUsuarioProfileView.jsp?email=${usuario.email}">Modificar datos</a>
-<h1>${usuario.name} ${usuario.apell1} ${usuario.apell2}</h1>
+<h1>${usuario.name} {usuario.apell1} {usuario.apell2}</h1>
 <div><img id="imagenUsuario" src="" /></div>
 <div>¿En búsqueda de trabajo?: ${usuario.buscandoTrabajo}</div>
 <div>Descripción: ${usuario.description}</div>

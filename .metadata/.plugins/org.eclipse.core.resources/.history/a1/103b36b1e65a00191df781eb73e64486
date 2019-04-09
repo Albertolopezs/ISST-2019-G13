@@ -36,7 +36,7 @@ public class SignUpCompanyServlet extends HttpServlet {
 		EmpresaDAO edao = EmpresaDAOImplementation.getInstance();
 		edao.create( empresa );
 		enviarConGmail(email,"¡Bienvenido a eCV-G13!","Muchas gracias por unirte a nosotros, esperamos que encuentres a tu trabajador ideal.");
-		resp.sendRedirect( req.getContextPath() + "/EmpresaServlet?email=" + email );
+		resp.sendRedirect( req.getContextPath() + "/LoginView" );
 	}
 	
 	private static void enviarConGmail(String destinatario, String asunto, String cuerpo) {
