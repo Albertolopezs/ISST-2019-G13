@@ -1,9 +1,0 @@
-package es.upm.dit.isst.webLab.dao;
-
-public class ProfessorDAOImplementation {
-
-	public ProfessorDAOImplementation() {
-		// TODO Auto-generated constructor stub
-	}
-
-}

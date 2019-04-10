@@ -16,9 +16,12 @@ body {
 	background-size: cover;
 }
 
-h1 {
+h2 {
 	text-align: center;
 	text-decoration: blink;
+	font-family: 'Open Sans';
+	color:black;
+	font-size: 100px;
 }
 
 div {
@@ -34,8 +37,18 @@ button {
 	font-family: Times New Roman;
 	font-weight: bold;
 }
+p {
+	font-family: 'Open Sans';
+	font-size: 18px;
+	color: black;
+	line-height: 18px;
+	margin-bottom: 40px;
+	width: 600px;
+	transform: translateX(30%);
+}
 </style>
 <body>
+	<shiro:guest>
 	<h1>Login</h1>
 	    <form action="LoginServlet" method="post">
 			<p>
@@ -49,6 +62,9 @@ button {
 			<button type="submit">Login</button>
 		</form>
 		<a href="Signup.jsp">Registrarse</a>
-
+	</shiro:guest>
+	<shiro:user>
+	Welcome back <shiro:principal />! Click <a href="LogoutServlet">here</a> to logout.
+	</shiro:user>
 </body>
 </html>

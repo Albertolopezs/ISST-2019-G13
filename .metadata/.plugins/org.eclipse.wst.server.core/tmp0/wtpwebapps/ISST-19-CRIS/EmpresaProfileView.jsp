@@ -33,8 +33,12 @@ h5{
 
 </style>
 <body>
-	<a href="EditEmpresaProfileView.jsp?empresa=${empresa}">Modificar datos</a><a href="ChangePasswordEmpresaView.jsp?email=${empresa.email}">Cambiar contraseña</a>
 	<h1>${empresa.name}</h1>
+	<div> <img id="imagenEmpresa" src="" /> </div>
+	<form action="EditCompanyPhotoServlet" method="post" enctype="multipart/form-data">
+		<input type="file" name="file" />
+		<button type="submit" name="email" value="${empresa.email}">Subir foto perfil</button>
+	</form>
 	<p>
 	  <div>Categoría:</div>
 	  ${empresa.category}
@@ -66,5 +70,11 @@ h5{
 	  </div>
 	<p>
 	<div><a href="EditEmpresaProfileView.jsp?email=${empresa.email}">Modificar datos</a></div>
+	<div><a href="ChangePasswordEmpresaView.jsp?email=${empresa.email}">Cambiar contraseña</a></div>
+	<div><a href="LogoutServlet">Cerrar sesión</a></div>
+	
+	<script type="text/javascript">
+		document.getElementById("imagenEmpresa").src = "data:image/png;base64," + ${empresa.photo};
+	</script>
 </body>
 </html>

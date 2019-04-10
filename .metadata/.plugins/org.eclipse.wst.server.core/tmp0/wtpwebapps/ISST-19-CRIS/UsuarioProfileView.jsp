@@ -5,10 +5,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html>
 <html>
-<script>
-document.getElementById("imagenUsuario").src = "data:image/png;base64," + {usuario.photo};
-</script>
-
 <head>
    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
    <title>Perfil Usuario</title>
@@ -37,14 +33,21 @@ h5{
 </style>
 	
 <body>
-	<h1>${usuario.name}${usuario.apell1}${usuario.apell2}</h1>
+<script>
+document.getElementById("imagenUsuario").src = "data:image/png;base64," + ${usuario.photo};
+</script>
+	<h1>${usuario.name} ${usuario.apell1} ${usuario.apell2}</h1>
 	
 	<div> <img id="imagenUsuario" src="" /> </div>
+	<form action="EditUserPhotoServlet" method="post" enctype="multipart/form-data">
+		<div><input type="file" name="file" /></div>
+		<div><button type="submit" name="email" value="${usuario.email}">Subir foto perfil</button></div>
+	</form>
 	<p>
-	  <div>¿En búsqueda de trabajo?:</div>
+	  <div>Estoy en búsqueda de trabajo:</div>
 	  ${usuario.buscandoTrabajo}
 	<p>
-	  <div>Descripción:</div>
+	  <div>Sobre mí:</div>
 	  ${usuario.description}
     <p>
 	  <div>CVs:</div>
@@ -57,7 +60,11 @@ h5{
 			</c:forEach>
 		</ul>
 	  </div>
-	<p>
-	<div><a href="EditUsuarioProfileView.jsp?email=${usuario.email}">Modificar datos</a><a href="ChangePasswordUsuarioView.jsp?email=${usuario.email}">Cambiar contraseña</a></div>
+	<p>					
+	<div><a href="EditUsuarioProfileView.jsp?usuario=${usuario}">Modificar datos</a></div>
+	<div><a href="ChangePasswordUsuarioView.jsp?email=${usuario.email}">Cambiar contraseña</a></div>
+	<div><a href="LogoutServlet">Cerrar sesión</a></div>
+	
+
 </body>
 </html>

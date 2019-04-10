@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="org.hibernate.Session"/>
     <fullyQualifiedTypeName name="es.upm.dit.isst.webLab.dao.SessionFactoryService"/>
     <fullyQualifiedTypeName name="org.hibernate.annotations.Entity"/>
     <fullyQualifiedTypeName name="javax.persistence.Id"/>
@@ -15,4 +14,12 @@
     <fullyQualifiedTypeName name="javax.servlet.http.Part"/>
     <fullyQualifiedTypeName name="java.io.InputStream"/>
     <fullyQualifiedTypeName name="java.io.ByteArrayOutputStream"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="org.hibernate.Session"/>
+    <fullyQualifiedTypeName name="es.upm.dit.isst.webLab.model.Empresa"/>
+    <fullyQualifiedTypeName name="es.upm.dit.isst.webLab.dao.EmpresaDAOImplementation"/>
+    <fullyQualifiedTypeName name="es.upm.dit.isst.webLab.dao.UsuarioDAOImplementation"/>
+    <fullyQualifiedTypeName name="es.upm.dit.isst.webLab.model.Usuario"/>
+    <fullyQualifiedTypeName name="es.upm.dit.isst.webLab.dao.UsuarioDAO"/>
+    <fullyQualifiedTypeName name="es.upm.dit.isst.webLab.dao.EmpresaDAO"/>
 </qualifiedTypeNameHistroy>
