@@ -45,8 +45,7 @@ button {
 document.getElementById("imagenUsuario").src = "data:image/png;base64," + ${usuario.photo};
 </script>
 	<h1>${usuario.name} ${usuario.apell1} ${usuario.apell2}</h1>
-	
-	<div> <img id="imagenUsuario" src="" /> </div>
+	<div> <img id="imagenUsuario" src="data:image/jpeg;base64,${foto}" /> </div>
 	<form action="EditUserPhotoServlet" method="post" enctype="multipart/form-data">
 		<div><input type="file" name="file" /></div>
 		<div><button type="submit" name="email" value="${usuario.email}">Subir foto perfil</button></div>

@@ -2,7 +2,6 @@ package es.upm.dit.isst.webLab.servlets;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Base64;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -22,17 +21,7 @@ import es.upm.dit.isst.webLab.model.Usuario;
 @WebServlet("/EditUserPhotoServlet")
 @MultipartConfig
 public class EditUserPhotoServlet extends HttpServlet {
-	
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		UsuarioDAO udao = UsuarioDAOImplementation.getInstance();
-		Usuario usuario = udao.read( "email" );
-		byte[] foto = usuario.getPhoto();
-		String sfoto = Base64.getEncoder().encodeToString( foto );
-		/* pasar a jsp */
-	}
-	
-	@Override
+
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Part filePart = req.getPart( "file" );
 		InputStream fileContent = filePart.getInputStream();
