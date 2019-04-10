@@ -15,24 +15,22 @@ body {
 		url('https://ae01.alicdn.com/kf/HTB1HtgvJFXXXXasXpXXq6xXFXXXL/1-25-x1-5-h-m-edificios-fondo-atractivo-retrato-fondos-de-vinilo-de-moda-de.jpg_640x640.jpg');
 	background-size: cover;
 }
-
-h2 {
+h1 {
 	text-align: center;
 	text-decoration: blink;
 	font-family: 'Open Sans';
 	color:black;
-	font-size: 100px;
+	font-size: 50px;
 }
-
 div {
 	font-size: medium;
 	font-family: Times New Roman;
 	font-weight: bold;
 }
 button {
-	border-color: #708090;
+	border-color: #A9B1B2;
 	border-radius: 25px;
-	background-color: #708090;
+	background-color: #A9B1B2;
 	font-size: medium;
 	font-family: Times New Roman;
 	font-weight: bold;
@@ -48,8 +46,15 @@ p {
 }
 </style>
 <body>
-	<shiro:guest>
-	<h1>Login</h1>
+	<h1>Bienvenido a eCV</h1>
+	<div>
+		<p>
+		Con nosotros el trabajo de tus sueños estará más cerca.
+		<p>
+		Diseña tu propio currículum personalizado o rellena una plantilla para tu empresa.
+		<p>
+		Accede a tu cuenta o regístrate para empezar.
+	</div>
 	    <form action="LoginServlet" method="post">
 			<p>
 			<div>Email:</div>
@@ -61,10 +66,6 @@ p {
 			<p>
 			<button type="submit">Login</button>
 		</form>
-		<a href="Signup.jsp">Registrarse</a>
-	</shiro:guest>
-	<shiro:user>
-	Welcome back <shiro:principal />! Click <a href="LogoutServlet">here</a> to logout.
-	</shiro:user>
+		<a href="SignUp.jsp">Registrarse</a>
 </body>
 </html>

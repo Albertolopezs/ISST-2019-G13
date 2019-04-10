@@ -24,15 +24,21 @@ div{
      font-family: Times New Roman;
      font-weight: bold;
 }
-button {
-	border-color: #708090;
+input[type="button"] {
+	border-color: #7A9B1B2;
 	border-radius: 25px;
-	background-color: #708090;
+	background-color: #A9B1B2;
 	font-size: medium;
 	font-family: Times New Roman;
 	font-weight: bold;
 }
 </style>
+<script type="text/javascript">
+   function siguientePagina(){
+	   alert("comprobar si se actualizan los datos");
+       location.href="UserProfileView.jsp";
+   }
+</script>
 <body>
 	<h1>Completa con tus datos:</h1>
 	<form action="SignUpUserServlet" method="post">
@@ -52,7 +58,7 @@ button {
 		<div>Segundo apellido:</div>
 		<input type="text" name="apellido2" placeholder="Escribe '-' en caso de no tener" />
 		<p>
-		<button type="submit">Crear cuenta</button>
+		<input type="button" value="Crear cuenta" onclick="javascript:siguientePagina()"/>
 	</form>
 </body>
 </html>

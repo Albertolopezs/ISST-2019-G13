@@ -27,8 +27,7 @@ div {
 	font-weight: bold;
 }
 h5{
-    vertical-align: bottom;
-    
+    vertical-align: bottom;  
 }
 
 </style>
@@ -69,9 +68,9 @@ h5{
 		</ul>
 	  </div>
 	<p>
-	<div><a href="EditEmpresaProfileView.jsp?email=${empresa.email}">Modificar datos</a></div>
-	<div><a href="ChangePasswordEmpresaView.jsp?email=${empresa.email}">Cambiar contraseña</a></div>
-	<div><a href="LogoutServlet">Cerrar sesión</a></div>
+	<a href="EditEmpresaProfileView.jsp?email=${empresa.email}">Modificar datos</a>
+	<a href="ChangePasswordEmpresaView.jsp?email=${empresa.email}">Cambiar contraseña</a>
+	<a href="LogoutServlet">Cerrar sesión</a>
 	
 	<script type="text/javascript">
 		document.getElementById("imagenEmpresa").src = "data:image/png;base64," + ${empresa.photo};
