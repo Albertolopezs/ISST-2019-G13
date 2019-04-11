@@ -1,2 +1,2 @@
 # ISST-2019-G13
-Hola primikos vamos a aprobarrrrrrr
+Proyecto eCV grupo13 del 42.2 ETSIT-UPM 2018-2019
