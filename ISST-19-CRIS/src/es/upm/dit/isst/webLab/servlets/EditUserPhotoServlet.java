@@ -24,15 +24,6 @@ import es.upm.dit.isst.webLab.model.Usuario;
 public class EditUserPhotoServlet extends HttpServlet {
 	
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		UsuarioDAO udao = UsuarioDAOImplementation.getInstance();
-		Usuario usuario = udao.read( "email" );
-		byte[] foto = usuario.getPhoto();
-		String sfoto = Base64.getEncoder().encodeToString( foto );
-		/* pasar a jsp */
-	}
-	
-	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Part filePart = req.getPart( "file" );
 		InputStream fileContent = filePart.getInputStream();
@@ -42,9 +33,14 @@ public class EditUserPhotoServlet extends HttpServlet {
 		UsuarioDAO udao = UsuarioDAOImplementation.getInstance();
 		String email = req.getParameter( "email" );
 		Usuario usuario = udao.read(email);
-		usuario.setPhoto( output.toByteArray() );
+		byte[] foto = output.toByteArray();
+		usuario.setPhoto( foto );
 		udao.update( usuario );
+		String sfoto = Base64.getEncoder().encodeToString( foto );
 		
-		resp.sendRedirect( req.getContextPath() + "/UsuarioProfileView.jsp?usuario=" + usuario);
+		req.getSession().setAttribute( "usuario" , usuario );
+		req.getSession().setAttribute( "foto" , sfoto );
+		getServletContext().getRequestDispatcher( "/UserProfileView.jsp" ).forward( req, resp );
+
 	}
 }

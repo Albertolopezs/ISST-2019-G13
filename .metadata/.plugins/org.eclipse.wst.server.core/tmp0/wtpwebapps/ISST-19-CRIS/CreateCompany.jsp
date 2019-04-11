@@ -27,7 +27,7 @@ div {
 	font-weight: bold;
 }
 
-input[type="button"] {
+input[type="submit"] {
 	border-color: #A9B1B2;
 	border-radius: 25px;
 	background-color: #A9B1B2;
@@ -36,12 +36,6 @@ input[type="button"] {
 	font-weight: bold;
 }
 </style>
-<script type="text/javascript">
-   function siguientePagina(){
-	   alert("comprobar si se actualizan los datos");
-       location.href="EmpresaProfileView.jsp";
-   }
-</script>
 <body>
 	<h1>Completa con los datos de su empresa:</h1>
 	<form action="SignUpCompanyServlet" method="post">
@@ -53,9 +47,9 @@ input[type="button"] {
 		<input type="password" name="password" />
 		<p>
 		<div>Nombre:</div>
-		<input type="text" name="nombre de la empresa" />
+		<input type="text" name="nombre" />
 		<p>
-		<input type="button" value="Crear cuenta" onclick="javascript:siguientePagina()"/>
+		<input type="submit" value="Crear cuenta" />
 	</form>
 </body>
 </html>

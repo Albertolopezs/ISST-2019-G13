@@ -23,7 +23,7 @@ public class EditCompanyServlet extends HttpServlet {
 		String NIF = req.getParameter( "NIF" );
 		String categoria = req.getParameter( "categoria" );
 		String descripcion = req.getParameter( "descripcion" );
-		Boolean buscaEmpleado = (Boolean) req.getAttribute( "buscaEmpleado" );
+		boolean buscaEmpleado = Boolean.parseBoolean(req.getParameter( "buscaEmpleado" ));
 		String[] peo = req.getParameterValues( "peo" );
 		@SuppressWarnings("unchecked")
 		Collection<Plantilla> plantillas = (Collection<Plantilla>) req.getAttribute( "plt" );
@@ -41,6 +41,7 @@ public class EditCompanyServlet extends HttpServlet {
 		
 		edao.update( empresa );
 		
-		resp.sendRedirect( req.getContextPath() + "/EmpresaProfileView.jsp?empresa=" + empresa );
+		req.getSession().setAttribute( "empresa", empresa );
+		getServletContext().getRequestDispatcher( "/EmpresaProfileView.jsp" ).forward( req, resp );
 	}
 }

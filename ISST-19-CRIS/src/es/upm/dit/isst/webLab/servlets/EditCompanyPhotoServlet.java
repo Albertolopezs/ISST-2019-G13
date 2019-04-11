@@ -2,6 +2,7 @@ package es.upm.dit.isst.webLab.servlets;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Base64;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -25,6 +26,7 @@ import es.upm.dit.isst.webLab.model.Usuario;
 @MultipartConfig
 public class EditCompanyPhotoServlet extends HttpServlet {
 
+	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Part filePart = req.getPart( "file" );
 		InputStream fileContent = filePart.getInputStream();
@@ -34,9 +36,13 @@ public class EditCompanyPhotoServlet extends HttpServlet {
 		EmpresaDAO edao = EmpresaDAOImplementation.getInstance();
 		String email = req.getParameter( "email" );
 		Empresa empresa = edao.read(email);
-		empresa.setPhoto( output.toByteArray() );
+		byte[] foto = output.toByteArray();
+		empresa.setPhoto( foto );
 		edao.update( empresa );
+		String sfoto = Base64.getEncoder().encodeToString( foto );
 		
-		resp.sendRedirect( req.getContextPath() + "/EmpresaProfileView.jsp?empresa=" + empresa);
+		req.getSession().setAttribute( "foto", sfoto );
+		req.getSession().setAttribute( "empresa", empresa );
+		getServletContext().getRequestDispatcher( "/EmpresaProfileView.jsp" ).forward( req, resp );
 	}
 }

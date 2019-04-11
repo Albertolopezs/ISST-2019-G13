@@ -66,6 +66,6 @@ p {
 			<p>
 			<button type="submit">Login</button>
 		</form>
-		<a href="SignUp.jsp">Registrarse</a>
+		<a href="Signup.jsp">Registrarse</a>
 </body>
 </html>

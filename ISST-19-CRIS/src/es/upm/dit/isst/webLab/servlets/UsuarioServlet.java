@@ -20,8 +20,11 @@ public class UsuarioServlet extends HttpServlet {
 		String email = req.getParameter( "email" );
 		Usuario usuario = UsuarioDAOImplementation.getInstance().read( email );
 		byte[] foto = usuario.getPhoto();
-		String sfoto = Base64.getEncoder().encodeToString( foto );
-		req.getSession().setAttribute( "foto" , sfoto );
+		String sfoto;
+		if (foto != null) {
+			sfoto = Base64.getEncoder().encodeToString( foto );
+			req.getSession().setAttribute( "foto" , sfoto );
+		}
 		req.getSession().setAttribute( "usuario" , usuario );
 		getServletContext().getRequestDispatcher( "/UserProfileView.jsp" ).forward( req, resp );
 	}

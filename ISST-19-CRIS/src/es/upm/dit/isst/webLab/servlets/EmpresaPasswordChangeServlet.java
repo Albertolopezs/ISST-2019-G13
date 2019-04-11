@@ -25,7 +25,8 @@ public class EmpresaPasswordChangeServlet extends HttpServlet {
 		
 		edao.update( empresa );
 		
-		resp.sendRedirect( req.getContextPath() + "/EmpresaProfileView.jsp?empresa=" + empresa );
+		req.getSession().setAttribute( "empresa", empresa );
+		getServletContext().getRequestDispatcher( "/EmpresaProfileView.jsp" ).forward( req, resp );
 		
 	}
 

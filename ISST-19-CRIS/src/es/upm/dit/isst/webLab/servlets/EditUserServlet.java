@@ -44,7 +44,6 @@ public class EditUserServlet extends HttpServlet {
 		
 		udao.update( usuario );
 		req.getSession().setAttribute( "usuario" , usuario);
-		/*req.getRequestDispatcher( "/UsuarioProfileView.jsp" ).forward( req, resp );*/
 		getServletContext().getRequestDispatcher( "/UserProfileView.jsp" ).forward(req, resp);;
 	}
 }

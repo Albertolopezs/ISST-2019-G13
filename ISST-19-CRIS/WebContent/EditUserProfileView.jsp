@@ -55,6 +55,7 @@ input[type="submit"] {
 }
 </style>
 <body>
+<form action="EditUserServlet" method="post">
 	<div>
 		<p> 
 		<div>Nombre:</div>
@@ -101,7 +102,6 @@ input[type="submit"] {
 	      </div>
 	</div>
 	<p>
-	<form action="EditUserServlet" method="post">
 		<input type="hidden" name="email" value="${usuario.email}" />
 		<input type="submit" value="Guardar"/>
 	</form>

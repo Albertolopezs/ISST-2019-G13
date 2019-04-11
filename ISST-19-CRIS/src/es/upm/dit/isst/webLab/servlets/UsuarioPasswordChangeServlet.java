@@ -15,7 +15,6 @@ import es.upm.dit.isst.webLab.dao.UsuarioDAOImplementation;
 import es.upm.dit.isst.webLab.model.Empresa;
 import es.upm.dit.isst.webLab.model.Usuario;
 
-
 @WebServlet("/UsuarioPasswordChangeServlet")
 public class UsuarioPasswordChangeServlet extends HttpServlet {
 
@@ -28,7 +27,7 @@ public class UsuarioPasswordChangeServlet extends HttpServlet {
 		
 		udao.update( usuario );
 		
-		resp.sendRedirect( req.getContextPath() + "/UsuarioProfileView.jsp?usuario=" + usuario );
+		req.getSession().setAttribute( "usuario", usuario );
+		getServletContext().getRequestDispatcher( "/UserProfileView.jsp" ).forward( req, resp );
 	}
-
 }
