@@ -29,7 +29,7 @@ input[type="submit"] {
 }
 </style>
 <body>
-	<h2>${ plantilla }</h2>
+	<h2>${ name }</h2>
 		<div>Educación: ${ educacion }<br></div>
 		<div>Idiomas:  ${ idiomas }<br></div>
 		<div>Experiencia laboral: ${ expLabo }<br></div>

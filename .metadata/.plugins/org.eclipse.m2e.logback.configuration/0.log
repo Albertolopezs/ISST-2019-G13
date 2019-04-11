@@ -4772,3 +4772,91 @@ org.eclipse.core.runtime.CoreException: Could not resolve artifact jstl:jstl:jar
 2019-04-11 20:08:29,129 [Worker-174: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xiaoluo/eclipse-workspace/ISST-19-CRIS/src/main/resources
 2019-04-11 20:08:29,130 [Worker-174: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
 2019-04-11 20:08:29,131 [Worker-174: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xiaoluo/eclipse-workspace/ISST-19-CRIS/src/test/resources
+2019-04-11 20:23:54,330 [Worker-182: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-04-11 20:23:54,332 [Worker-182: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xiaoluo/eclipse-workspace/ISST-19-CRIS/src/main/resources
+2019-04-11 20:23:54,333 [Worker-182: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-04-11 20:23:54,333 [Worker-182: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xiaoluo/eclipse-workspace/ISST-19-CRIS/src/test/resources
+2019-04-11 20:24:38,752 [Worker-178: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-04-11 20:24:38,753 [Worker-178: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xiaoluo/eclipse-workspace/ISST-19-CRIS/src/main/resources
+2019-04-11 20:24:38,753 [Worker-178: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-04-11 20:24:38,754 [Worker-178: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xiaoluo/eclipse-workspace/ISST-19-CRIS/src/test/resources
+2019-04-11 20:25:55,210 [Worker-178: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-04-11 20:25:55,210 [Worker-178: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xiaoluo/eclipse-workspace/ISST-19-CRIS/src/main/resources
+2019-04-11 20:25:55,211 [Worker-178: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-04-11 20:25:55,212 [Worker-178: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xiaoluo/eclipse-workspace/ISST-19-CRIS/src/test/resources
+2019-04-11 20:27:08,588 [Worker-187: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-04-11 20:27:08,589 [Worker-187: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xiaoluo/eclipse-workspace/ISST-19-CRIS/src/main/resources
+2019-04-11 20:27:08,590 [Worker-187: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-04-11 20:27:08,591 [Worker-187: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xiaoluo/eclipse-workspace/ISST-19-CRIS/src/test/resources
+2019-04-11 20:27:15,521 [Worker-184: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-04-11 20:27:15,521 [Worker-184: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xiaoluo/eclipse-workspace/ISST-19-CRIS/src/main/resources
+2019-04-11 20:27:15,523 [Worker-184: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-04-11 20:27:15,525 [Worker-184: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xiaoluo/eclipse-workspace/ISST-19-CRIS/src/test/resources
+2019-04-11 20:28:02,789 [Worker-186: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-04-11 20:28:02,790 [Worker-186: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xiaoluo/eclipse-workspace/ISST-19-CRIS/src/main/resources
+2019-04-11 20:28:02,791 [Worker-186: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-04-11 20:28:02,792 [Worker-186: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xiaoluo/eclipse-workspace/ISST-19-CRIS/src/test/resources
+2019-04-11 20:28:22,907 [Worker-181: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-04-11 20:28:22,908 [Worker-181: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xiaoluo/eclipse-workspace/ISST-19-CRIS/src/main/resources
+2019-04-11 20:28:22,909 [Worker-181: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-04-11 20:28:22,910 [Worker-181: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xiaoluo/eclipse-workspace/ISST-19-CRIS/src/test/resources
+2019-04-11 20:28:37,504 [Worker-181: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-04-11 20:28:37,505 [Worker-181: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xiaoluo/eclipse-workspace/ISST-19-CRIS/src/main/resources
+2019-04-11 20:28:37,505 [Worker-181: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-04-11 20:28:37,506 [Worker-181: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xiaoluo/eclipse-workspace/ISST-19-CRIS/src/test/resources
+2019-04-11 20:28:49,962 [Worker-181: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-04-11 20:28:49,962 [Worker-181: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xiaoluo/eclipse-workspace/ISST-19-CRIS/src/main/resources
+2019-04-11 20:28:49,963 [Worker-181: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-04-11 20:28:49,964 [Worker-181: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xiaoluo/eclipse-workspace/ISST-19-CRIS/src/test/resources
+2019-04-11 20:29:05,839 [Worker-181: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-04-11 20:29:05,841 [Worker-181: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xiaoluo/eclipse-workspace/ISST-19-CRIS/src/main/resources
+2019-04-11 20:29:05,841 [Worker-181: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-04-11 20:29:05,842 [Worker-181: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xiaoluo/eclipse-workspace/ISST-19-CRIS/src/test/resources
+2019-04-11 20:29:24,406 [Worker-184: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-04-11 20:29:24,407 [Worker-184: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xiaoluo/eclipse-workspace/ISST-19-CRIS/src/main/resources
+2019-04-11 20:29:24,408 [Worker-184: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-04-11 20:29:24,408 [Worker-184: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xiaoluo/eclipse-workspace/ISST-19-CRIS/src/test/resources
+2019-04-11 20:29:35,828 [Worker-186: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-04-11 20:29:35,829 [Worker-186: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xiaoluo/eclipse-workspace/ISST-19-CRIS/src/main/resources
+2019-04-11 20:29:35,829 [Worker-186: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-04-11 20:29:35,830 [Worker-186: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xiaoluo/eclipse-workspace/ISST-19-CRIS/src/test/resources
+2019-04-11 20:29:44,213 [Worker-182: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-04-11 20:29:44,214 [Worker-182: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xiaoluo/eclipse-workspace/ISST-19-CRIS/src/main/resources
+2019-04-11 20:29:44,215 [Worker-182: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-04-11 20:29:44,216 [Worker-182: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xiaoluo/eclipse-workspace/ISST-19-CRIS/src/test/resources
+2019-04-11 20:30:27,544 [Worker-182: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-04-11 20:30:27,546 [Worker-182: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xiaoluo/eclipse-workspace/ISST-19-CRIS/src/main/resources
+2019-04-11 20:30:27,547 [Worker-182: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-04-11 20:30:27,548 [Worker-182: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xiaoluo/eclipse-workspace/ISST-19-CRIS/src/test/resources
+2019-04-11 20:31:29,686 [Worker-183: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-04-11 20:31:29,686 [Worker-183: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xiaoluo/eclipse-workspace/ISST-19-CRIS/src/main/resources
+2019-04-11 20:31:29,687 [Worker-183: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-04-11 20:31:29,688 [Worker-183: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xiaoluo/eclipse-workspace/ISST-19-CRIS/src/test/resources
+2019-04-11 20:32:07,244 [Worker-183: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-04-11 20:32:07,245 [Worker-183: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xiaoluo/eclipse-workspace/ISST-19-CRIS/src/main/resources
+2019-04-11 20:32:07,245 [Worker-183: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-04-11 20:32:07,246 [Worker-183: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xiaoluo/eclipse-workspace/ISST-19-CRIS/src/test/resources
+2019-04-11 20:32:14,217 [Worker-184: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-04-11 20:32:14,218 [Worker-184: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xiaoluo/eclipse-workspace/ISST-19-CRIS/src/main/resources
+2019-04-11 20:32:14,219 [Worker-184: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-04-11 20:32:14,219 [Worker-184: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xiaoluo/eclipse-workspace/ISST-19-CRIS/src/test/resources
+2019-04-11 20:32:32,187 [Worker-186: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-04-11 20:32:32,189 [Worker-186: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xiaoluo/eclipse-workspace/ISST-19-CRIS/src/main/resources
+2019-04-11 20:32:32,190 [Worker-186: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-04-11 20:32:32,191 [Worker-186: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xiaoluo/eclipse-workspace/ISST-19-CRIS/src/test/resources
+2019-04-11 20:33:20,457 [Worker-187: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-04-11 20:33:20,458 [Worker-187: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xiaoluo/eclipse-workspace/ISST-19-CRIS/src/main/resources
+2019-04-11 20:33:20,459 [Worker-187: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-04-11 20:33:20,459 [Worker-187: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xiaoluo/eclipse-workspace/ISST-19-CRIS/src/test/resources
+2019-04-11 20:33:32,796 [Worker-182: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-04-11 20:33:32,797 [Worker-182: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xiaoluo/eclipse-workspace/ISST-19-CRIS/src/main/resources
+2019-04-11 20:33:32,798 [Worker-182: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-04-11 20:33:32,799 [Worker-182: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xiaoluo/eclipse-workspace/ISST-19-CRIS/src/test/resources
+2019-04-11 20:36:57,445 [Worker-184: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-04-11 20:36:57,446 [Worker-184: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xiaoluo/eclipse-workspace/ISST-19-CRIS/src/main/resources
+2019-04-11 20:36:57,447 [Worker-184: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-04-11 20:36:57,448 [Worker-184: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xiaoluo/eclipse-workspace/ISST-19-CRIS/src/test/resources
+2019-04-11 20:37:02,453 [Worker-182: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-04-11 20:37:02,454 [Worker-182: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xiaoluo/eclipse-workspace/ISST-19-CRIS/src/main/resources
+2019-04-11 20:37:02,454 [Worker-182: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-04-11 20:37:02,455 [Worker-182: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/xiaoluo/eclipse-workspace/ISST-19-CRIS/src/test/resources

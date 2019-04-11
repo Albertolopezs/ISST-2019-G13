@@ -69,7 +69,7 @@ document.getElementById("imagenUsuario").src = "data:image/png;base64," + ${usua
 				<li>
 					<form action="CVViewServlet" method="get">
 						<input type="hidden" name="id" value="${CV.id}" />
-						<input type="submit" value="${CV}" class="link" />
+						<input type="submit" value="${CV.name}" class="link" />
 					</form>
 				</li>
 			</c:forEach>

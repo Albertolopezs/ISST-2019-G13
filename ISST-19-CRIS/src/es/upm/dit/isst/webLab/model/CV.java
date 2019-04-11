@@ -26,6 +26,7 @@ public class CV implements Serializable {
 	@ManyToOne
 	private Empresa empresa;
 	
+	private String name;
 	private String educacion;
 	private String idiomas;
 	private String expLaboral;
@@ -45,6 +46,14 @@ public class CV implements Serializable {
 		
 	}
 
+	public String getName() {
+		return name;
+	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+	
 	public int getId() {
 		return id;
 	}

@@ -17,6 +17,7 @@ public class Plantilla implements Serializable {
 	@ManyToOne
 	private Empresa empresa;
 	
+	private String name;
 	private boolean educacion;
 	private boolean idiomas;
 	private boolean expLaboral;
@@ -27,6 +28,14 @@ public class Plantilla implements Serializable {
 	public Plantilla() {
 	}
 
+	public String getName() {
+		return name;
+	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+	
 	public int getId() {
 		return id;
 	}

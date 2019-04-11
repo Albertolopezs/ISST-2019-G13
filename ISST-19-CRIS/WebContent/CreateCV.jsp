@@ -42,6 +42,7 @@ input[type="submit"] {
 <h1>Currículum de ${usuario.name} ${usuario.apell1} ${usuario.apell2} </h1>
 <h3>Rellene los siguientes datos:</h3>
 	<form action="CreateCVServlet" method="post">
+		Nombre del CV: <input type="text" name="name" id="name" value="" /><br>
 		<c:if test="${educacion}">
 		Educación: <input type="text" name="educ" id="educ" value="" /><br>
 		</c:if>

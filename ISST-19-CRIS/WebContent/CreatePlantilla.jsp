@@ -41,6 +41,7 @@ input[type="submit"] {
 	<h2>Elige los campos que quiere incluir en Plantilla: </h2>
 	<div>
 	<form action="CreatePlantillaServlet" method="post">
+		Nombre de la plantilla: <input type="text" name="name" value="" /><br>
 		<input type="checkbox" name="educacion" value="TRUE"> Educación<br>
 		<input type="checkbox" name="idiomas" value="TRUE"> Idiomas<br>
 		<input type="checkbox" name="expLabo" value="TRUE"> Experiencia Laboral<br>

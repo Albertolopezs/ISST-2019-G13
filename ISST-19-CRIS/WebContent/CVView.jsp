@@ -29,7 +29,7 @@ input[type="submit"] {
 }
 </style>
 <body>
-	<h2>${ CV }</h2>
+	<h2>${ name }</h2>
 
 	<c:if test="${ educacion != null }">
 		Educación: ${ educacion }<br>

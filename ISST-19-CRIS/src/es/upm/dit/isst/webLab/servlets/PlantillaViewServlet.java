@@ -26,8 +26,10 @@ public class PlantillaViewServlet extends HttpServlet {
 		boolean idiomas = plantilla.isIdiomas();
 		boolean interes = plantilla.isIntereses();
 		boolean titulo = plantilla.isTitulacion();
+		String name = plantilla.getName();
 		String email = plantilla.getEmpresa().getEmail();
 		
+		req.getSession().setAttribute( "name" , name );
 		req.getSession().setAttribute( "educacion", educacion );
 		req.getSession().setAttribute( "expLabo", expLabo );
 		req.getSession().setAttribute( "habilidades", habilidades );

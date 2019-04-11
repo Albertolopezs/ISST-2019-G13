@@ -39,6 +39,7 @@ public class CreateCVServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String name = req.getParameter( "name" );
 		String educ = req.getParameter( "educ" );
 		String idi = req.getParameter( "idi" );
 		String expL = req.getParameter( "expL" );
@@ -51,6 +52,7 @@ public class CreateCVServlet extends HttpServlet {
 		
 		CVDAO cdao = CVDAOImplementation.getInstance();
 		CV CV = new CV();
+		CV.setName(name);
 		CV.setEducacion(educ);
 		CV.setExpLaboral(expL);
 		CV.setHabilidades(skill);
