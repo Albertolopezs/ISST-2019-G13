@@ -45,7 +45,7 @@ button {
 document.getElementById("imagenUsuario").src = "data:image/png;base64," + ${usuario.photo};
 </script>
 	<h1>${usuario.name} ${usuario.apell1} ${usuario.apell2}</h1>
-	<div> <img id="imagenUsuario" src="data:image/jpeg;base64,${foto}" /> </div>
+	<div> <img id="imagenUsuario" src="data:image/jpeg;base64,${foto}" width="100" height="100" /> </div>
 	<form action="EditUserPhotoServlet" method="post" enctype="multipart/form-data">
 		<div><input type="file" name="file" /></div>
 		<div><button type="submit" name="email" value="${usuario.email}">Subir foto perfil</button></div>
@@ -60,13 +60,12 @@ document.getElementById("imagenUsuario").src = "data:image/png;base64," + ${usua
 	  <div>CVs:</div>
 	  <div>
 		<ul>
-			<c:forEach
-				items="${ aVerCómoLoPonemosBienAquíCuidadoQueNoEstáHechoAún }"
-				var="CV">
+			<c:forEach items="${ usuario.curriculums }" var="CV">
 				<li>${CV}</li>
 			</c:forEach>
 		</ul>
 	  </div>
+	  <a href="CreateUserCVPlantilla.jsp?usuario=${usuario}">Crear CV</a>
 	<p>					
 	<div><a href="EditUserProfileView.jsp?usuario=${param.usuario}">Modificar datos</a></div>
 	<div><a href="ChangePasswordUsuarioView.jsp?email=${usuario.email}">Cambiar contraseña</a></div>

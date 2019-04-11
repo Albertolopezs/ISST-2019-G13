@@ -40,7 +40,7 @@ button {
 </style>
 <body>
 	<h1>${empresa.name}</h1>
-	<div> <img id="imagenEmpresa" src="data:image/jpeg;base64,${foto}" /> </div>
+	<div> <img id="imagenEmpresa" src="data:image/jpeg;base64,${foto}" width="100" height="100" /> </div>
 	<form action="EditCompanyPhotoServlet" method="post" enctype="multipart/form-data">
 		<input type="file" name="file" />
 		<button type="submit" name="email" value="${empresa.email}">Subir foto perfil</button>

@@ -1,0 +1,27 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Field Selection View</title>
+</head>
+<body>
+
+<h2>Currículum de ${usuario.name} ${usuario.apell1} ${usuario.apell2} </h2>
+<h3>Selección de los campos que se quiera incluir en el currículum</h3>
+	<form action="NosequéServlet" method="post">
+		<input type="checkbox" name="educacion" value="educacion"> Educación<br>
+		<input type="checkbox" name="idiomas" value="idiomas"> Idiomas<br>
+		<input type="checkbox" name="expLabo" value="expLabo"> Experiencia Laboral<br>
+		<input type="checkbox" name="habilidades" value="habilidades"> Habilidades<br>
+		<input type="checkbox" name="intereses" value="intereses"> Intereses<br>
+		<input type="checkbox" name="titulacion" value="titulacion"> Titulación<br>
+		<input type="hidden" name="email" value="${param.email}" />
+	<input type="submit" value="Siguiente">
+</form>
+</body>
+</html>
