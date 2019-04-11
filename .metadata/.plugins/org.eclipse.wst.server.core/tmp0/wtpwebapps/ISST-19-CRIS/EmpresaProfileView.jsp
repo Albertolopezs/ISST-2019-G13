@@ -67,13 +67,12 @@ button {
 	  <div>Plantillas:</div>
 	  <div>
 		<ul>
-			<c:forEach
-				items="${ aVerCómoLoPonemosBienAquíCuidadoQueNoEstáHechoAún }"
-				var="plant">
-				<li>${plant}</li>
+			<c:forEach items="${empresa.plantillas}" var="plantilla">
+				<li>${plantilla}</li>
 			</c:forEach>
 		</ul>
 	  </div>
+	  <a href="CreatePlantilla.jsp?empresa=${empresa}">Crear Plantilla CV</a>
 	<p>
 	<div><a href="EditEmpresaProfileView.jsp?empresa=${param.empresa}">Modificar datos</a></div>
 	<div><a href="ChangePasswordEmpresaView.jsp?email=${empresa.email}">Cambiar contraseña</a></div>
