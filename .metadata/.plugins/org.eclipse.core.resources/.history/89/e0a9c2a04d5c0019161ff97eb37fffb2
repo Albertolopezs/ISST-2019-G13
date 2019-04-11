@@ -7,10 +7,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import es.upm.dit.isst.webLab.dao.CVDAO;
-import es.upm.dit.isst.webLab.dao.CVDAOImplementation;
-import es.upm.dit.isst.webLab.dao.UsuarioDAOImplementation;
-import es.upm.dit.isst.webLab.model.CV;
 import es.upm.dit.isst.webLab.model.Usuario;
 
 
@@ -46,21 +42,6 @@ public class CreateCVServlet extends HttpServlet {
 		String interes = req.getParameter( "interes" );
 		String titulo = req.getParameter( "titulo" );
 		String email = req.getParameter( "email" );
-		
-		Usuario usuario = UsuarioDAOImplementation.getInstance().read(email);
-		
-		CVDAO cdao = CVDAOImplementation.getInstance();
-		CV CV = new CV();
-		CV.setEducacion(educ);
-		CV.setExpLaboral(expL);
-		CV.setHabilidades(skill);
-		CV.setIdiomas(idi);
-		CV.setIntereses(interes);
-		CV.setTitulacion(titulo);
-		CV.setUsuario(usuario);
-		cdao.create(CV);
-		
-		resp.sendRedirect( req.getContextPath() + "/UsuarioServlet?email=" + email);
 		
 		
 	}

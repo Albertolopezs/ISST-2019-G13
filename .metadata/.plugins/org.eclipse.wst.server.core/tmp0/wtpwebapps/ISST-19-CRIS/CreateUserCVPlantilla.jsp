@@ -47,7 +47,7 @@ button {
 		<input type="checkbox" name="habilidades" value="TRUE"> Habilidades<br>
 		<input type="checkbox" name="intereses" value="TRUE"> Intereses<br>
 		<input type="checkbox" name="titulacion" value="TRUE"> Titulación<br>
-		<input type="hidden" name="usuario" value="${param.usuario}" />
+		<input type="hidden" name="email" value="${usuario.email}" />
 	<input type="submit" value="Siguiente">
 </form>
 </body>

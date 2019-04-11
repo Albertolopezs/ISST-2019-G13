@@ -59,6 +59,7 @@ button {
 		<c:if test="${titulacion}">
 		Titulación: <input type="text" name="titulo" id="titulo" value="" /><br>
 		</c:if>
+		<input type="hidden" name="email" value="${email}" />
 	<input type="submit" value="Siguiente">
 </form>
 
