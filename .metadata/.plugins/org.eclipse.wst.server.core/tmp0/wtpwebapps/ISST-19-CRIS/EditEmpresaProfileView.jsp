@@ -27,10 +27,7 @@ body {
 
 h1 {
 	text-align: center;
-	text-decoration: blink;
 	font-family: 'Open Sans';
-	color: black;
-	font-size: 50px;
 }
 
 div {
@@ -50,7 +47,7 @@ input[type="submit"] {
 </style>
 <body>
 <form action="EditCompanyServlet" method="post">
-    <div>
+   <div>
 	<p>
 	<div>Nombre de la empresa:</div>
 	<input type="text" name="nombre" id="nombre" value="" />

@@ -16,7 +16,7 @@ body {
 }
 
 h1 {
-	text-align: center;
+	font-family: Open Sans;
 }
 
 div {
@@ -25,11 +25,10 @@ div {
 	font-weight: bold;
 }
 h5{
-
     text-align: right;
     background-color: none;  
 }
-button {
+input[type="submit"] {
 	border-color: #A9B1B2;
 	border-radius: 25px;
 	background-color: #A9B1B2;
@@ -40,6 +39,7 @@ button {
 </style>
 <body>
 	<h2>Elige los campos que quiere incluir en Plantilla: </h2>
+	<div>
 	<form action="CreatePlantillaServlet" method="post">
 		<input type="checkbox" name="educacion" value="TRUE"> Educación<br>
 		<input type="checkbox" name="idiomas" value="TRUE"> Idiomas<br>
@@ -48,7 +48,8 @@ button {
 		<input type="checkbox" name="intereses" value="TRUE"> Intereses<br>
 		<input type="checkbox" name="titulacion" value="TRUE"> Titulación<br>
 		<input type="hidden" name="email" value="${empresa.email}" />
+		<p>
 		<input type="submit" value="Guardar">
-	</form>
+	</form></div>
 </body>
 </html>

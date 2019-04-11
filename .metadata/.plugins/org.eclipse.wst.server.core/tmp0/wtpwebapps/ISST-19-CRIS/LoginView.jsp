@@ -17,10 +17,7 @@ body {
 }
 h1 {
 	text-align: center;
-	text-decoration: blink;
 	font-family: 'Open Sans';
-	color:black;
-	font-size: 50px;
 }
 div {
 	font-size: medium;
@@ -35,15 +32,6 @@ button {
 	font-family: Times New Roman;
 	font-weight: bold;
 }
-p {
-	font-family: 'Open Sans';
-	font-size: 18px;
-	color: black;
-	line-height: 18px;
-	margin-bottom: 40px;
-	width: 600px;
-	transform: translateX(30%);
-}
 </style>
 <body>
 	<h1>Bienvenido a eCV</h1>
@@ -54,7 +42,7 @@ p {
 		Diseña tu propio currículum personalizado o rellena una plantilla para tu empresa.
 		<p>
 		Accede a tu cuenta o regístrate para empezar.
-	</div>
+		
 	    <form action="LoginServlet" method="post">
 			<p>
 			<div>Email:</div>
@@ -66,6 +54,6 @@ p {
 			<p>
 			<button type="submit">Login</button>
 		</form>
-		<a href="Signup.jsp">Registrarse</a>
+		<a href="Signup.jsp">Registrarse</a></div>
 </body>
 </html>

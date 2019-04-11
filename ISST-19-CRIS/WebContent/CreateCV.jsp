@@ -16,7 +16,7 @@ body {
 }
 
 h1 {
-	text-align: center;
+	font-family: Open Sans;
 }
 
 div {
@@ -24,10 +24,11 @@ div {
 	font-family: Times New Roman;
 	font-weight: bold;
 }
-h5{
-    vertical-align: bottom;  
+h3{
+    font-family: Times New Roman;
+    font-weight: bold; 
 }
-button {
+input[type="submit"] {
 	border-color: #A9B1B2;
 	border-radius: 25px;
 	background-color: #A9B1B2;
@@ -38,7 +39,7 @@ button {
 </style>
 <body>
 
-<h2>Currículum de ${usuario.name} ${usuario.apell1} ${usuario.apell2} </h2>
+<h1>Currículum de ${usuario.name} ${usuario.apell1} ${usuario.apell2} </h1>
 <h3>Rellene los siguientes datos:</h3>
 	<form action="CreateCVServlet" method="post">
 		<c:if test="${educacion}">

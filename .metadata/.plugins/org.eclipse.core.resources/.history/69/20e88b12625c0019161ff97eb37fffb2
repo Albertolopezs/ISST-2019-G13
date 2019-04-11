@@ -1,0 +1,65 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Insert title here</title>
+</head>
+<style type="text/css">
+body {
+	background-image: url('https://ae01.alicdn.com/kf/HTB1HtgvJFXXXXasXpXXq6xXFXXXL/1-25-x1-5-h-m-edificios-fondo-atractivo-retrato-fondos-de-vinilo-de-moda-de.jpg_640x640.jpg');
+	background-size: cover;
+}
+
+h1 {
+	text-align: center;
+}
+
+div {
+	font-size: medium;
+	font-family: Times New Roman;
+	font-weight: bold;
+}
+h5{
+
+    text-align: right;
+    background-color: none;  
+}
+button {
+	border-color: #A9B1B2;
+	border-radius: 25px;
+	background-color: #A9B1B2;
+	font-size: medium;
+	font-family: Times New Roman;
+	font-weight: bold;
+}
+</style>
+<body>
+	<h2>${ param.CV }</h2>
+	<div>${param.CV.educacion} }</div>
+	<c:if test="${ CV.educacion }">
+		Educación: ${ CV.educacion }<br>
+	</c:if>
+	<c:if test="${ CV.idiomas }">
+		Idiomas:  ${ CV.idiomas }<br>
+	</c:if>
+	<c:if test="${ CV.expLabo }">
+		Experiencia laboral: ${ CV.expLaboral }<br>
+	</c:if>
+	<c:if test="${ CV.habilidades }">
+		Habilidades: ${ CV.habilidades }<br>
+	</c:if>
+	<c:if test="${ CV.intereses }">
+		Intereses: ${ CV.intereses }<br>
+	</c:if>
+	<c:if test="${ CV.titulacion }">
+		Titulación: ${ CV.titulacion }<br>
+	</c:if>
+	<a href="/UserProfileView.jsp?email=${ CV.usuario_email }">Back</a>	
+
+</body>
+</html>

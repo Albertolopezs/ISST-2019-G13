@@ -16,7 +16,7 @@ body {
 }
 
 h1 {
-	text-align: center;
+	font-family: Open Sans;
 }
 
 div {
@@ -27,7 +27,7 @@ div {
 h5{
     vertical-align: bottom;  
 }
-button {
+input[type="submit"] {
 	border-color: #A9B1B2;
 	border-radius: 25px;
 	background-color: #A9B1B2;
@@ -38,9 +38,9 @@ button {
 </style>
 <body>
 
-<h2>Currículum de ${usuario.name} ${usuario.apell1} ${usuario.apell2} </h2>
+<h1>Currículum de ${usuario.name} ${usuario.apell1} ${usuario.apell2} </h1>
 <h3>Selección de los campos que se quiera incluir en el currículum</h3>
-	<form action="CreateCVServlet" method="get">
+	<div><form action="CreateCVServlet" method="get">
 		<input type="checkbox" name="educacion" value="TRUE"> Educación<br>
 		<input type="checkbox" name="idiomas" value="TRUE"> Idiomas<br>
 		<input type="checkbox" name="expLabo" value="TRUE"> Experiencia Laboral<br>
@@ -49,6 +49,6 @@ button {
 		<input type="checkbox" name="titulacion" value="TRUE"> Titulación<br>
 		<input type="hidden" name="email" value="${usuario.email}" />
 	<input type="submit" value="Siguiente">
-</form>
+	</form></div>
 </body>
 </html>

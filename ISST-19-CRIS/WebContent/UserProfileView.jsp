@@ -18,17 +18,13 @@ body {
 
 h1 {
 	text-align: center;
+	font-family: Open Sans;
 }
 
 div {
 	font-size: medium;
 	font-family: Times New Roman;
 	font-weight: bold;
-}
-h5{
-
-    text-align: right;
-    background-color: none;  
 }
 button {
 	border-color: #A9B1B2;
@@ -38,6 +34,14 @@ button {
 	font-family: Times New Roman;
 	font-weight: bold;
 }
+.link {
+	margin: 0;
+	border: 0;
+	background: none;
+	overflow: visible;
+	color: blue;
+	cursor: pointer;
+}
 </style>
 	
 <body>
@@ -46,10 +50,10 @@ document.getElementById("imagenUsuario").src = "data:image/png;base64," + ${usua
 </script>
 	<h1>${usuario.name} ${usuario.apell1} ${usuario.apell2}</h1>
 	<div> <img id="imagenUsuario" src="data:image/jpeg;base64,${foto}" width="100" height="100" /> </div>
-	<form action="EditUserPhotoServlet" method="post" enctype="multipart/form-data">
-		<div><input type="file" name="file" /></div>
-		<div><button type="submit" name="email" value="${usuario.email}">Subir foto perfil</button></div>
-	</form>
+	<div><form action="EditUserPhotoServlet" method="post" enctype="multipart/form-data">
+		<input type="file" name="file" />
+		<p><button type="submit" name="email" value="${usuario.email}">Subir foto perfil</button>
+	</form></div>
 	<p>
 	  <div>Estoy en búsqueda de trabajo:</div>
 	  ${usuario.buscandoTrabajo}
@@ -57,19 +61,26 @@ document.getElementById("imagenUsuario").src = "data:image/png;base64," + ${usua
 	  <div>Sobre mí:</div>
 	  ${usuario.description}
     <p>
+    <c:if test="${not empty usuario.curriculums}">
 	  <div>CVs:</div>
 	  <div>
 		<ul>
 			<c:forEach items="${ usuario.curriculums }" var="CV">
-				<li>${CV}</li>
+				<li>
+					<form action="CVViewServlet" method="get">
+						<input type="hidden" name="id" value="${CV.id}" />
+						<input type="submit" value="${CV}" class="link" />
+					</form>
+				</li>
 			</c:forEach>
 		</ul>
 	  </div>
-	  <a href="CreateUserCVPlantilla.jsp?usuario=${usuario}">Crear CV</a>
+	  </c:if>
+	<div><a href="CreateUserCVPlantilla.jsp?usuario=${usuario}">Crear CV</a>
 	<p>					
-	<div><a href="EditUserProfileView.jsp?usuario=${param.usuario}">Modificar datos</a></div>
-	<div><a href="ChangePasswordUsuarioView.jsp?email=${usuario.email}">Cambiar contraseña</a></div>
-	<div><a href="LogoutServlet">Cerrar sesión</a></div>
+	<p><a href="EditUserProfileView.jsp?usuario=${param.usuario}">Modificar datos</a>
+	<p><a href="ChangePasswordUsuarioView.jsp?email=${usuario.email}">Cambiar contraseña</a>
+	<p><a href="LogoutServlet">Cerrar sesión</a></div>
 	
 
 </body>

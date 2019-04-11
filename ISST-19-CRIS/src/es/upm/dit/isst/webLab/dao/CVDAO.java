@@ -10,11 +10,11 @@ import es.upm.dit.isst.webLab.model.Usuario;
 public interface CVDAO {
 	public void create(CV cv );
 
-	public CV read(Usuario user);
+	public CV read(int id);
 
 	public void update(CV cv);
 
 	public void delete(CV cv);
 
-	public Collection<CV> readAll();
+	public Collection<CV> readAll();	
 }

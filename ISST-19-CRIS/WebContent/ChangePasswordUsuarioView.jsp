@@ -14,6 +14,10 @@ body {
 	background-image: url('https://ae01.alicdn.com/kf/HTB1HtgvJFXXXXasXpXXq6xXFXXXL/1-25-x1-5-h-m-edificios-fondo-atractivo-retrato-fondos-de-vinilo-de-moda-de.jpg_640x640.jpg');
 	background-size: cover;
 }
+h1 {
+	text-align: center;
+	font-family: Open Sans;
+}
 div {
 	font-size: medium;
 	font-family: Times New Roman;

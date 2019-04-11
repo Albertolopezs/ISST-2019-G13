@@ -31,10 +31,10 @@ public class CVDAOImplementation implements CVDAO{
 	}
 
 	@Override
-	public CV read(Usuario user) {
+	public CV read(int id) {
 		Session session = SessionFactoryService.get().openSession();
 		session.beginTransaction();
-		CV cv = session.load( CV.class, user );
+		CV cv = session.load( CV.class, id );
 		session.getTransaction().commit();
 		session.close();
 		return cv;

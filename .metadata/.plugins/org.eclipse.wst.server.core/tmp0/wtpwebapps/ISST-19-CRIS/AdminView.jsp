@@ -16,6 +16,7 @@ body {
 }
 h1{
      text-align: center;
+     font-family: Open Sans;
 }
 div{
      font-size: medium;

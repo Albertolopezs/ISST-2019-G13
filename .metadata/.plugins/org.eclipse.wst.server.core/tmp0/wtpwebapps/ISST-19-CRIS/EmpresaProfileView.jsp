@@ -19,6 +19,7 @@ body {
 
 h1 {
 	text-align: center;
+	font-family: Open Sans;
 }
 
 div {
@@ -37,14 +38,22 @@ button {
 	font-family: Times New Roman;
 	font-weight: bold;
 }
+.link {
+	margin: 0;
+	border: 0;
+	background: none;
+	overflow: visible;
+	color: blue;
+	cursor: pointer;
+}
 </style>
 <body>
 	<h1>${empresa.name}</h1>
 	<div> <img id="imagenEmpresa" src="data:image/jpeg;base64,${foto}" width="100" height="100" /> </div>
-	<form action="EditCompanyPhotoServlet" method="post" enctype="multipart/form-data">
+	<div><form action="EditCompanyPhotoServlet" method="post" enctype="multipart/form-data">
 		<input type="file" name="file" />
 		<button type="submit" name="email" value="${empresa.email}">Subir foto perfil</button>
-	</form>
+	</form></div>
 	<p>
 	  <div>Categoría:</div>
 	  ${empresa.category}
@@ -64,18 +73,26 @@ button {
 		</ul>
 	  </div>
 	<p> 
+	<c:if test="${not empty empresa.plantillas}">
 	  <div>Plantillas:</div>
 	  <div>
 		<ul>
 			<c:forEach items="${empresa.plantillas}" var="plantilla">
-				<li>${plantilla}</li>
+				<li>
+					<form action="PlantillaViewServlet" method="get">
+						<input type="hidden" name="id" value="${plantilla.id}" />
+						<input type="submit" value="${plantilla}" class="link" />
+					</form>
+				</li>
 			</c:forEach>
 		</ul>
 	  </div>
-	  <a href="CreatePlantilla.jsp?empresa=${empresa}">Crear Plantilla CV</a>
+	  </c:if>
 	<p>
-	<div><a href="EditEmpresaProfileView.jsp?empresa=${param.empresa}">Modificar datos</a></div>
-	<div><a href="ChangePasswordEmpresaView.jsp?email=${empresa.email}">Cambiar contraseña</a></div>
-	<div><a href="LogoutServlet">Cerrar sesión</a></div>
+	<div><a href="CreatePlantilla.jsp?empresa=${empresa}">Crear Plantilla CV</a>
+	<p>
+	<p><a href="EditEmpresaProfileView.jsp?empresa=${param.empresa}">Modificar datos</a>
+	<p><a href="ChangePasswordEmpresaView.jsp?email=${empresa.email}">Cambiar contraseña</a>
+	<p><a href="LogoutServlet">Cerrar sesión</a></div>
 </body>
 </html>

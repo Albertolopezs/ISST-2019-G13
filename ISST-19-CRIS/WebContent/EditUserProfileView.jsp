@@ -33,10 +33,7 @@ body {
 
 h1 {
 	text-align: center;
-	text-decoration: blink;
 	font-family: 'Open Sans';
-	color: black;
-	font-size: 50px;
 }
 
 div {
