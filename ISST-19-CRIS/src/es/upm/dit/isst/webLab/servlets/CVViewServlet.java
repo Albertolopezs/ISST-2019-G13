@@ -22,22 +22,46 @@ public class CVViewServlet extends HttpServlet {
 		
 		CV CV = cdao.read( Integer.parseInt( id ) );
 		String name = CV.getName();
-		String educacion = CV.getEducacion();
-		String expLabo = CV.getExpLaboral();
-		String habilidades = CV.getHabilidades();
+		String apellidos =CV.getApellidos();
+		String email = CV.getEmail();
+		String nacimiento = CV.getNacimiento();
+		
+		String educacion_nivel = CV.getEducacionNivel();
+		String carrera = CV.getCarrera();
+		String centro = CV.getCentro();
+		String inicio_est = CV.getInicioEst();
+		String final_est = CV.getFinalEst();
+		
+		String puesto_name = CV.getPuestoNombre();
+		String descripcion = CV.getDescripcion();
+		String ini_job = CV.getInicioJob();
+		String fin_job = CV.getFinalJob();
+		String actualidad = CV.getActualidad();
+		
 		String idiomas = CV.getIdiomas();
-		String titulacion = CV.getTitulacion();
+		String nivel = CV.getNivel();
+		
+		String skills = CV.getHabilidades();
 		String intereses = CV.getIntereses();
-		String email = CV.getUsuario().getEmail();
 		
 		req.getSession().setAttribute( "name" , name );
-		req.getSession().setAttribute( "educacion" , educacion );
-		req.getSession().setAttribute( "expLabo" , expLabo );
-		req.getSession().setAttribute( "habilidades" , habilidades );
-		req.getSession().setAttribute( "idiomas" , idiomas );
-		req.getSession().setAttribute( "titulacion" , titulacion );
-		req.getSession().setAttribute( "intereses" , intereses );
+		req.getSession().setAttribute( "apellidos" , apellidos );
 		req.getSession().setAttribute( "email" , email );
+		req.getSession().setAttribute( "nacimiento" , nacimiento );
+		req.getSession().setAttribute( "educacion_nivel" , educacion_nivel );
+		req.getSession().setAttribute( "carrera" , carrera);
+		req.getSession().setAttribute( "centro" , centro );
+		req.getSession().setAttribute( "inicio_est" , inicio_est );
+		req.getSession().setAttribute( "final_est" , final_est );
+		req.getSession().setAttribute( "puesto_name" , puesto_name );
+		req.getSession().setAttribute( "descripcion" , descripcion );
+		req.getSession().setAttribute( "ini_job" , ini_job);
+		req.getSession().setAttribute( "fin_job" , fin_job );
+		req.getSession().setAttribute( "actualidad" , actualidad );
+		req.getSession().setAttribute( "habilidades" , skills );
+		req.getSession().setAttribute( "idiomas" , idiomas );
+		req.getSession().setAttribute( "nivel" , nivel );
+		req.getSession().setAttribute( "intereses" , intereses );
 		req.getRequestDispatcher( "/CVView.jsp" ).forward( req, resp );
 	}
 }
