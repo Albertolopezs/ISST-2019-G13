@@ -22,13 +22,40 @@ nav ul li {
 	/* Esto es para listar elementos por fila, no cambien*/
 	display: inline-block;
 	list-style-type: none;
+	vertical-align: top;
 }
 nav > ul > li > a {
 	color: #e6e6e6;
 	background-color:#333333;
 	display: block;
+	line-height: 1em;
 	padding: 0.5em 0.5em;
 	text-decoration: none;
+}
+nav li > ul {
+	display: none;
+}
+nav li > ul li{
+	background-color: #595959;
+	display: block;
+}
+nav li > ul li a {
+	color: #f2f2f2;
+	display: block;
+	line-height: 1em;
+	padding: 0.5em 0.5em;
+	text-decoration: none;
+}
+
+/* Esto para cambiar de color cuando apuntas con cursor*/
+nav li > ul li:hover {
+	background-color: #808080;
+}
+
+/* Submenu sobre menu principal*/
+nav li:hover > ul {
+	position: absolute;
+	display: block;
 }
 </style>
 <body>
@@ -40,7 +67,17 @@ nav > ul > li > a {
 				<li><a href="AllCompanyDisplayServlet">Lista de empresas</a></li>
 				<li><a href="AllUserDisplayServlet">Lista de usuarios</a></li>
 			<shiro:user>
-				<li><a href="LogoutServlet">Cerrar sesión</a></li>
+				<li><a href="">Mi cuenta</a>
+					<ul>
+						<shiro:hasRole name="usuario">
+							<li><a href="ChangePasswordUsuarioView.jsp">Cambiar Contraseña</a></li>
+						</shiro:hasRole>
+						<shiro:hasRole name="empresa">
+							<li><a href="ChangePasswordEmpresaView.jsp">Cambiar Contraseña</a></li>
+						</shiro:hasRole>
+							<li><a href="LogoutServlet">Cerrar Sesión</a></li>
+					</ul>
+				</li>
 			</shiro:user>
 		</ul>
 	</nav>

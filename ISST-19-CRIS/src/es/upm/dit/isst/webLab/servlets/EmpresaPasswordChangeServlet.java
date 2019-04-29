@@ -7,7 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.crypto.hash.Sha256Hash;
+import org.apache.shiro.subject.Subject;
 
 import es.upm.dit.isst.webLab.dao.EmpresaDAO;
 import es.upm.dit.isst.webLab.dao.EmpresaDAOImplementation;
@@ -17,7 +19,8 @@ import es.upm.dit.isst.webLab.model.Empresa;
 public class EmpresaPasswordChangeServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String email = req.getParameter( "email" );
+		Subject currentUser = SecurityUtils.getSubject();
+		String email = (String) currentUser.getPrincipal();
 		String password = req.getParameter( "password" );
 		EmpresaDAO edao = EmpresaDAOImplementation.getInstance();
 		Empresa empresa = edao.read( email );

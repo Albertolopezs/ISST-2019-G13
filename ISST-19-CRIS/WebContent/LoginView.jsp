@@ -55,6 +55,6 @@ button {
 			<p>
 			<button type="submit">Login</button>
 		</form>
-		<a href="SignUp.jsp">Registrarse</a></div>
+		<a href="Signup.jsp">Registrarse</a></div>
 </body>
 </html>

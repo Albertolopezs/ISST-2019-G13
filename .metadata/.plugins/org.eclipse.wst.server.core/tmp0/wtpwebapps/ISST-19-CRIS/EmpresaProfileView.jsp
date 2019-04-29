@@ -97,7 +97,7 @@ button {
 		<a href="CreatePlantilla.jsp?empresa=${empresa}">Crear Plantilla CV</a>
 		<p>
 		<p><a href="EditEmpresaProfileView.jsp?empresa=${param.empresa}">Modificar datos</a>
-		<p><a href="ChangePasswordEmpresaView.jsp?email=${empresa.email}">Cambiar contraseña</a>
 	</c:if>
+	</div>
 </body>
 </html>

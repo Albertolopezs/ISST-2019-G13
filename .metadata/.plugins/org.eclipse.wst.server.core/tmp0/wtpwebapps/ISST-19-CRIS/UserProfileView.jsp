@@ -86,7 +86,6 @@ document.getElementById("imagenUsuario").src = "data:image/png;base64," + ${usua
 			<a href="CreateUserCVPlantilla.jsp?usuario=${usuario}">Crear CV</a>
 			<p>					
 			<p><a href="EditUserProfileView.jsp?usuario=${param.usuario}">Modificar datos</a>
-			<p><a href="ChangePasswordUsuarioView.jsp?email=${usuario.email}">Cambiar contraseña</a>
 		</c:if>
 		</div>
 </body>

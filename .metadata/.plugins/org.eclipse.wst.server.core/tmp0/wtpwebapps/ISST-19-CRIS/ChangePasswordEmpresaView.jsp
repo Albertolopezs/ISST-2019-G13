@@ -43,7 +43,6 @@ button {
 			<p>
 			<input type="password" name="password"
 				placeholder="Nueva contraseña" /> 
-			<input type="hidden" name="email" value="${param.email}" />
 			<p>
 			<button type="submit">Aceptar</button>
 		</form>
