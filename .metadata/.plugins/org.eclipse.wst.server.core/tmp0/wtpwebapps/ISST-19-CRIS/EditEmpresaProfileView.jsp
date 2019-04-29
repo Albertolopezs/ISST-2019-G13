@@ -81,17 +81,22 @@ input[type="submit"] {
 		</ul>
 	</div>
 	
-	<p>
-	<div>Plantillas:</div>
-	   <div>
-	    	<ul>
-			<c:forEach
-				items="${ aVerCómoLoPonemosBienAquíCuidadoQueNoEstáHechoAún }"
-				var="plant">
-				<li>${plant}</li>
+	<c:if test="${not empty empresa.plantillas}">
+	  <p>
+	  <div>Plantillas:</div>
+	  <div>
+		<ul>
+			<c:forEach items="${empresa.plantillas}" var="plantilla">
+				<li>
+					<form action="PlantillaViewServlet" method="get">
+						<input type="hidden" name="id" value="${plantilla.id}" />
+						<input type="submit" value="${plantilla.name}" class="link" />
+					</form>
+				</li>
 			</c:forEach>
 		</ul>
-	</div>
+	  </div>
+	  </c:if>
 	</div>
 	
 	<p>

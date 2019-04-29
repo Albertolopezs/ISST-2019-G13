@@ -12,7 +12,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.crypto.hash.Sha256Hash;
+import org.apache.shiro.subject.Subject;
 
 import es.upm.dit.isst.webLab.dao.EmpresaDAO;
 import es.upm.dit.isst.webLab.dao.EmpresaDAOImplementation;
@@ -35,6 +38,9 @@ public class SignUpCompanyServlet extends HttpServlet {
 		
 		EmpresaDAO edao = EmpresaDAOImplementation.getInstance();
 		edao.create( empresa );
+		Subject currentUser = SecurityUtils.getSubject();
+		UsernamePasswordToken token = new UsernamePasswordToken( email, password );
+		currentUser.login( token );
 		enviarConGmail(email,"¡Bienvenido a eCV-G13!","Muchas gracias por unirte a nosotros, esperamos que encuentres a tu trabajador ideal.");
 		resp.sendRedirect( req.getContextPath() + "/EmpresaServlet?email=" + email );
 	}

@@ -38,6 +38,7 @@ public class CVViewServlet extends HttpServlet {
 		req.getSession().setAttribute( "titulacion" , titulacion );
 		req.getSession().setAttribute( "intereses" , intereses );
 		req.getSession().setAttribute( "email" , email );
+		req.getSession().setAttribute( "id" , id );
 		req.getRequestDispatcher( "/CVView.jsp" ).forward( req, resp );
 	}
 }

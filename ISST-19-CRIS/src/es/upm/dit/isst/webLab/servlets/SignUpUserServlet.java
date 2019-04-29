@@ -8,7 +8,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.crypto.hash.Sha256Hash;
+import org.apache.shiro.subject.Subject;
 
 import es.upm.dit.isst.webLab.dao.UsuarioDAO;
 import es.upm.dit.isst.webLab.dao.UsuarioDAOImplementation;
@@ -34,6 +37,9 @@ public class SignUpUserServlet extends HttpServlet {
 		
 		UsuarioDAO udao = UsuarioDAOImplementation.getInstance();
 		udao.create( user );
+		Subject currentUser = SecurityUtils.getSubject();
+		UsernamePasswordToken token = new UsernamePasswordToken( email, password );
+		currentUser.login( token );
 		resp.sendRedirect( req.getContextPath() + "/UsuarioServlet?email=" + email );
 	
 	}

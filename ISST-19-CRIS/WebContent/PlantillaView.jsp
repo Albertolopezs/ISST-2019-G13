@@ -36,6 +36,10 @@ input[type="submit"] {
 		<div>Habilidades: ${ habilidades }<br></div>
 		<div>Intereses: ${ interes }<br></div>
 		<div>Titulación: ${ titulo }<br></div>
+	<form action="DeletePlantillaServlet" method="post">
+		<input type="hidden" name="id" value="${ id }" />
+		<input type="submit" value="Elimina Plantilla" />
+	</form>
 	<form action="EmpresaServlet" method="get">
 		<input type="hidden" name="email" value="${ email }" />
 		<input type="submit" value="Back" />

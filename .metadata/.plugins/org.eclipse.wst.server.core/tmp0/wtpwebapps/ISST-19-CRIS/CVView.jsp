@@ -49,10 +49,13 @@ input[type="submit"] {
 	<c:if test="${ titulacion != null }">
 		Titulación: ${ titulacion }<br>
 	</c:if>
+	<form action="DeleteCVServlet" method="post">
+		<input type="hidden" name="id" value="${ id }">
+		<input type="submit" value="Elimina CV" />
+	</form>
 	<form action="UsuarioServlet" method="get">
 		<input type="hidden" name="email" value="${ email }" />
 		<input type="submit" value="Back" />
 	</form>
-
 </body>
 </html>

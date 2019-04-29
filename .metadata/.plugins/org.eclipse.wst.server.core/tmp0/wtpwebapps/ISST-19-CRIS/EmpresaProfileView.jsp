@@ -50,10 +50,12 @@ button {
 <body>
 	<h1>${empresa.name}</h1>
 	<div> <img id="imagenEmpresa" src="data:image/jpeg;base64,${foto}" width="100" height="100" /> </div>
-	<div><form action="EditCompanyPhotoServlet" method="post" enctype="multipart/form-data">
-		<input type="file" name="file" />
-		<button type="submit" name="email" value="${empresa.email}">Subir foto perfil</button>
-	</form></div>
+	<c:if test="${ owner }">
+		<div><form action="EditCompanyPhotoServlet" method="post" enctype="multipart/form-data">
+			<input type="file" name="file" />
+			<button type="submit" name="email" value="${empresa.email}">Subir foto perfil</button>
+		</form></div>
+	</c:if>
 	<p>
 	  <div>Categoría:</div>
 	  ${empresa.category}
@@ -89,10 +91,13 @@ button {
 	  </div>
 	  </c:if>
 	<p>
-	<div><a href="CreatePlantilla.jsp?empresa=${empresa}">Crear Plantilla CV</a>
-	<p>
-	<p><a href="EditEmpresaProfileView.jsp?empresa=${param.empresa}">Modificar datos</a>
-	<p><a href="ChangePasswordEmpresaView.jsp?email=${empresa.email}">Cambiar contraseña</a>
-	<p><a href="LogoutServlet">Cerrar sesión</a></div>
+	<div>
+	<c:if test="${ owner }">
+		<a href="CreatePlantilla.jsp?empresa=${empresa}">Crear Plantilla CV</a>
+		<p>
+		<p><a href="EditEmpresaProfileView.jsp?empresa=${param.empresa}">Modificar datos</a>
+		<p><a href="ChangePasswordEmpresaView.jsp?email=${empresa.email}">Cambiar contraseña</a>
+	</c:if>
+		<p><a href="LogoutServlet">Cerrar sesión</a></div>
 </body>
 </html>

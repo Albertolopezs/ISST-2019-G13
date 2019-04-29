@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.subject.Subject;
+
 import es.upm.dit.isst.webLab.dao.UsuarioDAOImplementation;
 import es.upm.dit.isst.webLab.model.Usuario;
 
@@ -16,6 +19,7 @@ import es.upm.dit.isst.webLab.model.Usuario;
 @WebServlet("/UsuarioServlet")
 public class UsuarioServlet extends HttpServlet {
 
+	@SuppressWarnings("deprecation")
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String email = req.getParameter( "email" );
 		Usuario usuario = UsuarioDAOImplementation.getInstance().read( email );
@@ -25,6 +29,16 @@ public class UsuarioServlet extends HttpServlet {
 			sfoto = Base64.getEncoder().encodeToString( foto );
 			req.getSession().setAttribute( "foto" , sfoto );
 		}
+		Boolean owner = false;
+		Subject currentUser = SecurityUtils.getSubject();
+		if (currentUser.isAuthenticated()) {
+			if (currentUser.getPrincipal().equals(email)) {
+				owner = true;
+			} else {
+				owner = false;
+			}
+		}
+		req.getSession().setAttribute( "owner" , Boolean.valueOf(owner) );
 		req.getSession().setAttribute( "usuario" , usuario );
 		getServletContext().getRequestDispatcher( "/UserProfileView.jsp" ).forward( req, resp );
 	}

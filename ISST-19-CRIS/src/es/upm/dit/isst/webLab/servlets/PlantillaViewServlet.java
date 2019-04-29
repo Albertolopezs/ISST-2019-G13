@@ -38,6 +38,7 @@ public class PlantillaViewServlet extends HttpServlet {
 		req.getSession().setAttribute( "titulo", titulo );
 		req.getSession().setAttribute( "email", email );
 		req.getSession().setAttribute( "plantilla", plantilla );
+		req.getSession().setAttribute( "id", id );
 		req.getRequestDispatcher( "/PlantillaView.jsp" ).forward( req, resp );
 	}
 }

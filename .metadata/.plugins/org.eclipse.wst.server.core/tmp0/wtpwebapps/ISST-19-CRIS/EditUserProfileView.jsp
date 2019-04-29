@@ -87,13 +87,16 @@ input[type="submit"] {
 		     </select>
 	    
 	    <p> 
-	    <div>Currículums:</div>
+	    <div>CVs:</div>
 	      <div>
 		      <ul>
-			     <c:forEach
-				    items="${ aVerCómoLoPonemosBienAquíCuidadoQueNoEstáHechoAún }"
-				    var="plant">
-				    <li>${plant}</li>
+			     <c:forEach items="${ usuario.curriculums }" var="CV">
+				    <li>
+				    	<form action="CVViewServlet" method="get">
+							<input type="hidden" name="id" value="${CV.id}" />
+							<input type="submit" value="${CV.name}" class="link" />
+						</form>
+					</li>
 			     </c:forEach>
 	          </ul>
 	      </div>
