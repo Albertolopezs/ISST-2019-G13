@@ -87,6 +87,9 @@ document.getElementById("imagenUsuario").src = "data:image/png;base64," + ${usua
 			<p><a href="EditUserProfileView.jsp?usuario=${param.usuario}">Modificar datos</a>
 			<p><a href="ChangePasswordUsuarioView.jsp?email=${usuario.email}">Cambiar contraseña</a>
 		</c:if>
+		<c:if test="${ !owner }">
+			<p><a href="UserProfileView.jsp?usuario=${  }">Volver a mi página</a>
+		</c:if>
 			<p><a href="LogoutServlet">Cerrar sesión</a>
 		</div>
 	
