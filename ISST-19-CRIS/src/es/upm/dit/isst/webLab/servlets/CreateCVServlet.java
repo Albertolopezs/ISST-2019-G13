@@ -1,6 +1,7 @@
 package es.upm.dit.isst.webLab.servlets;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,6 +13,10 @@ import es.upm.dit.isst.webLab.dao.CVDAOImplementation;
 import es.upm.dit.isst.webLab.dao.UsuarioDAOImplementation;
 import es.upm.dit.isst.webLab.model.CV;
 import es.upm.dit.isst.webLab.model.Usuario;
+import java.io.*;
+import java.util.*;
+import java.net.*;
+
 
 
 @WebServlet("/CreateCVServlet")
@@ -25,8 +30,26 @@ public class CreateCVServlet extends HttpServlet {
 		boolean habilidades = Boolean.parseBoolean(req.getParameter( "habilidades" ));
 		boolean intereses = Boolean.parseBoolean(req.getParameter( "intereses" ));
 		boolean titulacion = Boolean.parseBoolean(req.getParameter( "titulacion" ));
-		String email = req.getParameter( "email" );
+		//Se usa para obtener los nombres de las carreras
+		//Cambiar esto a la dirección de vuestro archivo carreras.txt. Investigaré para poner dirección relativa
+		String fileName = "/Users/albertolopez/Desktop/ISST-2019-G13-master/ISST-19-CRIS/src/carreras.txt";
+		ArrayList<String> carreras = new ArrayList<String>();
+		BufferedReader br = new BufferedReader(new FileReader(fileName));
+		try {
+		    StringBuilder sb = new StringBuilder();
+		    String line = br.readLine();
+
+		    while (line != null) {
+		        carreras.add(line);
+		        line = br.readLine();
+		    }
+		    String everything = sb.toString();
+		} finally {
+		    br.close();
+		}
 		
+		String email = req.getParameter( "email" );
+		req.getSession().setAttribute( "carreras" , carreras );
 		req.getSession().setAttribute( "educacion" , educacion );
 		req.getSession().setAttribute( "idiomas" , idiomas );
 		req.getSession().setAttribute( "expLabo" , expLabo );
@@ -39,26 +62,59 @@ public class CreateCVServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String name = req.getParameter( "name" );
-		String educ = req.getParameter( "educ" );
-		String idi = req.getParameter( "idi" );
-		String expL = req.getParameter( "expL" );
+		String name_cv = req.getParameter("name");
+		//Informacion personal
+		String nombre = req.getParameter( "nombre");
+		String apellidos = req.getParameter( "apellidos");
+		String email = req.getParameter( "correo");
+		String nacimiento = req.getParameter("nacimiento");
+		//Educación
+		String educ = req.getParameter( "educacion_nivel");
+		String carrera = req.getParameter( "carreras_select");
+		String centro = req.getParameter( "centro");
+		String inicio_estudios = req.getParameter( "inicio_estudios");
+		String final_estudios = req.getParameter( "final_estudios");
+		//Experiencia laboral
+		String puesto_name = req.getParameter( "puesto_name");
+		String descripcion = req.getParameter( "descripcion");
+		String i_trabajo = req.getParameter( "inicio_trabajo");
+		String f_trabajo = req.getParameter( "final_trabajo");
+		String actualidad = req.getParameter( "actualidad");
+		//Idiomas
+		String idi = req.getParameter( "idiomas" );
+		String nivel = req.getParameter( "nivel");
+		//Habilidades
 		String skill = req.getParameter( "skill" );
+		//Interes
 		String interes = req.getParameter( "interes" );
-		String titulo = req.getParameter( "titulo" );
-		String email = req.getParameter( "email" );
 		
 		Usuario usuario = UsuarioDAOImplementation.getInstance().read(email);
 		
 		CVDAO cdao = CVDAOImplementation.getInstance();
 		CV CV = new CV();
-		CV.setName(name);
-		CV.setEducacion(educ);
-		CV.setExpLaboral(expL);
-		CV.setHabilidades(skill);
+		CV.setName(name_cv);
+		CV.setApellidos(apellidos);
+		CV.setEmail(email);
+		CV.setNacimiento(nacimiento);
+		
+		CV.setEducacionNivel(educ);
+		CV.setCarrera(carrera);
+		CV.setCentro(centro);
+		CV.setInicioEst(inicio_estudios);
+		CV.setFinalEst(final_estudios);
+		
+		CV.setPuestoNombre(puesto_name);
+		CV.setDescripcion(descripcion);
+		CV.setInicioJob(i_trabajo);
+		CV.setFinalJob(f_trabajo);
+		CV.setActualidad(actualidad);
+		
 		CV.setIdiomas(idi);
+		CV.setNivel(nivel);
+		
+		CV.setHabilidades(skill);
 		CV.setIntereses(interes);
-		CV.setTitulacion(titulo);
+		
 		CV.setUsuario(usuario);
 		cdao.create(CV);
 		

@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+pageEncoding="ISO-8859-1" import="java.io.*, java.util.*, java.net.*"%>
 <%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
@@ -17,6 +17,7 @@ body {
 
 h1 {
 	font-family: Open Sans;
+	align-items: center;
 }
 
 div {
@@ -36,32 +37,158 @@ input[type="submit"] {
 	font-family: Times New Roman;
 	font-weight: bold;
 }
+select{
+	carreras.show()
+	document.getElementById("carreras_select").style.display = "none";
+}
+select[target=_carr]{
+	carreras.show()
+}
 </style>
 <body>
 
-<h1>CurrÃ­culum de ${usuario.name} ${usuario.apell1} ${usuario.apell2} </h1>
+
+
+<h1>Currículum de  }${usuario.name} ${usuario.apell1} ${usuario.apell2} </h1>
 <h3>Rellene los siguientes datos:</h3>
 	<form action="CreateCVServlet" method="post">
-		Nombre del CV: <input type="text" name="name" id="name" value="" /><br>
+		<h1>Nombre del CV:</h1> <input type="text" name="name" id="name" value="" /><br>
+		
+		<h2>Información personal</h2>
+		<table>
+		<tr><td>Nombre:  <input type="text" name="nombre" id="nombre" value="${usuario.name}" /></td></tr>
+		<tr><td>Apellidos:  <input type="text" name="apellidos" id="apellidos" value="${usuario.apell1}" /></td></tr>
+		<tr><td>E-mail:  <input type="email" name="correo" id="correo" value="${usuario.email}" /></td></tr>
+		<tr><td>Fecha de nacimiento:  <input type="date" name="nacimiento" id="nacimiento" value="20/20/1996" /><br></td></tr>
+		</table>
+	
+	
 		<c:if test="${educacion}">
-		EducaciÃ³n: <input type="text" name="educ" id="educ" value="" /><br>
+
+			<h2>Educación</h2>
+			<table>
+				<tr><td>
+					Niveles de estudios: 
+					<select name="educacion_nivel", id = "nivel_educ">
+						<option value=0>
+					        Educación primaria
+					    </option>
+					    <option value=1>
+					        Educación secundaria
+					    </option>
+					    <option value=2>
+					        Grado Universitario
+					    </option>
+					    <option value=3>
+					        Máster
+					    </option>
+					    <option value=4>
+					        Doctorado
+					    </option>
+					</select>
+					${ document.getElementById('nivel_educ').value}
+				</td></tr>
+				
+				<c:if test="${document.getElementById('nivel_educ').value == 2}">
+				<tr><td>
+					Grado: 
+					<select name="carreras_select">
+					  <c:forEach items="${carreras}" var="carrerasValor">
+					    <option value="${carrerasValor}">
+					        ${carrerasValor}
+					    </option>
+					  </c:forEach>
+					</select>
+				</td></tr>
+				</c:if>
+				<tr><td>
+					Centro: <input type="text" name="centro" id="centro" value="" />
+				</td></tr>
+				<tr><td>
+					Año de inicio: <input type="number" name="inicio_estudios" id="inicio_estudios" value="" />
+				</td><td>
+					Año de final: <input type="number" name="final_estudios" id="final_estudios" value="" />
+				</td></tr>
+			</table>
+			
+			
 		</c:if>
-		<c:if test="${idiomas}">
-		Idiomas: <input type="text" name="idi" id="idi" value="" /><br>
-		</c:if>
+		
 		<c:if test="${expLabo}">
-		Experiencia laboral: <input type="text" name="expL" id="expL" value="" /><br>
+		<h2>Experiencia Laboral</h2>
+		<table>
+			<tr><td>
+				Puesto: <input type="text" name="puesto_name" id="expL" value="" />
+			</tr></td>
+			<tr><td>
+				Descripción: <h:inputText name ="descripcion "value = "Hello World!" /> 
+			</td></tr>
+			<tr><td>
+				Año de inicio: <input type="number" name="inicio_trabajo" id="inicio_estudios" value="" />
+			</td><td>
+				Año de final: <input type="number" name="final_trabajo" id="final_estudios" value="" />
+			</td></tr>
+			<tr><td>
+				<input type="checkbox" name= "actualidad"> Hasta la actualidad
+			<tr><td>
+				<button type="button">Añadir</button>
+			</td></tr>	
+		</table>
 		</c:if>
+		
+		<c:if test="${idiomas}">
+		<h2>Idiomas</h2>
+		<table>
+			<tr><td>Idioma:
+				<select name="idiomas">
+						<option value=0>
+					        Inglés
+					    </option>
+					    <option value=1>
+					        Español
+					    </option>
+					    <option value=2>
+					        Francés
+					    </option>
+					    <option value=3>
+					        Alemán
+					    </option>
+					    <option value=4>
+					        Chino
+					    </option>
+					</select>
+			</td><td>Nivel:
+					<select name="nivel">
+						<option value=0>
+					        Básico
+					    </option>
+					    <option value=1>
+					        Intermedio
+					    </option>
+					    <option value=2>
+					        Alto
+					    </option>
+					    <option value=3>
+					        Nativo
+					    </option>
+					</select>
+			</td></tr>
+			<tr><td>
+				<button type="button">Añadir</button>
+			</td></tr>
+		</table>
+		</c:if>
+		
 		<c:if test="${habilidades}">
-		Habilidades: <input type="text" name="skill" id="skill" value="" /><br>
+		<h2>Habilidades</h2>
+		<input type="text" name="skill" id="skill" value="" /><br>
 		</c:if>
 		<c:if test="${intereses}">
-		Intereses: <input type="text" name="interes" id="interes" value="" /><br>
+		<h2>Intereses</h2>
+		<input type="text" name="interes" id="interes" value="" /><br>
 		</c:if>
-		<c:if test="${titulacion}">
-		TitulaciÃ³n: <input type="text" name="titulo" id="titulo" value="" /><br>
-		</c:if>
-		<input type="hidden" name="email" value="${email}" />
+		
+		<input type="hidden" name="email" value="${email}" /> <br>
 	<input type="submit" value="Siguiente">
 </form>
 

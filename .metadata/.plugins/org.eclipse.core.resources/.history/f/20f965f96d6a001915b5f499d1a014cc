@@ -84,6 +84,7 @@ input[type="submit"] {
 	<c:if test="${ intereses != null }">
 		Intereses: ${ intereses }<br>
 	</c:if>
+<<<<<<< HEAD
 	<c:if test="${ titulacion != null }">
 		Titulación: ${ titulacion }<br>
 	</c:if>
@@ -91,6 +92,8 @@ input[type="submit"] {
 		<input type="hidden" name="id" value="${ id }">
 		<input type="submit" value="Elimina CV" />
 	</form>
+=======
+>>>>>>> fad973373ee9f532bd5921e0c83a1907854e0a10
 	<form action="UsuarioServlet" method="get">
 		<input type="hidden" name="email" value="${ email }" />
 		<input type="submit" value="Back" />
