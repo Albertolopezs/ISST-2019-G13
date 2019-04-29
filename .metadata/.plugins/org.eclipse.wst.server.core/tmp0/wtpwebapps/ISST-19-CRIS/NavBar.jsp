@@ -63,13 +63,8 @@ nav li:hover > ul {
 		<ul>
 			<shiro:user>
 				<li><a href="BackOwnPageServlet">Mi página</a></li>
-			</shiro:user>
 				<li><a href="AllCompanyDisplayServlet">Lista de empresas</a></li>
 				<li><a href="AllUserDisplayServlet">Lista de usuarios</a></li>
-			<shiro:guest>
-				<li><a href="LoginView.jsp">Login</a></li>
-			</shiro:guest>
-			<shiro:user>
 				<li><a href="">Mi cuenta</a>
 					<ul>
 						<shiro:hasRole name="usuario">
@@ -82,6 +77,9 @@ nav li:hover > ul {
 					</ul>
 				</li>
 			</shiro:user>
+			<shiro:guest>
+				<li><a href="LoginView.jsp">Login</a></li>
+			</shiro:guest>
 		</ul>
 	</nav>
 </body>
