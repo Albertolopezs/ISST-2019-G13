@@ -66,9 +66,6 @@ nav li:hover > ul {
 			</shiro:user>
 				<li><a href="AllCompanyDisplayServlet">Lista de empresas</a></li>
 				<li><a href="AllUserDisplayServlet">Lista de usuarios</a></li>
-			<shiro:guest>
-				<li><a href="LoginView.jsp">Login</a></li>
-			</shiro:guest>
 			<shiro:user>
 				<li><a href="">Mi cuenta</a>
 					<ul>
