@@ -48,6 +48,7 @@ button {
 <script>
 document.getElementById("imagenUsuario").src = "data:image/png;base64," + ${usuario.photo};
 </script>
+	<jsp:include page="NavBar.jsp" />
 	<h1>${usuario.name} ${usuario.apell1} ${usuario.apell2}</h1>
 	<div> <img id="imagenUsuario" src="data:image/jpeg;base64,${foto}" width="100" height="100" /> </div>
 	<div>
@@ -87,9 +88,6 @@ document.getElementById("imagenUsuario").src = "data:image/png;base64," + ${usua
 			<p><a href="EditUserProfileView.jsp?usuario=${param.usuario}">Modificar datos</a>
 			<p><a href="ChangePasswordUsuarioView.jsp?email=${usuario.email}">Cambiar contraseña</a>
 		</c:if>
-			<p><a href="LogoutServlet">Cerrar sesión</a>
 		</div>
-	
-
 </body>
 </html>

@@ -46,6 +46,7 @@ input[type="submit"] {
 }
 </style>
 <body>
+	<jsp:include page="NavBar.jsp" />
 <form action="EditCompanyServlet" method="post">
    <div>
 	<p>

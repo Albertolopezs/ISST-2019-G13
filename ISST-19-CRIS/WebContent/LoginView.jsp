@@ -34,6 +34,7 @@ button {
 }
 </style>
 <body>
+	<jsp:include page="NavBar.jsp" />
 	<h1>Bienvenido a eCV</h1>
 	<div>
 		<p>

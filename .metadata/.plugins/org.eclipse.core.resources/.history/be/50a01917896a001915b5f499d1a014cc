@@ -1,0 +1,39 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Lista de usuarios</title>
+</head>
+<body>
+	<jsp:include page="NavBar.jsp" />
+
+	<h2>Lista de usuarios</h2>
+	<div>
+		<ul>
+			<c:forEach items="${user_list}" var="user">
+				<li>
+					<form action="UsuarioServlet" method="get">
+						<input type="hidden" name="email" value="${ user.email }" />
+						<input type="submit" value="${ user.name } ${ user.apell1 } ${ user.apell2 } - ${user.email}" class="link" />
+					</form>
+				</li>
+			</c:forEach>
+		</ul>
+	</div>
+
+
+				<li>
+					<form action="CVViewServlet" method="get">
+						<input type="hidden" name="id" value="${CV.id}" />
+						<input type="submit" value="${CV.name}" class="link" />
+					</form>
+				</li>
+
+
+</body>
+</html>

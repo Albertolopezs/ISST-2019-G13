@@ -29,6 +29,7 @@ input[type="submit"] {
 }
 </style>
 <body>
+	<jsp:include page="NavBar.jsp" />
 	<h2>${ name }</h2>
 		<div>Educación: ${ educacion }<br></div>
 		<div>Idiomas:  ${ idiomas }<br></div>

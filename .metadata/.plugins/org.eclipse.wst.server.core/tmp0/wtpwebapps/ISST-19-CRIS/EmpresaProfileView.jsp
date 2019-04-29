@@ -48,6 +48,7 @@ button {
 }
 </style>
 <body>
+	<jsp:include page="NavBar.jsp" />
 	<h1>${empresa.name}</h1>
 	<div> <img id="imagenEmpresa" src="data:image/jpeg;base64,${foto}" width="100" height="100" /> </div>
 	<c:if test="${ owner }">
@@ -98,6 +99,5 @@ button {
 		<p><a href="EditEmpresaProfileView.jsp?empresa=${param.empresa}">Modificar datos</a>
 		<p><a href="ChangePasswordEmpresaView.jsp?email=${empresa.email}">Cambiar contraseña</a>
 	</c:if>
-		<p><a href="LogoutServlet">Cerrar sesión</a></div>
 </body>
 </html>

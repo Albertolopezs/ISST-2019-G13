@@ -37,6 +37,7 @@ input[type="submit"] {
 }
 </style>
 <body>
+	<jsp:include page="NavBar.jsp" />
 	<h1>Completa con los datos de su empresa:</h1>
 	<form action="SignUpCompanyServlet" method="post">
 		<p>

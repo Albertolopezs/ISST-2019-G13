@@ -38,6 +38,7 @@ input[type="submit"] {
 }
 </style>
 <body>
+	<jsp:include page="NavBar.jsp" />
 	<h2>Elige los campos que quiere incluir en Plantilla: </h2>
 	<div>
 	<form action="CreatePlantillaServlet" method="post">

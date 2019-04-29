@@ -47,9 +47,9 @@ select[target=_carr]{
 </style>
 <body>
 
+<jsp:include page="NavBar.jsp" />
 
-
-<h1>Currículum de  }${usuario.name} ${usuario.apell1} ${usuario.apell2} </h1>
+<h1>Currículum de ${usuario.name} ${usuario.apell1} ${usuario.apell2} </h1>
 <h3>Rellene los siguientes datos:</h3>
 	<form action="CreateCVServlet" method="post">
 		<h1>Nombre del CV:</h1> <input type="text" name="name" id="name" value="" /><br>

@@ -33,6 +33,7 @@ button {
 }
 </style>
 <body>
+	<jsp:include page="NavBar.jsp" />
     <h1>¿Deseas cambiar tu contraseña?</h1>
 	<div>
 		<form action="UsuarioPasswordChangeServlet" method="post">

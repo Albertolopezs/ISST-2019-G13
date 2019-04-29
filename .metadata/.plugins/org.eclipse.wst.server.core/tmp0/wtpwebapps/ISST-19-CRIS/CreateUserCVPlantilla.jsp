@@ -37,7 +37,7 @@ input[type="submit"] {
 }
 </style>
 <body>
-
+<jsp:include page="NavBar.jsp" />
 <h1>Currículum de ${usuario.name} ${usuario.apell1} ${usuario.apell2} </h1>
 <h3>Selección de los campos que se quiera incluir en el currículum</h3>
 	<div><form action="CreateCVServlet" method="get">

@@ -37,6 +37,7 @@ input {
 }
 </style>
 <body>
+	<jsp:include page="NavBar.jsp" />
 	<h1>Registro</h1>
 	<form action="CreateAccountSelectionServlet" method="post">
 		<div>Desea registrarse como: 

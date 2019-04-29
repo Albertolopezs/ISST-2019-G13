@@ -34,6 +34,7 @@ input[type="submit"] {
 }
 </style>
 <body>
+	<jsp:include page="NavBar.jsp" />
 	<h1>Completa con tus datos:</h1>
 	<form action="SignUpUserServlet" method="post">
 		<p>
