@@ -38,6 +38,7 @@ public class CV implements Serializable {
 	private String final_est;
 	//Experiencia Laboral
 	private String puesto_nombre;
+	private String empresa_cv;
 	private String descripcion;
 	private String inicio_job;
 	private String final_job;
@@ -86,6 +87,9 @@ public class CV implements Serializable {
 	//Experiencia Laboral
 	public String getPuestoNombre() {
 		return puesto_nombre;
+	}
+	public String getEmpresaCV() {
+		return empresa_cv;
 	}
 	public String getDescripcion() {
 		return descripcion;
@@ -147,6 +151,9 @@ public class CV implements Serializable {
 	
 	public void setPuestoNombre(String puestoNombre) {
 		this.puesto_nombre = puestoNombre;
+	}
+	public void setEmpresaCV(String empresa) {
+		this.empresa_cv = empresa;
 	}
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;

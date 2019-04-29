@@ -29,10 +29,9 @@ public class CreateCVServlet extends HttpServlet {
 		boolean expLabo = Boolean.parseBoolean(req.getParameter( "expLabo" ));
 		boolean habilidades = Boolean.parseBoolean(req.getParameter( "habilidades" ));
 		boolean intereses = Boolean.parseBoolean(req.getParameter( "intereses" ));
-		boolean titulacion = Boolean.parseBoolean(req.getParameter( "titulacion" ));
 		//Se usa para obtener los nombres de las carreras
 		//Cambiar esto a la dirección de vuestro archivo carreras.txt. Investigaré para poner dirección relativa
-		String fileName = "/Users/xiaoluo/eclipse-workspace/ISST-19-CRIS/src/carreras.txt";
+		String fileName = "/Users/albertolopez/Desktop/ISST-2019-G13/ISST-19-CRIS/src/carreras.txt";
 		ArrayList<String> carreras = new ArrayList<String>();
 		BufferedReader br = new BufferedReader(new FileReader(fileName));
 		try {
@@ -55,7 +54,6 @@ public class CreateCVServlet extends HttpServlet {
 		req.getSession().setAttribute( "expLabo" , expLabo );
 		req.getSession().setAttribute( "habilidades" , habilidades );
 		req.getSession().setAttribute( "intereses" , intereses );
-		req.getSession().setAttribute( "titulacion" , titulacion );
 		req.getSession().setAttribute( "email", email );
 		getServletContext().getRequestDispatcher( "/CreateCV.jsp" ).forward( req, resp );
 	}
@@ -76,6 +74,7 @@ public class CreateCVServlet extends HttpServlet {
 		String final_estudios = req.getParameter( "final_estudios");
 		//Experiencia laboral
 		String puesto_name = req.getParameter( "puesto_name");
+		String empresa = req.getParameter( "empresa");
 		String descripcion = req.getParameter( "descripcion");
 		String i_trabajo = req.getParameter( "inicio_trabajo");
 		String f_trabajo = req.getParameter( "final_trabajo");
@@ -105,6 +104,7 @@ public class CreateCVServlet extends HttpServlet {
 		
 		CV.setPuestoNombre(puesto_name);
 		CV.setDescripcion(descripcion);
+		CV.setEmpresaCV(empresa);
 		CV.setInicioJob(i_trabajo);
 		CV.setFinalJob(f_trabajo);
 		CV.setActualidad(actualidad);

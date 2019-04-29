@@ -37,13 +37,6 @@ input[type="submit"] {
 	font-family: Times New Roman;
 	font-weight: bold;
 }
-select{
-	carreras.show()
-	document.getElementById("carreras_select").style.display = "none";
-}
-select[target=_carr]{
-	carreras.show()
-}
 </style>
 <body>
 
@@ -119,14 +112,17 @@ select[target=_carr]{
 		<table>
 			<tr><td>
 				Puesto: <input type="text" name="puesto_name" id="expL" value="" />
-			</tr></td>
-			<tr><td>
-				Descripción: <h:inputText name ="descripcion "value = "Hello World!" /> 
 			</td></tr>
 			<tr><td>
-				Año de inicio: <input type="number" name="inicio_trabajo" id="inicio_estudios" value="" />
+				Empresa: <input type="text" name="empresa" id="empresa_name" value="" />
+			</td></tr>
+			<tr><td>
+				Descripción: <input name ="descripcion "placeholder = "Descripción sobre el trabajo" /> 
+			</td></tr>
+			<tr><td>
+				Año de inicio: <input type="number" name="inicio_trabajo" id="inicio_estudios" placeholder=2010 />
 			</td><td>
-				Año de final: <input type="number" name="final_trabajo" id="final_estudios" value="" />
+				Año de final: <input type="number" name="final_trabajo" id="final_estudios" placeholder="2019" />
 			</td></tr>
 			<tr><td>
 				<input type="checkbox" name= "actualidad"> Hasta la actualidad

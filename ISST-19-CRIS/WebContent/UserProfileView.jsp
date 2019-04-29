@@ -61,7 +61,12 @@ document.getElementById("imagenUsuario").src = "data:image/png;base64," + ${usua
 	</div>
 	<p>
 	  <div>Estoy en búsqueda de trabajo:</div>
-	  ${usuario.buscandoTrabajo}
+	  <c:if test=" ${usuario.buscandoTrabajo== false}">
+	  No
+	  </c:if>
+	  <c:if test=" ${usuario.buscandoTrabajo == true}">
+	  Sí
+	  </c:if>
 	<p>
 	  <div>Sobre mí:</div>
 	  ${usuario.description}

@@ -65,7 +65,7 @@ input[type="submit"] {
 	<table>
 		<tr><td>Nombre del puesto:  ${puesto_name }</td></tr>
 		<tr><td>Descripción:  ${descripcion} </td></tr>
-		<tr><td>Centro: ${centro} </td></tr>
+		<tr><td>Empresa: ${empresa} </td></tr>
 		<tr><td>Inicio:  ${inicio_est }</td>
 		<c:if test ="${actualidad == 'on'}"><td>Final:  Actualidad</td></c:if>
 		<c:if test ="${actualidad == 'off'}"><td>Final:  ${final_est }</td></c:if>
@@ -74,8 +74,33 @@ input[type="submit"] {
 	</c:if>
 	<c:if test="${ idiomas != null }">
 	<table>
-		<tr><td>Idioma:  ${idiomas }</td></tr>
-		<tr><td>Nivel:  ${nivel} </td></tr>
+		<c:if test="${ idiomas == '0' }">
+			<tr><td>Idioma: Ingles</td></tr>
+		</c:if>
+		<c:if test="${ idiomas =='1'}">
+			<tr><td>Idioma: Español</td></tr>
+		</c:if>
+		<c:if test="${ idiomas == '2'}">
+			<tr><td>Idioma: Francés</td></tr>
+		</c:if>
+		<c:if test="${ idiomas == '3' }">
+			<tr><td>Idioma: Alemán</td></tr>
+		</c:if>
+		<c:if test="${ idiomas =='4'}">
+			<tr><td>Idioma: Chino</td></tr>
+		</c:if>
+		<c:if test="${ nivel == '0' }">
+			<tr><td>Nivel: Básico</td></tr>
+		</c:if>
+		<c:if test="${ nivel =='1'}">
+			<tr><td>Nivel: Intermedio</td></tr>
+		</c:if>
+		<c:if test="${ nivel == '2'}">
+			<tr><td>Nivel: Alto</td></tr>
+		</c:if>
+		<c:if test="${ nivel =='3' }">
+			<tr><td>Nivel: Nativo</td></tr>
+		</c:if>
 	</table>
 	</c:if>
 	<c:if test="${ habilidades != null }">
@@ -84,9 +109,7 @@ input[type="submit"] {
 	<c:if test="${ intereses != null }">
 		Intereses: ${ intereses }<br>
 	</c:if>
-	<c:if test="${ titulacion != null }">
-		Titulación: ${ titulacion }<br>
-	</c:if>
+	<c:if test="${ owner }">
 	<form action="DeleteCVServlet" method="post">
 		<input type="hidden" name="id" value="${ id }">
 		<input type="submit" value="Elimina CV" />
@@ -95,5 +118,6 @@ input[type="submit"] {
 		<input type="hidden" name="email" value="${ email }" />
 		<input type="submit" value="Back" />
 	</form>
+	</c:if>
 </body>
 </html>

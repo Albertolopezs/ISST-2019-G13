@@ -65,7 +65,12 @@ button {
 	  ${empresa.description}
 	<p>
 	  <div>¿Buscando empleados?:</div>
-	  ${empresa.buscandoEmpleados}
+	  <c:if test="${empresa.buscandoEmpleados == false}">
+	  No
+	  </c:if>
+	  <c:if test="${empresa.buscandoEmpleados == true}">
+	  Sí
+	  </c:if>
 	<p>
 	  <div>Puestos en oferta:</div>
 	  <div>

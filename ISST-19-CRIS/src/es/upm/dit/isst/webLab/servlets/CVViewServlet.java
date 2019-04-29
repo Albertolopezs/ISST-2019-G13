@@ -33,6 +33,7 @@ public class CVViewServlet extends HttpServlet {
 		String final_est = CV.getFinalEst();
 		
 		String puesto_name = CV.getPuestoNombre();
+		String empresa = CV.getEmpresaCV();
 		String descripcion = CV.getDescripcion();
 		String ini_job = CV.getInicioJob();
 		String fin_job = CV.getFinalJob();
@@ -54,6 +55,7 @@ public class CVViewServlet extends HttpServlet {
 		req.getSession().setAttribute( "inicio_est" , inicio_est );
 		req.getSession().setAttribute( "final_est" , final_est );
 		req.getSession().setAttribute( "puesto_name" , puesto_name );
+		req.getSession().setAttribute( "empresa" , empresa );
 		req.getSession().setAttribute( "descripcion" , descripcion );
 		req.getSession().setAttribute( "ini_job" , ini_job);
 		req.getSession().setAttribute( "fin_job" , fin_job );
