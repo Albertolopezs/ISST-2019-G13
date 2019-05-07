@@ -69,6 +69,7 @@ border-radius: 30px 0px 30px 0px; /*ángulos de las 4 esquinas del borde/fondo*/
 </style>
 	
 <body>
+<shiro:guest><jsp:forward page="LoginView.jsp"></jsp:forward></shiro:guest>
 <script>
 document.getElementById("imagenUsuario").src = "data:image/png;base64," + ${usuario.photo};
 </script>

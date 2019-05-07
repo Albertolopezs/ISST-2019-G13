@@ -38,9 +38,9 @@ public class EditUserPhotoServlet extends HttpServlet {
 		udao.update( usuario );
 		String sfoto = Base64.getEncoder().encodeToString( foto );
 		
-		req.getSession().setAttribute( "usuario" , usuario );
+		/*req.getSession().setAttribute( "usuario" , usuario );
 		req.getSession().setAttribute( "foto" , sfoto );
-		getServletContext().getRequestDispatcher( "/UserProfileView.jsp" ).forward( req, resp );
+		getServletContext().getRequestDispatcher( "/EditUserProfileView.jsp" ).forward( req, resp );*/
 
 	}
 }

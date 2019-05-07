@@ -31,7 +31,7 @@ public class UsuarioServlet extends HttpServlet {
 			req.getSession().setAttribute( "foto" , sfoto );
 			}
 		catch(NullPointerException e) {
-			
+			System.out.print(e);
 		}
 		Boolean owner = false;
 		Subject currentUser = SecurityUtils.getSubject();

@@ -75,8 +75,17 @@ input {
 }
 </style>
 <body>
+<shiro:guest><jsp:forward page="LoginView.jsp"></jsp:forward></shiro:guest>
 <jsp:include page="NavBar.jsp" />
 <form action="EditUserServlet" method="post">
+	<div>
+		<c:if test="${ owner }">
+			<form action="EditUserPhotoServlet" method="post" enctype="multipart/form-data">
+				<input type="file" name="file" />
+			<p><button type="submit" name="email" value="${usuario.email}">Subir foto perfil</button>
+			</form>
+		</c:if>
+	</div>
 	<div>
 		<p> 
 		<div>Nombre:

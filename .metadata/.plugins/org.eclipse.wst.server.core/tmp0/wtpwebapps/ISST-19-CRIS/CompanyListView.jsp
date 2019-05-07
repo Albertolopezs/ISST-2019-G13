@@ -62,6 +62,7 @@ border-radius: 30px 0px 30px 0px; /*ángulos de las 4 esquinas del borde/fondo*/
 }
 </style>
 <body>
+<shiro:guest><jsp:forward page="LoginView.jsp"></jsp:forward></shiro:guest>
 	<jsp:include page="NavBar.jsp" />
 	
 	<h1>Lista de empresas</h1>

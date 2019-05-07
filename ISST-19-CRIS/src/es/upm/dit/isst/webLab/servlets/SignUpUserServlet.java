@@ -1,17 +1,20 @@
 package es.upm.dit.isst.webLab.servlets;
 
 import java.io.IOException;
+import java.io.InputStream;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.crypto.hash.Sha256Hash;
 import org.apache.shiro.subject.Subject;
+import org.apache.tomcat.util.http.fileupload.ByteArrayOutputStream;
 
 import es.upm.dit.isst.webLab.dao.UsuarioDAO;
 import es.upm.dit.isst.webLab.dao.UsuarioDAOImplementation;
@@ -28,6 +31,7 @@ public class SignUpUserServlet extends HttpServlet {
 		String apell1 = req.getParameter( "apellido1" );
 		String apell2 = req.getParameter( "apellido2" );
 		
+		UsuarioDAO udao = UsuarioDAOImplementation.getInstance();
 		Usuario user = new Usuario();
 		user.setEmail( email );
 		user.setPassword( new Sha256Hash( password ).toString() );
@@ -35,7 +39,7 @@ public class SignUpUserServlet extends HttpServlet {
 		user.setApell1( apell1 );
 		user.setApell2( apell2 );
 		
-		UsuarioDAO udao = UsuarioDAOImplementation.getInstance();
+		
 		udao.create( user );
 		Subject currentUser = SecurityUtils.getSubject();
 		UsernamePasswordToken token = new UsernamePasswordToken( email, password );

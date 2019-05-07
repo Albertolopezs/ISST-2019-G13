@@ -22,8 +22,8 @@ public class LoginServlet extends HttpServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String email = req.getParameter( "email" ).toLowerCase();
-		String pass = req.getParameter( "password" );
+		String email = req.getParameter( "correo" ).toLowerCase();
+		String pass = req.getParameter( "cons" );
 		Subject currentUser = SecurityUtils.getSubject();
 		if ( !currentUser.isAuthenticated() ) {
 			UsernamePasswordToken token = new UsernamePasswordToken( email, pass );

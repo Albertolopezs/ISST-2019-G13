@@ -53,6 +53,7 @@ text-decoration: none;
 }
 </style>
 <body>
+<shiro:guest><jsp:forward page="LoginView.jsp"></jsp:forward></shiro:guest>
 	<jsp:include page="NavBar.jsp" />
     <h1>¿Deseas cambiar tu contraseña?</h1>
 	<div>

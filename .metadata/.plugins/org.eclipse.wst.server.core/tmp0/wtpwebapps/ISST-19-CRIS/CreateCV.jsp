@@ -73,7 +73,7 @@ input[type="submit"] {
 }
 </style>
 <body>
-
+<shiro:guest><jsp:forward page="LoginView.jsp"></jsp:forward></shiro:guest>
 <jsp:include page="NavBar.jsp" />
 
 <h1>Currículum de ${usuario.name} ${usuario.apell1} ${usuario.apell2} </h1>

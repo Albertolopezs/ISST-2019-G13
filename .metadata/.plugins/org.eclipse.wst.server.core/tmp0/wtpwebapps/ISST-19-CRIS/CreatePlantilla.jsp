@@ -74,6 +74,7 @@ h5{
 
 </style>
 <body>
+<shiro:guest><jsp:forward page="LoginView.jsp"></jsp:forward></shiro:guest>
 	<jsp:include page="NavBar.jsp" />
 	<h1>Elige los campos que quiere incluir en Plantilla: </h1>
 	<div>

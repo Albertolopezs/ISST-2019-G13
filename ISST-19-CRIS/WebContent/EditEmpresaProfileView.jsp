@@ -69,6 +69,7 @@ input {
 }
 </style>
 <body>
+<shiro:guest><jsp:forward page="LoginView.jsp"></jsp:forward></shiro:guest>
 	<jsp:include page="NavBar.jsp" />
 <form action="EditCompanyServlet" method="post">
    <div>

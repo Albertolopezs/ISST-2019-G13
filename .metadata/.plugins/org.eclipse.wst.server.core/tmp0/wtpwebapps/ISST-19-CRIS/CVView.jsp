@@ -47,6 +47,7 @@ input[type="submit"] {
 }
 </style>
 <body>
+<shiro:guest><jsp:forward page="LoginView.jsp"></jsp:forward></shiro:guest>
 	<jsp:include page="NavBar.jsp" />
 	<h1>Información personal</h1>
 	<table>

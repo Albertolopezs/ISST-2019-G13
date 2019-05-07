@@ -117,12 +117,12 @@ border-radius: 30px 0px 30px 0px; /*ángulos de las 4 esquinas del borde/fondo*/
 			<form action="" method="post" name="FormEntrar">
 		 		<div class="input-group input-group-lg">
 				  <span class="input-group-addon" id="sizing-addon1"><i class="glyphicon glyphicon-envelope"></i></span>
-				  <input type="email" class="form-control" name="email" placeholder="Correo" id="Correo" aria-describedby="sizing-addon1" required>
+				  <input type="email" class="form-control" name="correo" placeholder="Correo" id="Correo" aria-describedby="sizing-addon1" required>
 				</div>
 			<br>
 				<div class="input-group input-group-lg">
 				  <span class="input-group-addon" id="sizing-addon1"><i class="glyphicon glyphicon-lock"></i></span>
-				  <input type="password" name="password" class="form-control" placeholder="******" aria-describedby="sizing-addon1" required>
+				  <input type="password" name="cons" class="form-control" placeholder="******" aria-describedby="sizing-addon1" required>
 				</div>
 			<br>
 				<button class="btn btn-lg btn-primary btn-block btn-signin" id="IngresoLog" type="submit">Login</button>
