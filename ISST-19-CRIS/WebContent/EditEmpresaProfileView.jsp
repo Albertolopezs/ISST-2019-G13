@@ -17,32 +17,55 @@ function checkNull(input) {
 </script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Editar perfil empresa</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!-- Temas-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
 </head>
 <style type="text/css">
 body {
 	background-image:
-		url('https://ae01.alicdn.com/kf/HTB1HtgvJFXXXXasXpXXq6xXFXXXL/1-25-x1-5-h-m-edificios-fondo-atractivo-retrato-fondos-de-vinilo-de-moda-de.jpg_640x640.jpg');
+		url('https://image.jimcdn.com/app/cms/image/transf/none/path/sc77e1e58a42c514a/image/i9977c7b3a6db203a/version/1516578954/image.jpg');
 	background-size: cover;
+	font: normal normal 16px quicksand; 
+	letter-spacing: 1px;
+	
+	text-align: center;
+	text-transform: uppercase;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow-x: hidden;
+    padding-top: 20px;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    
 }
 
 h1 {
-	text-align: center;
-	font-family: 'Open Sans';
+text-align: center;
+padding: 13vh;
+  font-weight: normal;
+  font-size: 40px;
+  font-family: 'Lobster';
+  text-transform: uppercase;    
 }
 
 div {
+font: normal normal 16px quicksand;
 	font-size: medium;
-	font-family: Times New Roman;
-	font-weight: bold;
+	font-family: 'Lobster';
+	
 }
 
-input[type="submit"] {
-	border-color: #A9B1B2;
-	border-radius: 25px;
-	background-color: #A9B1B2;
-	font-size: medium;
-	font-family: Times New Roman;
-	font-weight: bold;
+input {
+	text-decoration: none;
+    padding: 8px;
+    font-weight: 400;
+    font-size: 15px;
+    border-radius: 15px;
+    font-family: 'Lobster';
+    background-color: transparent;
 }
 </style>
 <body>
@@ -50,21 +73,22 @@ input[type="submit"] {
 <form action="EditCompanyServlet" method="post">
    <div>
 	<p>
-	<div>Nombre de la empresa:</div>
+	<div>Nombre de la empresa:
 	<input type="text" name="nombre" id="nombre" value="" />
+	</div>
 	
 	<p> 
-	<div>NIF:</div> 
+	<div>NIF: 
 	<input type="text" name="NIF" id="NIF" value="" />
-	
+	</div>
 	<p> 
-	<div>Categoría:</div>
+	<div>Categoría:
 	<input type="text" name="categoria" id="categoria" value="" />
-	
+	</div>
 	<p> 
-	<div>Descripción:</div>
+	<div>Descripción:
 	<input type="text" name="descripcion" id="descripcion" value="" />
-	
+	</div>
 	<p>
 	¿Estás buscando empleados? 
 	   <select name="buscaEmpleado">

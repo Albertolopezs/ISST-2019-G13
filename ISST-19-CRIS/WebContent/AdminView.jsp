@@ -8,15 +8,34 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Admin View</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
 </head>
 <style type="text/css">
 body {
-     background-image:url('https://ae01.alicdn.com/kf/HTB1HtgvJFXXXXasXpXXq6xXFXXXL/1-25-x1-5-h-m-edificios-fondo-atractivo-retrato-fondos-de-vinilo-de-moda-de.jpg_640x640.jpg');
-     background-size: cover;
+	background-image:
+		url('https://image.jimcdn.com/app/cms/image/transf/none/path/sc77e1e58a42c514a/image/i9977c7b3a6db203a/version/1516578954/image.jpg');
+	background-size: cover;
+	font: normal normal 16px quicksand; 
+	letter-spacing: 1px;
+	
+	text-align: center;
+	text-transform: uppercase;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow-x: hidden;
+    padding-top: 20px;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    
 }
-h1{
-     text-align: center;
-     font-family: Open Sans;
+h1 {
+text-align: center;
+padding: 13vh;
+  font-weight: normal;
+  font-size: 40px;
+  font-family: 'Lobster';
+  text-transform: uppercase;    
 }
 div{
      font-size: medium;
@@ -24,12 +43,13 @@ div{
      font-weight: bold;
 }
 button {
-	border-color: #7A9B1B2;
-	border-radius: 25px;
-	background-color: #A9B1B2;
-	font-size: medium;
-	font-family: Times New Roman;
-	font-weight: bold;
+border: 2px solid #b5f2f2;  /*borde: estilo y color*/
+font: normal normal 18px quicksand;  /*fuente*/
+letter-spacing: 2px; /*separación entre las letras*/
+text-align: center; /*alineación del texto*/
+text-transform: uppercase; /*texto se transforma en mayúsculas*/
+padding: 10px;  /*tamaño del fondo*/
+border-radius: 30px 0px 30px 0px; /*ángulos de las 4 esquinas del borde/fondo*/
 }
 </style>
 <body>

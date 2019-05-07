@@ -27,7 +27,7 @@ public class SearchUserServlet extends HttpServlet {
 		Subject currentUser = SecurityUtils.getSubject();
 		//Se usa para obtener los nombres de las carreras
 				//Cambiar esto a la dirección de vuestro archivo carreras.txt. Investigaré para poner dirección relativa
-				String fileName = "/Users/albertolopez/Desktop/ISST-2019-G13/ISST-19-CRIS/src/carreras.txt";
+				String fileName = "/Users/xiaoluo/eclipse-workspace/ISST-19-CRIS/src/carreras.txt";
 				ArrayList<String> carreras = new ArrayList<String>();
 				BufferedReader br = new BufferedReader(new FileReader(fileName));
 				try {

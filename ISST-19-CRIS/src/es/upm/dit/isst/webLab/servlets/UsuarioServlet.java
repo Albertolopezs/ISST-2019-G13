@@ -23,27 +23,28 @@ public class UsuarioServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String email = req.getParameter( "email" );
 		Usuario usuario = UsuarioDAOImplementation.getInstance().read( email );
+		
 		try {
 			byte[] foto = usuario.getPhoto();
 			String sfoto;
 			sfoto = Base64.getEncoder().encodeToString( foto );
 			req.getSession().setAttribute( "foto" , sfoto );
-			Boolean owner = false;
-			Subject currentUser = SecurityUtils.getSubject();
-			if (currentUser.isAuthenticated()) {
-				if (currentUser.getPrincipal().equals(email)) {
-					owner = true;
-				} else {
-					owner = false;
-				}
-			}
-			req.getSession().setAttribute( "owner" , Boolean.valueOf(owner) );
-			req.getSession().setAttribute( "usuario" , usuario );
-			getServletContext().getRequestDispatcher( "/UserProfileView.jsp" ).forward( req, resp );
 			}
 		catch(NullPointerException e) {
 			
 		}
+		Boolean owner = false;
+		Subject currentUser = SecurityUtils.getSubject();
+		if (currentUser.isAuthenticated()) {
+			if (currentUser.getPrincipal().equals(email)) {
+				owner = true;
+			} else {
+				owner = false;
+			}
+		}
+		req.getSession().setAttribute( "owner" , Boolean.valueOf(owner) );
+		req.getSession().setAttribute( "usuario" , usuario );
+		getServletContext().getRequestDispatcher( "/UserProfileView.jsp" ).forward( req, resp );
 
 	}
 }

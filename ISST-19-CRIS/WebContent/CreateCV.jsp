@@ -8,33 +8,67 @@ pageEncoding="ISO-8859-1" import="java.io.*, java.util.*, java.net.*"%>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Crear CV</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!-- Temas-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 </head>
 <style type="text/css">
 body {
-	background-image: url('https://ae01.alicdn.com/kf/HTB1HtgvJFXXXXasXpXXq6xXFXXXL/1-25-x1-5-h-m-edificios-fondo-atractivo-retrato-fondos-de-vinilo-de-moda-de.jpg_640x640.jpg');
+	background-image:
+		url('https://image.jimcdn.com/app/cms/image/transf/none/path/sc77e1e58a42c514a/image/i9977c7b3a6db203a/version/1516578954/image.jpg');
 	background-size: cover;
+	font: normal normal 16px quicksand; 
+	letter-spacing: 1px;
+	
+	text-align: center;
+	text-transform: uppercase;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow-x: hidden;
+    padding-top: 20px;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    
 }
-
 h1 {
-	font-family: Open Sans;
-	align-items: center;
+text-align: center;
+  font-weight: normal;
+  font-size: 30px;
+  font-family: 'Lobster';
+  text-transform: uppercase;    
 }
-
-div {
-	font-size: medium;
-	font-family: Times New Roman;
-	font-weight: bold;
+div{
+     font-size: medium;
+     font-family: 'Lobster';
+     font-weight: bold;
 }
 h3{
-    font-family: Times New Roman;
+font-size: 10px;
+    font-family: 'Lobster';
     font-weight: bold; 
+    text-align: left;
 }
+h2{
+font-size: 20px;
+    font-family: 'Lobster';
+    font-weight: bold; 
+    text-align: left;
+}
+button{text-decoration: none;
+    padding: 8px;
+    font-weight: 400;
+    font-size: 15px;
+    border-radius: 15px;
+    font-family: 'Lobster';
+    background-color: transparent;
+    }
 input[type="submit"] {
 	border-color: #A9B1B2;
 	border-radius: 25px;
 	background-color: #A9B1B2;
 	font-size: medium;
-	font-family: Times New Roman;
+	font-family: 'Lobster';
 	font-weight: bold;
 }
 </style>
@@ -43,17 +77,32 @@ input[type="submit"] {
 <jsp:include page="NavBar.jsp" />
 
 <h1>Currículum de ${usuario.name} ${usuario.apell1} ${usuario.apell2} </h1>
-<h3>Rellene los siguientes datos:</h3>
+<h2>Rellene los siguientes datos:</h2>
 	<form action="CreateCVServlet" method="post">
-		<h1>Nombre del CV:</h1> <input type="text" name="name" id="name" value="" /><br>
+		<div class="form-group"> <!--Name -->
+        <label for="full_name_cv" class="control-label">Nombre del CV:</label>
+        <input type="text" class="form-control" id="full_name_cv" name="full_name">
+    </div>
+		
 		
 		<h2>Información personal</h2>
-		<table>
-		<tr><td>Nombre:  <input type="text" name="nombre" id="nombre" value="${usuario.name}" /></td></tr>
-		<tr><td>Apellidos:  <input type="text" name="apellidos" id="apellidos" value="${usuario.apell1}" /></td></tr>
-		<tr><td>E-mail:  <input type="email" name="correo" id="correo" value="${usuario.email}" /></td></tr>
-		<tr><td>Fecha de nacimiento:  <input type="date" name="nacimiento" id="nacimiento" value="20/20/1996" /><br></td></tr>
-		</table>
+		<div class="form-group"> 
+        <label for="full_name" class="control-label">Nombre:</label>
+        <input type="text" class="form-control" name="nombre" id="nombre" value="${usuario.name}">
+    </div> 
+    <div class="form-group"> 
+        <label for="apellidos" class="control-label">Apellidos:</label>
+        <input input type="text" class="form-control" name="apellidos" id="apellidos" value="${usuario.apell1}">
+    </div> 
+    <div class="form-group"> 
+        <label for="email" class="control-label">Correo:</label>
+        <input input type="email" class="form-control" name="correo" id="correo" value="${usuario.email}">
+    </div>
+    <div class="form-group"> 
+        <label for="datel" class="control-label">Fecha de nacimiento:</label>
+        <input input type="date" class="form-control" name="nacimiento" id="nacimiento" value="dd/mm/aaaa" placeholder="dd/mm/aaaa">
+    </div>
+		
 	
 	
 		<c:if test="${educacion}">
@@ -94,42 +143,46 @@ input[type="submit"] {
 					</select>
 				</td></tr>
 				</c:if>
-				<tr><td>
-					Centro: <input type="text" name="centro" id="centro" value="" />
-				</td></tr>
-				<tr><td>
-					Año de inicio: <input type="number" name="inicio_estudios" id="inicio_estudios" value="" />
-				</td><td>
-					Año de final: <input type="number" name="final_estudios" id="final_estudios" value="" />
-				</td></tr>
-			</table>
-			
+				<div class="form-group"> 
+        <label for="centro" class="control-label">Centro:</label>
+        <input type="text" class="form-control" name="centro" id="centro" value="">
+    </div> 
+    <div class="form-group"> 
+        <label for="yeari" class="control-label">Año de inicio:</label>
+        <input type="number" class="form-control" name="inicio_estudios" id="inicio_estudios" value="">
+    </div>
+    <div class="form-group"> 
+        <label for="yearf" class="control-label">Año de finalización:</label>
+        <input type="number" class="form-control" name="final_estudios" id="final_estudios" value="" >
+    </div>
 			
 		</c:if>
 		
 		<c:if test="${expLabo}">
 		<h2>Experiencia Laboral</h2>
-		<table>
-			<tr><td>
-				Puesto: <input type="text" name="puesto_name" id="expL" value="" />
-			</td></tr>
-			<tr><td>
-				Empresa: <input type="text" name="empresa" id="empresa_name" value="" />
-			</td></tr>
-			<tr><td>
-				Descripción: <input name ="descripcion "placeholder = "Descripción sobre el trabajo" /> 
-			</td></tr>
-			<tr><td>
-				Año de inicio: <input type="number" name="inicio_trabajo" id="inicio_estudios" placeholder=2010 />
-			</td><td>
-				Año de final: <input type="number" name="final_trabajo" id="final_estudios" placeholder="2019" />
-			</td></tr>
-			<tr><td>
-				<input type="checkbox" name= "actualidad"> Hasta la actualidad
-			<tr><td>
-				<button type="button">Añadir</button>
-			</td></tr>	
-		</table>
+		<div class="form-group"> 
+        <label for="puesto" class="control-label">Puesto:</label>
+        <input type="text" class="form-control" name="puesto_name" id="expL" value="" >
+    </div>
+    <div class="form-group"> 
+        <label for="empresa" class="control-label">Empresa:</label>
+        <input type="text" class="form-control" name="empresa" id="empresa_name" value="" >
+    </div>
+     <div class="form-group"> 
+        <label for="descrip" class="control-label">Descripción:</label>
+        <input type="text" class="form-control" name ="descripcion "placeholder = "Descripción sobre el trabajo" >
+    </div>
+    <div class="form-group"> 
+        <label for="añoi" class="control-label">Año de inicio:</label>
+        <input type="number" class="form-control" name="inicio_trabajo" id="inicio_estudios" placeholder=2010 >
+    </div>
+    <div class="form-group"> 
+        <label for="añof" class="control-label">Año de finalización:</label>
+        <input type="number" class="form-control" name="final_trabajo" id="final_estudios" placeholder="2019" >
+    </div> 
+        
+        <input type="checkbox" name= "actualidad" >Hasta la actualidad<br>
+    <button type="button">Añadir</button>
 		</c:if>
 		
 		<c:if test="${idiomas}">

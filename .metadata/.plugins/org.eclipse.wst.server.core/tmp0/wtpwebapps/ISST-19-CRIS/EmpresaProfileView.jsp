@@ -9,34 +9,58 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title>Perfil empresa</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!-- Temas-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  
 </head>
 
 <style type="text/css">
 body {
-	background-image: url('https://ae01.alicdn.com/kf/HTB1HtgvJFXXXXasXpXXq6xXFXXXL/1-25-x1-5-h-m-edificios-fondo-atractivo-retrato-fondos-de-vinilo-de-moda-de.jpg_640x640.jpg');
+	background-image:
+		url('https://image.jimcdn.com/app/cms/image/transf/none/path/sc77e1e58a42c514a/image/i9977c7b3a6db203a/version/1516578954/image.jpg');
 	background-size: cover;
+	font: normal normal 16px quicksand; 
+	letter-spacing: 1px;
+	
+	text-align: center;
+	text-transform: uppercase;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow-x: hidden;
+    padding-top: 20px;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    
 }
 
 h1 {
-	text-align: center;
-	font-family: Open Sans;
+text-align: center;
+padding: 13vh;
+  font-weight: normal;
+  font-size: 40px;
+  font-family: 'Lobster';
+  text-transform: uppercase;    
 }
 
 div {
+font: normal normal 16px quicksand;
 	font-size: medium;
-	font-family: Times New Roman;
-	font-weight: bold;
+	font-family: 'Lobster';
+	
 }
 h5{
     vertical-align: bottom;  
 }
 button {
-	border-color: #A9B1B2;
-	border-radius: 25px;
-	background-color: #A9B1B2;
-	font-size: medium;
-	font-family: Times New Roman;
-	font-weight: bold;
+border: 2px solid #b5f2f2;  /*borde: estilo y color*/
+font: normal normal 18px quicksand;  /*fuente*/
+letter-spacing: 2px; /*separación entre las letras*/
+text-align: center; /*alineación del texto*/
+text-transform: uppercase; /*texto se transforma en mayúsculas*/
+padding: 10px;  /*tamaño del fondo*/
+border-radius: 30px 0px 30px 0px; /*ángulos de las 4 esquinas del borde/fondo*/
 }
 .link {
 	margin: 0;
@@ -65,7 +89,12 @@ button {
 	  ${empresa.description}
 	<p>
 	  <div>¿Buscando empleados?:</div>
-	  ${empresa.buscandoEmpleados}
+	  <c:if test="${empresa.buscandoEmpleados == false}">
+	  No
+	  </c:if>
+	  <c:if test="${empresa.buscandoEmpleados == true}">
+	  Sí
+	  </c:if>
 	<p>
 	  <div>Puestos en oferta:</div>
 	  <div>

@@ -278,3 +278,14 @@
 0:0:0:0:0:0:0:1 - - [29/Apr/2019:18:34:50 +0200] "GET /ISST2019/UsuarioServlet?email=123 HTTP/1.1" 200 3022
 0:0:0:0:0:0:0:1 - - [29/Apr/2019:18:35:09 +0200] "GET /ISST2019/LogoutServlet HTTP/1.1" 302 -
 0:0:0:0:0:0:0:1 - - [29/Apr/2019:18:35:09 +0200] "GET /ISST2019/LoginServlet HTTP/1.1" 200 2422
+127.0.0.1 - - [29/Apr/2019:18:38:45 +0200] "GET / HTTP/1.1" 404 1074
+0:0:0:0:0:0:0:1 - - [29/Apr/2019:18:38:46 +0200] "GET /ISST2019/ HTTP/1.1" 200 2422
+0:0:0:0:0:0:0:1 - - [29/Apr/2019:18:38:58 +0200] "POST /ISST2019/LoginServlet HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [29/Apr/2019:18:39:01 +0200] "GET /ISST2019/UsuarioServlet?email=xiao.luo@alumnos.upm.es HTTP/1.1" 200 63194
+0:0:0:0:0:0:0:1 - - [29/Apr/2019:18:39:13 +0200] "GET /ISST2019/AllUserDisplayServlet HTTP/1.1" 200 2987
+0:0:0:0:0:0:0:1 - - [29/Apr/2019:18:39:16 +0200] "GET /ISST2019/UsuarioServlet?email=123 HTTP/1.1" 200 62757
+0:0:0:0:0:0:0:1 - - [29/Apr/2019:18:39:26 +0200] "GET /ISST2019/AllUserDisplayServlet HTTP/1.1" 200 2987
+0:0:0:0:0:0:0:1 - - [29/Apr/2019:18:39:28 +0200] "GET /ISST2019/UsuarioServlet?email=test%40test HTTP/1.1" 200 62756
+0:0:0:0:0:0:0:1 - - [29/Apr/2019:18:39:29 +0200] "GET /ISST2019/AllUserDisplayServlet HTTP/1.1" 200 2987
+0:0:0:0:0:0:0:1 - - [29/Apr/2019:18:39:29 +0200] "GET /ISST2019/UsuarioServlet?email=xiao.luo%40alumnos.upm.es HTTP/1.1" 200 63195
+0:0:0:0:0:0:0:1 - - [29/Apr/2019:18:39:32 +0200] "GET /ISST2019/AllCompanyDisplayServlet HTTP/1.1" 200 2755

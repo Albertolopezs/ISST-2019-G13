@@ -5,30 +5,65 @@
 <head>
 <meta charset="UTF-8">
 <title>Buscar Usuarios</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!-- Temas-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
 </head>
 <style type="text/css">
 body {
 	background-image:
-		url('https://ae01.alicdn.com/kf/HTB1HtgvJFXXXXasXpXXq6xXFXXXL/1-25-x1-5-h-m-edificios-fondo-atractivo-retrato-fondos-de-vinilo-de-moda-de.jpg_640x640.jpg');
+		url('https://image.jimcdn.com/app/cms/image/transf/none/path/sc77e1e58a42c514a/image/i9977c7b3a6db203a/version/1516578954/image.jpg');
 	background-size: cover;
+	font: normal normal 16px quicksand; 
+	letter-spacing: 1px;
+	
+	text-align: center;
+	text-transform: uppercase;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow-x: hidden;
+    padding-top: 20px;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    
 }
 h1 {
-	text-align: center;
-	font-family: 'Open Sans';
+text-align: center;
+padding: 13vh;
+  font-weight: normal;
+  font-size: 40px;
+  font-family: 'Lobster';
+  text-transform: uppercase;    
 }
+
 div {
+font: normal normal 16px quicksand;
 	font-size: medium;
-	font-family: Times New Roman;
-	font-weight: bold;
+	font-family: 'Lobster';
+	
 }
-button {
-	border-color: #A9B1B2;
-	border-radius: 25px;
-	background-color: #A9B1B2;
-	font-size: medium;
-	font-family: Times New Roman;
-	font-weight: bold;
+input[type="submit"] {
+text-decoration: none;
+    padding: 8px;
+    font-weight: 400;
+    font-size: 15px;
+    border-radius: 15px;
+    font-family: 'Lobster';
+    background-color: transparent;
 }
+select {
+     background: transparent;
+     border: none;
+     font-size: 14px;
+     height: 30px;
+     padding: 5px;
+     width: 200px;
+     font-family: 'Lobster';
+     font: normal normal 16px quicksand;
+  }
 </style>
 <body>
 	<jsp:include page="NavBar.jsp" />
@@ -69,7 +104,6 @@ button {
 					</select>
 			</td></tr>
 		</table>
-		</form>
 			<table>
 				<tr><td>
 					Niveles de estudios: 
@@ -107,5 +141,6 @@ button {
 				
 			</table>
 	<input type="submit" value="Buscar">
+	</form>
 </body>
 </html>
