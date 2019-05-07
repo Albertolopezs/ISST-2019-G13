@@ -76,14 +76,6 @@ document.getElementById("imagenUsuario").src = "data:image/png;base64," + ${usua
 	<jsp:include page="NavBar.jsp" />
 	<h1>${usuario.name} ${usuario.apell1} ${usuario.apell2}</h1>
 	<div> <img id="imagenUsuario" src="data:image/jpeg;base64,${foto}" width="100" height="100" /> </div>
-	<div>
-		<c:if test="${ owner }">
-			<form action="EditUserPhotoServlet" method="post" enctype="multipart/form-data">
-				<input type="file" name="file" />
-			<p><button type="submit" name="email" value="${usuario.email}">Subir foto perfil</button>
-			</form>
-		</c:if>
-	</div>
 	<p>
 	  <div>Estoy en búsqueda de trabajo:</div>
 	  <c:if test=" ${usuario.buscandoTrabajo== false}">
@@ -115,7 +107,7 @@ document.getElementById("imagenUsuario").src = "data:image/png;base64," + ${usua
 		<c:if test="${ owner }">
 			<a href="CreateUserCVPlantilla.jsp?usuario=${usuario}">Crear CV</a>
 			<p>					
-			<p><a href="EditUserProfileView.jsp?usuario=${param.usuario}">Modificar datos</a>
+			<p><a href="EditUserProfileView.jsp?usuario=${usuario}">Modificar datos</a>
 		</c:if>
 		</div>
 </body>

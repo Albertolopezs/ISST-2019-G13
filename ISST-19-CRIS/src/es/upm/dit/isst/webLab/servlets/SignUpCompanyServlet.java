@@ -1,6 +1,10 @@
 package es.upm.dit.isst.webLab.servlets;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
 import java.util.*;
 import javax.mail.*;
 import javax.mail.internet.*;
@@ -16,6 +20,7 @@ import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.crypto.hash.Sha256Hash;
 import org.apache.shiro.subject.Subject;
+import org.apache.tomcat.util.http.fileupload.ByteArrayOutputStream;
 
 import es.upm.dit.isst.webLab.dao.EmpresaDAO;
 import es.upm.dit.isst.webLab.dao.EmpresaDAOImplementation;
@@ -34,6 +39,17 @@ public class SignUpCompanyServlet extends HttpServlet {
 		empresa.setEmail( email );
 		empresa.setPassword( new Sha256Hash( password ).toString() );
 		empresa.setName( nombre );
+		
+		SignUpCompanyServlet main = new SignUpCompanyServlet();
+        File file = main.getFileFromResources("avatar_defecto.png");
+        @SuppressWarnings("resource")
+		InputStream fileContent = new FileInputStream(file);
+		@SuppressWarnings("resource")
+		ByteArrayOutputStream output = new ByteArrayOutputStream();
+		byte[] buffer = new byte[10240];
+		for (int length = 0; (length = fileContent.read(buffer)) > 0;) output.write(buffer, 0, length);
+		byte[] foto = output.toByteArray();
+		empresa.setPhoto( foto );
 
 		
 		EmpresaDAO edao = EmpresaDAOImplementation.getInstance();
@@ -74,4 +90,17 @@ public class SignUpCompanyServlet extends HttpServlet {
 	        me.printStackTrace();   //Si se produce un error
 	    }
 	}
+	
+	private File getFileFromResources(String fileName) {
+
+        ClassLoader classLoader = getClass().getClassLoader();
+
+        URL resource = classLoader.getResource(fileName);
+        if (resource == null) {
+            throw new IllegalArgumentException("file is not found!");
+        } else {
+            return new File(resource.getFile());
+        }
+
+    }
 }

@@ -1,7 +1,11 @@
 package es.upm.dit.isst.webLab.servlets;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URL;
+import java.util.Base64;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -41,6 +45,17 @@ public class SignUpUserServlet extends HttpServlet {
 		user.setApell2( apell2 );
 		
 		
+		SignUpUserServlet main = new SignUpUserServlet();
+        File file = main.getFileFromResources("avatar_defecto.png");
+        @SuppressWarnings("resource")
+		InputStream fileContent = new FileInputStream(file);
+		@SuppressWarnings("resource")
+		ByteArrayOutputStream output = new ByteArrayOutputStream();
+		byte[] buffer = new byte[10240];
+		for (int length = 0; (length = fileContent.read(buffer)) > 0;) output.write(buffer, 0, length);
+		byte[] foto = output.toByteArray();
+		user.setPhoto( foto );
+		
 		udao.create( user );
 		Subject currentUser = SecurityUtils.getSubject();
 		UsernamePasswordToken token = new UsernamePasswordToken( email, password );
@@ -48,4 +63,17 @@ public class SignUpUserServlet extends HttpServlet {
 		resp.sendRedirect( req.getContextPath() + "/UsuarioServlet?email=" + email );
 	
 	}
+	
+	private File getFileFromResources(String fileName) {
+
+        ClassLoader classLoader = getClass().getClassLoader();
+
+        URL resource = classLoader.getResource(fileName);
+        if (resource == null) {
+            throw new IllegalArgumentException("file is not found!");
+        } else {
+            return new File(resource.getFile());
+        }
+
+    }
 }

@@ -79,9 +79,6 @@ nav li:hover > ul {
 					</ul>
 				</li>
 			</shiro:user>
-			<shiro:guest>
-				<li><a href="LoginView.jsp">Login</a></li>
-			</shiro:guest>
 		</ul>
 	</nav>
 </body>

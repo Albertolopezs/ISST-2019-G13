@@ -77,40 +77,37 @@ input {
 <body>
 <shiro:guest><jsp:forward page="LoginView.jsp"></jsp:forward></shiro:guest>
 <jsp:include page="NavBar.jsp" />
-<form action="EditUserServlet" method="post">
 	<div>
-		<c:if test="${ owner }">
-			<form action="EditUserPhotoServlet" method="post" enctype="multipart/form-data">
-				<input type="file" name="file" />
-			<p><button type="submit" name="email" value="${usuario.email}">Subir foto perfil</button>
-			</form>
-		</c:if>
+		<form action="EditUserPhotoServlet" method="post" enctype="multipart/form-data">
+			<input type="file" name="file" />
+		<p><button type="submit" name="email" value="${usuario.email}">Subir foto perfil</button>
+		</form>
 	</div>
-	<div>
+
+	<form action="EditUserServlet" method="post">
 		<p> 
 		<div>Nombre:
-		<input type="text" name="nombre" id="nombre" value="" />
+		<input type="text" name="nombre" id="nombre" value=""/>
 	</div>
 		<p> 
 		<div>Primer apellido: 
-		<input type="text" name="apell1" id="apell1" value="" />
+		<input type="text" name="apell1" id="apell1" value=""/>
 	</div>
 		<p> 
 		<div>Segundo apellido:
-		<input type="text" name="apell2" id="apell2"
-			value=""  />
+		<input type="text" name="apell2" id="apell2" value=""/>
 	</div>
 		<p> 
 		<div>Dirección:
-		<input type="text" name="direccion" id="direccion" value="" />
+		<input type="text" name="direccion" id="direccion" value=""/>
 	</div>
 		<p> 
 		<div>Descripción:
-		<input type="text" name="descripcion" id="descripcion" value="" />
+		<input type="text" name="descripcion" id="descripcion" value=""/>
 	</div>
 		<p> 
 		<div>Estudios:
-		<input type="text" name="estudios" id="estudios" value="" />
+		<input type="text" name="estudios" id="estudios" value=""/>
 	</div>
 		<p> 
 		¿Estás buscando trabajo? 
@@ -120,20 +117,6 @@ input {
 		     </select>
 	    
 	    <p> 
-	    <div>CVs:</div>
-	      <div>
-		      <ul>
-			     <c:forEach items="${ usuario.curriculums }" var="CV">
-				    <li>
-				    	<form action="CVViewServlet" method="get">
-							<input type="hidden" name="id" value="${CV.id}" />
-							<input type="submit" value="${CV.name}" class="link" />
-						</form>
-					</li>
-			     </c:forEach>
-	          </ul>
-	      </div>
-	</div>
 	<p>
 		<input type="hidden" name="email" value="${usuario.email}" />
 		<input type="submit" value="Guardar"/>

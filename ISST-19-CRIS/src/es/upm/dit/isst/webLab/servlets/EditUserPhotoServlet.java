@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.subject.Subject;
 import org.apache.tomcat.util.http.fileupload.ByteArrayOutputStream;
 
 import es.upm.dit.isst.webLab.dao.UsuarioDAO;
@@ -25,22 +27,21 @@ public class EditUserPhotoServlet extends HttpServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String email = req.getParameter( "email" );
+		
 		Part filePart = req.getPart( "file" );
 		InputStream fileContent = filePart.getInputStream();
 		ByteArrayOutputStream output = new ByteArrayOutputStream();
 		byte[] buffer = new byte[10240];
 		for (int length = 0; (length = fileContent.read(buffer)) > 0;) output.write(buffer, 0, length);
 		UsuarioDAO udao = UsuarioDAOImplementation.getInstance();
-		String email = req.getParameter( "email" );
 		Usuario usuario = udao.read(email);
 		byte[] foto = output.toByteArray();
 		usuario.setPhoto( foto );
 		udao.update( usuario );
-		String sfoto = Base64.getEncoder().encodeToString( foto );
 		
-		/*req.getSession().setAttribute( "usuario" , usuario );
-		req.getSession().setAttribute( "foto" , sfoto );
-		getServletContext().getRequestDispatcher( "/EditUserProfileView.jsp" ).forward( req, resp );*/
+		req.getSession().setAttribute( "usuario" , usuario );
+		getServletContext().getRequestDispatcher( "/EditUserProfileView.jsp" ).forward( req, resp );
 
 	}
 }

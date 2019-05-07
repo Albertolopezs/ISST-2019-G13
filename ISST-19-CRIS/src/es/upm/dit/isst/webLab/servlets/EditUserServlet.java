@@ -19,6 +19,7 @@ import es.upm.dit.isst.webLab.model.Usuario;
 public class EditUserServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		System.out.println("ejecuta");
 		String nombre = req.getParameter( "nombre" );
 		String apell1 = req.getParameter( "apell1" );
 		String apell2 = req.getParameter( "apell2" );
@@ -29,8 +30,6 @@ public class EditUserServlet extends HttpServlet {
 		@SuppressWarnings("unchecked")
 		Collection<CV> CV = (Collection<CV>) req.getAttribute( "CV" );
 		String email = req.getParameter( "email" );
-		System.out.println(nombre + estudios + email);
-		
 		UsuarioDAO udao = UsuarioDAOImplementation.getInstance();
 		Usuario usuario = udao.read( email );
 		usuario.setName( nombre );
