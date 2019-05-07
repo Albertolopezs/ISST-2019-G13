@@ -113,12 +113,12 @@ border-radius: 30px 0px 30px 0px; /*ángulos de las 4 esquinas del borde/fondo*/
 <form action="SignUpUserServlet" method="post">
 		<div class="input-group input-group-lg">
 		<span class="input-group-addon" id="sizing-addon1"></span>
-				  <input type="text" class="form-control" name="correo" placeholder="Correo" id="Correo" aria-describedby="sizing-addon1" required>
+				  <input type="text" class="form-control" name="email" placeholder="Correo" id="email" aria-describedby="sizing-addon1" required>
 				</div>
 			<br>
 				<div class="input-group input-group-lg">
 				  <span class="input-group-addon" id="sizing-addon1"></span>
-				  <input type="password" name="contra" class="form-control" placeholder="Contraseña" aria-describedby="sizing-addon1" required>
+				  <input type="password" name="password" id="password" class="form-control" placeholder="Contraseña" aria-describedby="sizing-addon1" required>
 				</div>
 			<br>
 				<div class="input-group input-group-lg">

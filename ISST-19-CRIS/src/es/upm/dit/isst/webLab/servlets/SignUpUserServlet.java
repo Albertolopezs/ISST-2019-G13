@@ -25,7 +25,8 @@ import es.upm.dit.isst.webLab.model.Usuario;
 public class SignUpUserServlet extends HttpServlet {
        
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String email = req.getParameter( "email" ).toLowerCase();
+		String email = req.getParameter( "email" );
+		System.out.println(email);
 		String password = req.getParameter( "password" );
 		String nombre = req.getParameter( "nombre" );
 		String apell1 = req.getParameter( "apellido1" );

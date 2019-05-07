@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+pageEncoding="ISO-8859-1"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -73,16 +74,16 @@ select {
 			<tr><td>Idioma:
 				<select name="idiomas">
 						<option value=0>
-					        Ingl√©s
+					        InglÈs
 					    </option>
 					    <option value=1>
-					        Espa√±ol
+					        EspaÒol
 					    </option>
 					    <option value=2>
-					        Franc√©s
+					        FrancÈs
 					    </option>
 					    <option value=3>
-					        Alem√°n
+					        Alem·n
 					    </option>
 					    <option value=4>
 					        Chino
@@ -91,7 +92,7 @@ select {
 			</td><td>Nivel:
 					<select name="nivel">
 						<option value=0>
-					        B√°sico
+					        B·sico
 					    </option>
 					    <option value=1>
 					        Intermedio
@@ -110,24 +111,22 @@ select {
 					Niveles de estudios: 
 					<select name="educacion_nivel", id = "nivel_educ">
 						<option value=0>
-					        Educaci√≥n primaria
+					        EducaciÛn primaria
 					    </option>
 					    <option value=1>
-					        Educaci√≥n secundaria
+					        EducaciÛn secundaria
 					    </option>
 					    <option value=2>
 					        Grado Universitario
 					    </option>
 					    <option value=3>
-					        M√°ster
+					        M·ster
 					    </option>
 					    <option value=4>
 					        Doctorado
 					    </option>
 					</select>
 				</td></tr>
-				
-				<c:if test="${document.getElementById('nivel_educ').value == 2}">
 				<tr><td>
 					Grado: 
 					<select name="carreras_select">
@@ -138,10 +137,14 @@ select {
 					  </c:forEach>
 					</select>
 				</td></tr>
-				</c:if>
 				
 			</table>
 	<input type="submit" value="Buscar">
 	</form>
+	
+	<c:if test="${searchCompleted == 1}">
+	<!-- Mostramos la lista de usuarios -->
+	
+	</c:if>
 </body>
 </html>
