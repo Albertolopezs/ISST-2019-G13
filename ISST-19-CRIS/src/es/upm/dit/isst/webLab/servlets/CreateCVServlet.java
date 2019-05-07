@@ -22,6 +22,46 @@ import java.net.*;
 @WebServlet("/CreateCVServlet")
 public class CreateCVServlet extends HttpServlet {
 	
+	
+
+		public ArrayList<String> get_carreras() throws IOException {
+
+	        CreateCVServlet main = new CreateCVServlet();
+	        File file = main.getFileFromResources("carreras.txt");
+
+	        ArrayList<String> carreras = printFile(file);
+	        return carreras;
+	    }
+
+	    // get file from classpath, resources folder
+	    private File getFileFromResources(String fileName) {
+
+	        ClassLoader classLoader = getClass().getClassLoader();
+
+	        URL resource = classLoader.getResource(fileName);
+	        if (resource == null) {
+	            throw new IllegalArgumentException("file is not found!");
+	        } else {
+	            return new File(resource.getFile());
+	        }
+
+	    }
+
+	    private static ArrayList<String> printFile(File file) throws IOException {
+			ArrayList<String> carreras = new ArrayList<String>();
+	        if (file == null) return carreras;
+
+	        try (FileReader reader = new FileReader(file);
+	             BufferedReader br = new BufferedReader(reader)) {
+
+	            String line;
+	            while ((line = br.readLine()) != null) {
+			        carreras.add(line);
+	            }
+	            return carreras;
+	        }
+	    }
+	    
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		boolean educacion = Boolean.parseBoolean(req.getParameter( "educacion" ));
@@ -31,21 +71,8 @@ public class CreateCVServlet extends HttpServlet {
 		boolean intereses = Boolean.parseBoolean(req.getParameter( "intereses" ));
 		//Se usa para obtener los nombres de las carreras
 		//Cambiar esto a la dirección de vuestro archivo carreras.txt. Investigaré para poner dirección relativa
-		String fileName = "/Users/xiaoluo/eclipse-workspace/ISST-19-CRIS/src/carreras.txt";
-		ArrayList<String> carreras = new ArrayList<String>();
-		BufferedReader br = new BufferedReader(new FileReader(fileName));
-		try {
-		    StringBuilder sb = new StringBuilder();
-		    String line = br.readLine();
 
-		    while (line != null) {
-		        carreras.add(line);
-		        line = br.readLine();
-		    }
-		    String everything = sb.toString();
-		} finally {
-		    br.close();
-		}
+		ArrayList<String> carreras = get_carreras();
 		
 		String email = req.getParameter( "email" );
 		req.getSession().setAttribute( "carreras" , carreras );

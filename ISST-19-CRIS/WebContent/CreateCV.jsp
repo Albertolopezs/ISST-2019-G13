@@ -131,7 +131,7 @@ input[type="submit"] {
 					${ document.getElementById('nivel_educ').value}
 				</td></tr>
 				
-				<c:if test="${document.getElementById('nivel_educ').value == 2}">
+				
 				<tr><td>
 					Grado: 
 					<select name="carreras_select">
@@ -142,7 +142,6 @@ input[type="submit"] {
 					  </c:forEach>
 					</select>
 				</td></tr>
-				</c:if>
 				<div class="form-group"> 
         <label for="centro" class="control-label">Centro:</label>
         <input type="text" class="form-control" name="centro" id="centro" value="">
