@@ -61,8 +61,8 @@ public class Empresa implements Serializable {
 		return NIF;
 	}
 
-	public void setNIF(String nIF) {
-		NIF = nIF;
+	public void setNIF(String NIF) {
+		NIF = NIF;
 	}
 
 	public String getCategory() {

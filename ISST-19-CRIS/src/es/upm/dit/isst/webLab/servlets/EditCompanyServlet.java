@@ -9,10 +9,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import es.upm.dit.isst.webLab.dao.CVDAO;
+import es.upm.dit.isst.webLab.dao.CVDAOImplementation;
 import es.upm.dit.isst.webLab.dao.EmpresaDAO;
 import es.upm.dit.isst.webLab.dao.EmpresaDAOImplementation;
+import es.upm.dit.isst.webLab.dao.UsuarioDAO;
+import es.upm.dit.isst.webLab.dao.UsuarioDAOImplementation;
+import es.upm.dit.isst.webLab.model.CV;
 import es.upm.dit.isst.webLab.model.Empresa;
 import es.upm.dit.isst.webLab.model.Plantilla;
+import es.upm.dit.isst.webLab.model.Usuario;
 
 
 @WebServlet("/EditCompanyServlet")
@@ -43,5 +49,33 @@ public class EditCompanyServlet extends HttpServlet {
 		
 		req.getSession().setAttribute( "empresa", empresa );
 		getServletContext().getRequestDispatcher( "/EmpresaProfileView.jsp" ).forward( req, resp );
+	}
+
+	
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		String email = req.getParameter( "correo" );
+		System.out.println(email);
+		EmpresaDAO cdao = EmpresaDAOImplementation.getInstance();
+		Empresa empresa = cdao.read( email );
+		
+		String NIF = empresa.getNIF();
+		String name = empresa.getName();
+		String category = empresa.getCategory();
+		String description = empresa.getDescription();
+		
+		Boolean buscandoEmpleados = empresa.isBuscandoEmpleados();
+		String[] puestosEnOferta = empresa.getPuestosEnOferta();
+		
+		req.getSession().setAttribute( "name" , name );
+		req.getSession().setAttribute( "NIF" , NIF );
+		req.getSession().setAttribute( "email" , email );
+		req.getSession().setAttribute( "category" , category );
+		req.getSession().setAttribute( "description" , description );
+		req.getSession().setAttribute( "buscandoEmpleados" , buscandoEmpleados );
+		req.getSession().setAttribute( "puestosEnOferta" , puestosEnOferta );
+
+		req.getRequestDispatcher( "/EditEmpresaProfileView.jsp" ).forward( req, resp );
 	}
 }

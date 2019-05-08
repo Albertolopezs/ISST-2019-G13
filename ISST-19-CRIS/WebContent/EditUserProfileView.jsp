@@ -87,27 +87,23 @@ input {
 	<form action="EditUserServlet" method="post">
 		<p> 
 		<div>Nombre:
-		<input type="text" name="nombre" id="nombre" value=""/>
+		<input type="text" name="nombre" id="nombre" value="${name }"/>
 	</div>
 		<p> 
 		<div>Primer apellido: 
-		<input type="text" name="apell1" id="apell1" value=""/>
+		<input type="text" name="apell1" id="apell1" value="${apell1}"/>
 	</div>
 		<p> 
 		<div>Segundo apellido:
-		<input type="text" name="apell2" id="apell2" value=""/>
+		<input type="text" name="apell2" id="apell2" value="${apell2 }"/>
 	</div>
 		<p> 
 		<div>Dirección:
-		<input type="text" name="direccion" id="direccion" value=""/>
+		<input type="text" name="direccion" id="direccion" value="${direccion }"/>
 	</div>
 		<p> 
 		<div>Descripción:
-		<input type="text" name="descripcion" id="descripcion" value=""/>
-	</div>
-		<p> 
-		<div>Estudios:
-		<input type="text" name="estudios" id="estudios" value=""/>
+		<input type="text" name="descripcion" id="descripcion" value="${descripcion }"/>
 	</div>
 		<p> 
 		¿Estás buscando trabajo? 

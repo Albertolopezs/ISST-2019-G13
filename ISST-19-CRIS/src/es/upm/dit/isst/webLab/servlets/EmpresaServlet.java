@@ -39,6 +39,7 @@ public class EmpresaServlet extends HttpServlet {
 		}
 		req.getSession().setAttribute( "owner" , Boolean.valueOf(owner) );
 		req.getSession().setAttribute( "empresa" , empresa );
+		req.getSession().setAttribute( "email" , email );
 		getServletContext().getRequestDispatcher( "/EmpresaProfileView.jsp" ).forward( req, resp );
 	}
 }

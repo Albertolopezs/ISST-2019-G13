@@ -34,12 +34,39 @@ body {
     left: 0;
     
 }
+.center-row{
+	display: flex;
+    justify-content: space-around;}
+    
+.center-column{
+	display: flex;
+	flex-direction:column;
+    justify-content: center;}
+
+#cont-p{
+	width:400px;
+	height:500px;
+	background-color: #F3EDED;
+    border: 15px solid #ECE8E8;
+	border-radius:8px;
+	padding: 0px 9px 0px 9px;}
+
+img{
+	float:left;
+	margin-left:20px;}
 
 h1 {
 text-align: center;
 padding: 13vh;
   font-weight: normal;
   font-size: 40px;
+  font-family: 'Lobster';
+  text-transform: uppercase;    
+}
+h3 {
+text-align: center;
+  font-weight: normal;
+  font-size: 20px;
   font-family: 'Lobster';
   text-transform: uppercase;    
 }
@@ -74,54 +101,72 @@ border-radius: 30px 0px 30px 0px; /*ángulos de las 4 esquinas del borde/fondo*/
 <body>
 <shiro:guest><jsp:forward page="LoginView.jsp"></jsp:forward></shiro:guest>
 	<jsp:include page="NavBar.jsp" />
-	<h1>${empresa.name}</h1>
-	<div> <img id="imagenEmpresa" src="data:image/jpeg;base64,${foto}" width="100" height="100" /> </div>
-	<p>
-	  <div>Categoría:</div>
-	  ${empresa.category}
-	<p>
-	  <div>Descripción:</div>
-	  ${empresa.description}
-	<p>
-	  <div>¿Buscando empleados?:</div>
-	  <c:if test="${empresa.buscandoEmpleados == false}">
-	  No
-	  </c:if>
-	  <c:if test="${empresa.buscandoEmpleados == true}">
-	  Sí
-	  </c:if>
-	<p>
-	  <div>Puestos en oferta:</div>
-	  <div>
-		<ul>
-			<c:forEach items="${ empresa.puestosEnOferta }" var="puesto">
-				<li>${puesto}</li>
-			</c:forEach>
-		</ul>
-	  </div>
-	<p> 
-	<c:if test="${not empty empresa.plantillas}">
-	  <div>Plantillas:</div>
-	  <div>
-		<ul>
-			<c:forEach items="${empresa.plantillas}" var="plantilla">
-				<li>
-					<form action="PlantillaViewServlet" method="get">
-						<input type="hidden" name="id" value="${plantilla.id}" />
-						<input type="submit" value="${plantilla.name}" class="link" />
-					</form>
-				</li>
-			</c:forEach>
-		</ul>
-	  </div>
-	  </c:if>
-	<p>
-	<div>
-	<c:if test="${ owner }">
-		<a href="CreatePlantilla.jsp?empresa=${empresa}">Crear Plantilla CV</a>
+			<h2>${empresa.name}</h2>
+	<div class="center-row">
+
+		<img id="imagenEmpresa" src="data:image/jpeg;base64,${foto}" width="350" height="400" />
+		
+		<div class="center-column">
+		<div id="cont-p">
+		  <h3>Categoría:</h3>
+		  ${empresa.category}
 		<p>
-		<p><a href="EditEmpresaProfileView.jsp?empresa=${empresa}">Modificar datos</a>
-	</c:if>
+		  <h3>Descripción:</h3>
+		  ${empresa.description}
+		<p>
+		  <h3>¿Buscando empleados?:</h3>
+		  <c:if test="${empresa.buscandoEmpleados == false}">
+		  No
+		  </c:if>
+		  <c:if test="${empresa.buscandoEmpleados == true}">
+		  Sí
+		  </c:if>
+		<p>
+		  <h3>Puestos en oferta:</h3>
+	
+			<ul>
+				<c:forEach items="${ empresa.puestosEnOferta }" var="puesto">
+					<li>${puesto}</li>
+				</c:forEach>
+			</ul>
+	
+		<p> 
+	
+		<c:if test="${not empty empresa.plantillas}">
+		  <h3>Plantillas:</h3>
+	
+			<ul>
+				<c:forEach items="${empresa.plantillas}" var="plantilla">
+					<li>
+						<form action="PlantillaViewServlet" method="get">
+							<input type="hidden" name="id" value="${plantilla.id}" />
+							<input type="submit" value="${plantilla.name}" class="link" />
+						</form>
+					</li>
+				</c:forEach>
+			</ul>
+		  
+		  </c:if>
+	
+	
+		
+		<p>
+	
+		<c:if test="${ owner }">
+			<a href="CreatePlantilla.jsp?empresa=${empresa}">Crear Plantilla CV</a>
+			<p>
+	
+			<form action="EditCompanyServlet" method="get" name="FormEntrar">
+					  <input type="hidden" class="form-control" name="correo" placeholder="Correo" id="correo" aria-describedby="sizing-addon1" value="${email}">
+	
+					<button class="btn btn-lg btn-primary btn-block btn-register" type="submit">Modificar datos</button>
+			</form>
+	
+	
+	
+		</c:if>
+		</div>
+		</div>
 	</div>
 </body>
 </html>

@@ -16,7 +16,15 @@ public class BackOwnPageServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Subject currentUser = SecurityUtils.getSubject();
 		if (currentUser.isAuthenticated()) {
-			resp.sendRedirect( req.getContextPath() + "/UsuarioServlet?email=" + currentUser.getPrincipal());
+			if (currentUser.hasRole("empresa")) {
+				resp.sendRedirect( req.getContextPath() + "/EmpresaServlet?email=" + currentUser.getPrincipal());
+			} else if(currentUser.hasRole("usuario")){
+				resp.sendRedirect( req.getContextPath() + "/UsuarioServlet?email=" + currentUser.getPrincipal());
+				
+			}
+			else {
+			}
 		}
 	}
 }
+
