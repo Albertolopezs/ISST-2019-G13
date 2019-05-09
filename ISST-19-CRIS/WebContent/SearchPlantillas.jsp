@@ -7,7 +7,7 @@ pageEncoding="ISO-8859-1" import="java.io.*, java.util.*, java.net.*"%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Buscar Usuarios</title>
+<title>Búsqueda plantillas</title>
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <!-- Temas-->
@@ -67,95 +67,82 @@ select {
      font-family: 'Lobster';
      font: normal normal 16px quicksand;
   }
+#Contenedor{
+	width: 400px;
+	margin: 50px auto;
+	background-color: #F3EDED;
+        border: 15px solid #ECE8E8;
+	height: 400px;
+	border-radius:8px;
+	padding: 0px 9px 0px 9px;
+}
+/**
+ * Aplicando al icono de usuario el color de fondo,
+ * rellenado de 20px y un redondeado de 120px en forma
+ * de un circulo
+ */
+.Icon span{
+      background: #A8A6A6;
+      padding: 20px;
+      border-radius: 120px;
+}
+/**
+ * Se aplica al contenedor madre un margen de tamaño 10px hacia la cabecera y pie,
+ * color de fuente blanco,un tamaño de fuente 50px y texto centrado.
+ */
+.Icon{
+     margin-top: 10px;
+     margin-bottom:10px; 
+     color: #FFF;
+     font-size: 50px;
+     text-align: center;
+}
+/**
+ * Se aplica al contenedor donde muestra en el pie
+ * la opción de olvidaste tu contraseña?
+ */
+.opcioncontra{
+	text-align: center;
+	margin-top: 20px;
+	font-size: 14px;
+}
+button {
+border: 2px solid #b5f2f2;  /*borde: estilo y color*/
+font: normal normal 18px quicksand;  /*fuente*/
+letter-spacing: 2px; /*separación entre las letras*/
+text-align: center; /*alineación del texto*/
+text-transform: uppercase; /*texto se transforma en mayúsculas*/
+padding: 10px;  /*tamaño del fondo*/
+border-radius: 30px 0px 30px 0px; /*ángulos de las 4 esquinas del borde/fondo*/
+}
 </style>
 <body>
 <shiro:guest><jsp:forward page="LoginView.jsp"></jsp:forward></shiro:guest>
 	<jsp:include page="NavBar.jsp" />
-	<form action="SearchUserServlet" method="post">
-		<table>
-			<tr><td>Idioma:
-				<select name="idiomas">
-						<option value=0>
-					        Inglés
-					    </option>
-					    <option value=1>
-					        Español
-					    </option>
-					    <option value=2>
-					        Francés
-					    </option>
-					    <option value=3>
-					        Alemán
-					    </option>
-					    <option value=4>
-					        Chino
-					    </option>
-					</select>
-			</td><td>Nivel:
-					<select name="nivel">
-						<option value=0>
-					        Básico
-					    </option>
-					    <option value=1>
-					        Intermedio
-					    </option>
-					    <option value=2>
-					        Alto
-					    </option>
-					    <option value=3>
-					        Nativo
-					    </option>
-					</select>
-			</td></tr>
-		</table>
-			<table>
-				<tr><td>
-					Niveles de estudios: 
-					<select name="educacion_nivel", id = "nivel_educ">
-						<option value=0>
-					        Educación primaria
-					    </option>
-					    <option value=1>
-					        Educación secundaria
-					    </option>
-					    <option value=2>
-					        Grado Universitario
-					    </option>
-					    <option value=3>
-					        Máster
-					    </option>
-					    <option value=4>
-					        Doctorado
-					    </option>
-					</select>
-				</td></tr>
-				<tr><td>
-					Grado: 
-					<select name="carreras_select">
-					  <c:forEach items="${carreras}" var="carrerasValor">
-					    <option value="${carrerasValor}">
-					        ${carrerasValor}
-					    </option>
-					  </c:forEach>
-					</select>
-				</td></tr>
+	<div id="Contenedor">
+	<div class="ContentForm">
+	<form action="SearchPlantillaServlet" method="post">
+		<div class="input-group input-group-lg">
+		<span class="input-group-addon" id="sizing-addon1"></span>
+		<input type="text" class="form-control" name="nombre_empresa" placeholder="nombre de la empresa en búsqueda" id="n_empresa" aria-describedby="sizing-addon1" required>
+				</div>
 				
-			</table>
-	<input type="submit" value="Buscar">
+		<button class="btn btn-lg btn-primary btn-block btn-signin" id="IngresoLog" type="submit">Buscar</button>
 	</form>
+	</div>
+	</div>
 	
 	<c:if test="${searchCompleted == 1}">
 		<ul>
-			<c:forEach items="${ Plantilla_list }" var="CV">
+			<c:forEach items="${ Plantilla_list }" var="plantilla">
 				<li>
-					<form action="CVViewServlet" method="get">
-						<input type="hidden" name="id" value="${CV.id}" />
-						<input type="hidden" name="CV_list" value="${ CV_list }" />
-						<input type="submit" value="${CV.name}" class="link" />
+					<form action="FillUpPlantillaServlet" method="get">
+						<input type="hidden" name="id" value="${ plantilla.id }" />
+						<input type="submit" value="${plantilla.name} - (${ plantilla.empresa.name })" class="link" />
 					</form>
 				</li>
 				</c:forEach>
 		</ul>
-	</c:if>
+	</c:if> 
 </body>
 </html>

@@ -34,7 +34,7 @@ public class CreateCVServlet extends HttpServlet {
 	    }
 
 	    // get file from classpath, resources folder
-	    private File getFileFromResources(String fileName) {
+	    File getFileFromResources(String fileName) {
 
 	        ClassLoader classLoader = getClass().getClassLoader();
 

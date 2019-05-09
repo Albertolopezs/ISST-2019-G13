@@ -25,7 +25,7 @@ public class Empresa implements Serializable {
 	private byte[] photoBackground;
 	
 	private boolean buscandoEmpleados;
-	private String[] puestosEnOferta;
+	private String puesto;
 	
 	@OneToMany(mappedBy = "empresa" , fetch = FetchType.EAGER)
 	private Collection<Usuario> empleados;
@@ -105,12 +105,12 @@ public class Empresa implements Serializable {
 		this.buscandoEmpleados = buscandoEmpleados;
 	}
 
-	public String[] getPuestosEnOferta() {
-		return puestosEnOferta;
+	public String getPuesto() {
+		return puesto;
 	}
 
-	public void setPuestosEnOferta(String[] puestosEnOferta) {
-		this.puestosEnOferta = puestosEnOferta;
+	public void setPuesto(String puesto) {
+		this.puesto = puesto;
 	}
 
 	public Collection<Usuario> getEmpleados() {

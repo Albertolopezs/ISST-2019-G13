@@ -30,7 +30,7 @@ public class EditCompanyServlet extends HttpServlet {
 		String categoria = req.getParameter( "categoria" );
 		String descripcion = req.getParameter( "descripcion" );
 		boolean buscaEmpleado = Boolean.parseBoolean(req.getParameter( "buscaEmpleado" ));
-		String[] peo = req.getParameterValues( "peo" );
+		String puesto = req.getParameter( "puesto" );
 		@SuppressWarnings("unchecked")
 		Collection<Plantilla> plantillas = (Collection<Plantilla>) req.getAttribute( "plt" );
 		String email = req.getParameter( "email" );
@@ -42,7 +42,7 @@ public class EditCompanyServlet extends HttpServlet {
 		empresa.setCategory( categoria );
 		empresa.setDescription( descripcion );
 		empresa.setBuscandoEmpleados( buscaEmpleado );
-		empresa.setPuestosEnOferta( peo );
+		empresa.setPuesto( puesto );
 		empresa.setPlantillas( plantillas );
 		
 		edao.update( empresa );
@@ -66,7 +66,7 @@ public class EditCompanyServlet extends HttpServlet {
 		String description = empresa.getDescription();
 		
 		Boolean buscandoEmpleados = empresa.isBuscandoEmpleados();
-		String[] puestosEnOferta = empresa.getPuestosEnOferta();
+		String puesto = empresa.getPuesto();
 		
 		req.getSession().setAttribute( "name" , name );
 		req.getSession().setAttribute( "NIF" , NIF );
@@ -74,7 +74,7 @@ public class EditCompanyServlet extends HttpServlet {
 		req.getSession().setAttribute( "category" , category );
 		req.getSession().setAttribute( "description" , description );
 		req.getSession().setAttribute( "buscandoEmpleados" , buscandoEmpleados );
-		req.getSession().setAttribute( "puestosEnOferta" , puestosEnOferta );
+		req.getSession().setAttribute( "puestosEnOferta" , puesto );
 
 		req.getRequestDispatcher( "/EditEmpresaProfileView.jsp" ).forward( req, resp );
 	}

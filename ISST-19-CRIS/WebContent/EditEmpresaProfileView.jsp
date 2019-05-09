@@ -66,6 +66,8 @@ input {
     border-radius: 15px;
     font-family: 'Lobster';
     background-color: transparent;
+    margin-left: auto;
+  margin-right: auto;
 }
 </style>
 <body>
@@ -108,13 +110,8 @@ input {
 	   </select>
 	   
 	<p> 
-	<div>Puestos en oferta:</div>
-	   <div>
-		  <ul>
-			<c:forEach items="${ puestosEnOferta }" var="puesto">
-				<li>${puesto}</li>
-			</c:forEach>
-		</ul>
+	<div>Puestos en oferta:
+	<input type="text" name="puesto" id="puesto" value="${puesto}" />
 	</div>
 	</div>
 	

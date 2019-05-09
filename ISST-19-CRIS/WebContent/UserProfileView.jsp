@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=iso-8859-1"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   <meta http-equiv="Content-Type" content="text/html; charset = iso-8859-1">
    <title>Perfil Usuario</title>
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <!-- Temas-->
@@ -43,13 +43,20 @@ body {
     justify-content: center;}
 
 #cont-p{
-	width:400px;
-	height:500px;
+	width:auto;
+	height:auto;
 	background-color: #F3EDED;
     border: 15px solid #ECE8E8;
 	border-radius:8px;
 	padding: 0px 9px 0px 9px;}
-
+h3 {
+font-weight: bold;
+text-align: center;
+  
+  font-size: 20px;
+  font-family: 'Lobster';
+  text-transform: uppercase;    
+}
 h1 {
 text-align: center;
 padding: 13vh;
@@ -63,6 +70,7 @@ div {
 font: normal normal 16px quicksand;
 	font-size: medium;
 	font-family: 'Lobster';
+	
 	
 }
 button {
@@ -95,19 +103,22 @@ border-radius: 30px 0px 30px 0px; /*ángulos de las 4 esquinas del borde/fondo*/
 		
 		<div class="center-column">
 		<div id="cont-p">
-		  <h3>Descripción:</h3>
+		  <h3><li>Descripción:</li></h3>
 		  ${usuario.description}
-		  <h3>Estoy en búsqueda de trabajo:</h3>
+		  <h3><li>
 		  <c:if test="${usuario.buscandoTrabajo == false}">
-		  No
+		  No estoy en búsqueda de trabajo.
 		  </c:if>
 		  <c:if test="${usuario.buscandoTrabajo == true}">
-		  Sí
-		  </c:if>
+		  Estoy en búsqueda de trabajo.
+		  </c:if></li>
+		  </h3>
+		  <h3><li>Dirección:</li></h3>
+		  ${usuario.direccion}
 
 	
 		<c:if test="${not empty usuario.curriculums}">
-		  <h3>CVs:</h3>
+		  <h3><li>CVs:</li></h3>
 	
 			<ul>
 				<c:forEach items="${ usuario.curriculums }" var="CV">

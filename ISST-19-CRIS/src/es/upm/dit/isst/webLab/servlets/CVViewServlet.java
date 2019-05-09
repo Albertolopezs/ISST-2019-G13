@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.subject.Subject;
+
 import es.upm.dit.isst.webLab.dao.CVDAO;
 import es.upm.dit.isst.webLab.dao.CVDAOImplementation;
 import es.upm.dit.isst.webLab.model.CV;
@@ -45,6 +48,17 @@ public class CVViewServlet extends HttpServlet {
 		String skills = CV.getHabilidades();
 		String intereses = CV.getIntereses();
 		
+		Boolean owner = false;
+		Subject currentUser = SecurityUtils.getSubject();
+		if (currentUser.isAuthenticated()) {
+			if (currentUser.getPrincipal().equals(email)) {
+				owner = true;
+			} else {
+				owner = false;
+			}
+		}
+		
+		req.getSession().setAttribute( "owner", owner );
 		req.getSession().setAttribute( "name" , name );
 		req.getSession().setAttribute( "apellidos" , apellidos );
 		req.getSession().setAttribute( "email" , email );

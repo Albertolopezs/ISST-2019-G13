@@ -32,11 +32,26 @@ body {
     left: 0;
     
 }
+
+.caja { 
+font-family:'Lobster'; 
+font-size: 18px; 
+font-weight: 400; 
+color: black; 
+background:white;
+text-align: left;
+top: 0;
+    left: 0;
+    display: table;
+ }
+
 div {
 	font-size: medium;
 	font-family: Times New Roman;
 	
+	
 }
+
 input[type="submit"] {
 	border-color: #7A9B1B2;
 	border-radius: 25px;
@@ -45,11 +60,13 @@ input[type="submit"] {
 	font-family: 'Lobster';
 	font-weight: bold;
 }
+
 </style>
 <body>
 <shiro:guest><jsp:forward page="LoginView.jsp"></jsp:forward></shiro:guest>
 	<jsp:include page="NavBar.jsp" />
-	<h1>Información personal</h1>
+	<div class="caja">
+	<h3>Información personal</h3>
 	<table>
 		<tr><td>Nombre:  ${name }</td></tr>
 		<tr><td>Apellidos:  ${apellidos} </td></tr>
@@ -57,33 +74,36 @@ input[type="submit"] {
 		<tr><td>Fecha de nacimiento:  ${nacimiento } <br></td></tr>
 	</table>
 	<c:if test="${ educacion_nivel != null }">
+	<h3>Educación</h3>
 	<table>
 		<c:if test="${ educacion_nivel == '0' }">
-		<tr><td>Nivel de educación: Educación primaria</td></tr>
+		<tr><td>Nivel: Educación primaria</td></tr>
 		</c:if>
 		<c:if test="${ educacion_nivel == '1'}">
-		<tr><td>Nivel de educación: Educación secundaria</td></tr>
+		<tr><td>Nivel: Educación secundaria</td></tr>
 		</c:if>
 		<c:if test="${ educacion_nivel == '2'}">
-		<tr><td>Nivel de educación: Grado</td></tr>
+		<tr><td>Nivel: Grado</td></tr>
 		</c:if>
 		<c:if test="${ educacion_nivel == '3' }">
-		<tr><td>Nivel de educación: Máster</td></tr>
+		<tr><td>Nivel: Máster</td></tr>
 		</c:if>
 		<c:if test="${ educacion_nivel =='4'}">
-		<tr><td>Nivel de educación: Doctorado</td></tr>
+		<tr><td>Nivel: Doctorado</td></tr>
 		</c:if>
 		<c:if test="${ carrera != null }">
 		<tr><td>Grado:  ${carrera} </td></tr>
 		</c:if>
 		<tr><td>Centro: ${centro} </td></tr>
-		<tr><td>Inicio:  ${inicio_est }</td><td>Final:  ${final_est }</td></tr>
+		<tr><td>Año de inicio:  ${inicio_est }</td></tr>
+		<tr><td>Año de finalización:  ${final_est }</td></tr>
 	</table>
 	</c:if>
 	<c:if test="${ puesto_name != null }">
+	<h3>Experiencia laboral</h3>
 	<table>
-		<tr><td>Nombre del puesto:  ${puesto_name }</td></tr>
-		<tr><td>Descripción:  ${descripcion} </td></tr>
+		<tr><td>${puesto_name }</td></tr>
+		<tr><td>Descripción del trabajo:  ${descripcion} </td></tr>
 		<tr><td>Empresa: ${empresa} </td></tr>
 		<tr><td>Inicio:  ${inicio_est }</td>
 		<c:if test ="${actualidad == 'on'}"><td>Final:  Actualidad</td></c:if>
@@ -92,51 +112,64 @@ input[type="submit"] {
 	</table>
 	</c:if>
 	<c:if test="${ idiomas != null }">
+	<h3>Idiomas</h3>
 	<table>
 		<c:if test="${ idiomas == '0' }">
-			<tr><td>Idioma: Ingles</td></tr>
+			<tr><td>Inglés</td></tr>
 		</c:if>
 		<c:if test="${ idiomas =='1'}">
-			<tr><td>Idioma: Español</td></tr>
+			<tr><td>Español</td></tr>
 		</c:if>
 		<c:if test="${ idiomas == '2'}">
-			<tr><td>Idioma: Francés</td></tr>
+			<tr><td>Francés</td></tr>
 		</c:if>
 		<c:if test="${ idiomas == '3' }">
-			<tr><td>Idioma: Alemán</td></tr>
+			<tr><td>Alemán</td></tr>
 		</c:if>
 		<c:if test="${ idiomas =='4'}">
-			<tr><td>Idioma: Chino</td></tr>
+			<tr><td> Chino</td></tr>
 		</c:if>
 		<c:if test="${ nivel == '0' }">
-			<tr><td>Nivel: Básico</td></tr>
+			<tr><td>Nivel básico</td></tr>
 		</c:if>
 		<c:if test="${ nivel =='1'}">
-			<tr><td>Nivel: Intermedio</td></tr>
+			<tr><td>Nivel intermedio</td></tr>
 		</c:if>
 		<c:if test="${ nivel == '2'}">
-			<tr><td>Nivel: Alto</td></tr>
+			<tr><td>Nivel alto</td></tr>
 		</c:if>
 		<c:if test="${ nivel =='3' }">
-			<tr><td>Nivel: Nativo</td></tr>
+			<tr><td>Nivel nativo</td></tr>
 		</c:if>
 	</table>
 	</c:if>
 	<c:if test="${ habilidades != null }">
-		Habilidades: ${ habilidades }<br>
+		<h3>Habilidades</h3>
+		 ${ habilidades }<br>
 	</c:if>
 	<c:if test="${ intereses != null }">
-		Intereses: ${ intereses }<br>
+		<h3>Intereses</h3>
+		 ${ intereses }<br>
 	</c:if>
+	</div>
 	<c:if test="${ owner }">
 	<form action="DeleteCVServlet" method="post">
 		<input type="hidden" name="id" value="${ id }">
 		<input type="submit" value="Elimina CV" />
 	</form>
-	<form action="UsuarioServlet" method="get">
-		<input type="hidden" name="email" value="${ email }" />
-		<input type="submit" value="Back" />
-	</form>
 	</c:if>
+	<shiro:hasRole name="usuario">
+		<form action="UsuarioServlet" method="get">
+			<input type="hidden" name="email" value="${ email }" />
+			<input type="submit" value="Back" />
+		</form>
+	</shiro:hasRole>
+	<shiro:hasRole name="empresa">
+		<form action="SearchUserServlet" method="post">
+			<input type="hidden" name="CV_list" value="${ CV_list }" />
+			<input type="submit" value="Back" />
+		</form>
+	</shiro:hasRole>
+	
 </body>
 </html>

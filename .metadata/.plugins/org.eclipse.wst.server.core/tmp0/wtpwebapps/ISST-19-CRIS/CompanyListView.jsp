@@ -67,8 +67,8 @@ border-radius: 30px 0px 30px 0px; /*ángulos de las 4 esquinas del borde/fondo*/
 	
 	<h1>Lista de empresas</h1>
 	<div>
-		<ul>
-			<c:forEach items="${company_list}" var="company">
+		
+			<ul><c:forEach items="${company_list}" var="company">
 				<li>
 					<form action="EmpresaServlet" method="get">
 						<input type="hidden" name="email" value="${ company.email }" />

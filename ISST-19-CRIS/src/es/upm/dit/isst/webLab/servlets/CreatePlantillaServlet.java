@@ -25,7 +25,7 @@ public class CreatePlantillaServlet extends HttpServlet {
 		boolean habilidades = Boolean.parseBoolean(req.getParameter( "habilidades" ));
 		boolean intereses = Boolean.parseBoolean(req.getParameter( "intereses" ));
 		boolean titulacion = Boolean.parseBoolean(req.getParameter( "titulacion" ));
-		String name = req.getParameter( "name" );
+		String name = req.getParameter( "nameplantilla" );
 		String email = req.getParameter( "email" );
 		
 		Empresa empresa = EmpresaDAOImplementation.getInstance().read(email);

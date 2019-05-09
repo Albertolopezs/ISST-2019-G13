@@ -42,6 +42,8 @@ div{
      font-size: medium;
      font-family: 'Lobster';
      font-weight: bold;
+     text-align: center;
+     
 }
 h3{
 font-size: 10px;
@@ -63,13 +65,14 @@ button{text-decoration: none;
     font-family: 'Lobster';
     background-color: transparent;
     }
-input[type="submit"] {
+input {
 	border-color: #A9B1B2;
 	border-radius: 25px;
 	background-color: #A9B1B2;
 	font-size: medium;
 	font-family: 'Lobster';
 	font-weight: bold;
+
 }
 </style>
 <body>
@@ -108,8 +111,11 @@ input[type="submit"] {
 		<c:if test="${educacion}">
 
 			<h2>Educación</h2>
+			
 			<table>
+			
 				<tr><td>
+				<div class="form-group">
 					Niveles de estudios: 
 					<select name="educacion_nivel", id = "nivel_educ">
 						<option value=0>
@@ -129,10 +135,12 @@ input[type="submit"] {
 					    </option>
 					</select>
 					${ document.getElementById('nivel_educ').value}
+				</div>
 				</td></tr>
 				
 				
 				<tr><td>
+				<div class="form-group">
 					Grado: 
 					<select name="carreras_select">
 					  <c:forEach items="${carreras}" var="carrerasValor">
@@ -141,7 +149,9 @@ input[type="submit"] {
 					    </option>
 					  </c:forEach>
 					</select>
+				</div>
 				</td></tr>
+				</table>
 				<div class="form-group"> 
         <label for="centro" class="control-label">Centro:</label>
         <input type="text" class="form-control" name="centro" id="centro" value="">
@@ -169,7 +179,7 @@ input[type="submit"] {
     </div>
      <div class="form-group"> 
         <label for="descrip" class="control-label">Descripción:</label>
-        <input type="text" class="form-control" name ="descripcion "placeholder = "Descripción sobre el trabajo" >
+        <input type="text" class="form-control" name ="descripcion "placeholder = "Descripción del trabajo realizado" >
     </div>
     <div class="form-group"> 
         <label for="añoi" class="control-label">Año de inicio:</label>
@@ -183,11 +193,15 @@ input[type="submit"] {
         <input type="checkbox" name= "actualidad" >Hasta la actualidad<br>
     <button type="button">Añadir</button>
 		</c:if>
+		<div class="form-group">
 		
 		<c:if test="${idiomas}">
 		<h2>Idiomas</h2>
+		
+		<div class="form-group">
 		<table>
-			<tr><td>Idioma:
+			<tr>
+			<td>Idioma:
 				<select name="idiomas">
 						<option value=0>
 					        Inglés
@@ -205,7 +219,10 @@ input[type="submit"] {
 					        Chino
 					    </option>
 					</select>
-			</td><td>Nivel:
+				</td>
+			</tr>
+			<tr>
+				<td>Nivel:
 					<select name="nivel">
 						<option value=0>
 					        Básico
@@ -220,23 +237,33 @@ input[type="submit"] {
 					        Nativo
 					    </option>
 					</select>
-			</td></tr>
+				</td>
+			</tr>
 			<tr><td>
+			<div class="form-group">
 				<button type="button">Añadir</button>
+			</div>
 			</td></tr>
 		</table>
+		</div>
 		</c:if>
+		</div>
+		
 		
 		<c:if test="${habilidades}">
 		<h2>Habilidades</h2>
-		<input type="text" name="skill" id="skill" value="" /><br>
-		</c:if>
-		<c:if test="${intereses}">
-		<h2>Intereses</h2>
-		<input type="text" name="interes" id="interes" value="" /><br>
+		<div class="form-group"> 
+        <input input type="text" class="form-control" name="skill" id="skill" value="">
+    </div>
 		</c:if>
 		
-		<input type="hidden" name="email" value="${email}" /> <br>
+		<c:if test="${intereses}">
+		<h2>Intereses</h2>
+		<div class="form-group"> 
+        <input input type="text" class="form-control" name="intereses" id="intereses" value="">
+    </div>
+		</c:if>
+		
 	<input type="submit" value="Siguiente">
 </form>
 

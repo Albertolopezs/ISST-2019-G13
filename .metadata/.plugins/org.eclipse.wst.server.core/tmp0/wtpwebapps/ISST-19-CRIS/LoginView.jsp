@@ -32,6 +32,9 @@ body {
     left: 0;
     
 }
+.btn-register > a{
+color: #fff
+}
 /**
  * se aplica el ancho, margen centrado
  * borde de un pixel con redondeado, y rellenado
@@ -42,7 +45,7 @@ body {
 	margin: 50px auto;
 	background-color: #F3EDED;
         border: 15px solid #ECE8E8;
-	height: 200px;
+	height: 270px;
 	border-radius:8px;
 	padding: 0px 9px 0px 9px;
 }
@@ -114,7 +117,7 @@ border-radius: 30px 0px 30px 0px; /*ángulos de las 4 esquinas del borde/fondo*/
 	    <form action="LoginServlet" method="post">
 	    <div id="Contenedor">
 <div class="ContentForm">
-			<form action="" method="post" name="FormEntrar">
+		<form action="" method="post" name="FormEntrar">
 		 		<div class="input-group input-group-lg">
 				  <span class="input-group-addon" id="sizing-addon1"><i class="glyphicon glyphicon-envelope"></i></span>
 				  <input type="email" class="form-control" name="correo" placeholder="Correo" id="Correo" aria-describedby="sizing-addon1" required>
@@ -125,10 +128,11 @@ border-radius: 30px 0px 30px 0px; /*ángulos de las 4 esquinas del borde/fondo*/
 				  <input type="password" name="cons" class="form-control" placeholder="******" aria-describedby="sizing-addon1" required>
 				</div>
 			<br>
+				
 				<button class="btn btn-lg btn-primary btn-block btn-signin" id="IngresoLog" type="submit">Login</button>
+				<button class="btn btn-lg btn-primary btn-block btn-register" type="submit"><a href="SignUp.jsp">Registrarse</a></button>
 		</form>
-		 </div>	
-		 </div>
-		<a href="SignUp.jsp">Registrarse</a></div>
+</div>	
+		
 </body>
 </html>

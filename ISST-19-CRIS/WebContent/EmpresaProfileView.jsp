@@ -33,6 +33,7 @@ body {
     top: 0;
     left: 0;
     
+    
 }
 .center-row{
 	display: flex;
@@ -44,8 +45,8 @@ body {
     justify-content: center;}
 
 #cont-p{
-	width:400px;
-	height:500px;
+	width:auto;
+	height:auto;
 	background-color: #F3EDED;
     border: 15px solid #ECE8E8;
 	border-radius:8px;
@@ -64,8 +65,9 @@ padding: 13vh;
   text-transform: uppercase;    
 }
 h3 {
+font-weight: bold;
 text-align: center;
-  font-weight: normal;
+  
   font-size: 20px;
   font-family: 'Lobster';
   text-transform: uppercase;    
@@ -108,44 +110,48 @@ border-radius: 30px 0px 30px 0px; /*ángulos de las 4 esquinas del borde/fondo*/
 		
 		<div class="center-column">
 		<div id="cont-p">
-		  <h3>Categoría:</h3>
+		
+		  <h3><li>Categoría:</h3>
 		  ${empresa.category}
+		  </li>
 		<p>
-		  <h3>Descripción:</h3>
+		  <h3><li>Descripción:</h3>
 		  ${empresa.description}
+		  </li>
 		<p>
-		  <h3>¿Buscando empleados?:</h3>
-		  <c:if test="${empresa.buscandoEmpleados == false}">
-		  No
+		  <h3>
+		  <li><c:if test="${empresa.buscandoEmpleados == false}">
+		  No estoy buscando empleados.
 		  </c:if>
 		  <c:if test="${empresa.buscandoEmpleados == true}">
-		  Sí
+		  Estoy buscando empleados.
 		  </c:if>
+		  </h3>
+		  </li>
 		<p>
-		  <h3>Puestos en oferta:</h3>
-	
-			<ul>
-				<c:forEach items="${ empresa.puestosEnOferta }" var="puesto">
-					<li>${puesto}</li>
-				</c:forEach>
-			</ul>
+		  <h3><li>Puestos en oferta:</h3>
+			${empresa.puesto}
+			</li>
+		</p>
+			
 	
 		<p> 
 	
 		<c:if test="${not empty empresa.plantillas}">
-		  <h3>Plantillas:</h3>
+		  <h3><li>Plantillas:</h3>
 	
 			<ul>
 				<c:forEach items="${empresa.plantillas}" var="plantilla">
-					<li>
+					
 						<form action="PlantillaViewServlet" method="get">
-							<input type="hidden" name="id" value="${plantilla.id}" />
+							<input type="submit" value="${plantilla.id}" />
+							<input type="hidden" name="id" value="${ plantilla.id }" />
 							<input type="submit" value="${plantilla.name}" class="link" />
 						</form>
-					</li>
+					
 				</c:forEach>
 			</ul>
-		  
+		  </li>
 		  </c:if>
 	
 	

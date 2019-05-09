@@ -58,6 +58,7 @@ padding: 13vh;
 }
 
 div {
+text-align: center;
 font: normal normal 16px quicksand;
 	font-size: medium;
 	font-family: 'Lobster';
@@ -65,13 +66,24 @@ font: normal normal 16px quicksand;
 }
 
 input {
+text-align: center;
 	text-decoration: none;
-    padding: 8px;
+    padding: 10px;
     font-weight: 400;
     font-size: 15px;
     border-radius: 15px;
     font-family: 'Lobster';
     background-color: transparent;
+    margin-left: auto;
+  margin-right: auto;
+}
+ul{
+margin-left: 0;
+padding-left: 0;
+}
+li{
+margin-left: 0;
+padding-left: 0;
 }
 </style>
 <body>
@@ -79,7 +91,7 @@ input {
 <jsp:include page="NavBar.jsp" />
 	<div>
 		<form action="EditUserPhotoServlet" method="post" enctype="multipart/form-data">
-			<input type="file" name="file" />
+			<p><input type="file" name="file" /></p>
 		<p><button type="submit" name="email" value="${usuario.email}">Subir foto perfil</button>
 		</form>
 	</div>

@@ -66,6 +66,8 @@ input {
     border-radius: 15px;
     font-family: 'Lobster';
     background-color: transparent;
+    margin-left: auto;
+  margin-right: auto;
 }
 </style>
 <body>
@@ -79,36 +81,37 @@ input {
    <div>
 	<p>
 	<div>Nombre de la empresa:
-	<input type="text" name="nombre" id="nombre" value="" />
+	<input type="text" name="nombre" id="nombre" value="${name }" />
 	</div>
 	
 	<p> 
 	<div>NIF: 
-	<input type="text" name="NIF" id="NIF" value="" />
+	<input type="text" name="NIF" id="NIF" value="${NIF }" />
 	</div>
 	<p> 
 	<div>Categoría:
-	<input type="text" name="categoria" id="categoria" value="" />
+	<input type="text" name="categoria" id="categoria" value="${category }" />
 	</div>
 	<p> 
 	<div>Descripción:
-	<input type="text" name="descripcion" id="descripcion" value="" />
+	<input type="text" name="descripcion" id="descripcion" value="${description }" />
 	</div>
 	<p>
 	¿Estás buscando empleados? 
 	   <select name="buscaEmpleado">
+	   <c:if test="${buscandoEmpleados == true }">
+	   			<option value="true" selected>Sí</option>
+	   			<option value="false" >No</option>
+	   </c:if>
+		<c:if test="${buscandoEmpleados == false }">
 			<option value="true">Sí</option>
-			<option value="false" selected>No</option>
+	   		<option value="false" selected>No</option>
+		</c:if>
 	   </select>
 	   
 	<p> 
-	<div>Puestos en oferta:</div>
-	   <div>
-		  <ul>
-			<c:forEach items="${ empresa.puestosEnOferta }" var="puesto">
-				<li>${puesto}</li>
-			</c:forEach>
-		</ul>
+	<div>Puestos en oferta:
+	<input type="text" name="puesto" id="puesto" value="${puesto}" />
 	</div>
 	</div>
 	

@@ -58,6 +58,7 @@ padding: 13vh;
 }
 
 div {
+text-align: center;
 font: normal normal 16px quicksand;
 	font-size: medium;
 	font-family: 'Lobster';
@@ -65,13 +66,24 @@ font: normal normal 16px quicksand;
 }
 
 input {
+text-align: center;
 	text-decoration: none;
-    padding: 8px;
+    padding: 10px;
     font-weight: 400;
     font-size: 15px;
     border-radius: 15px;
     font-family: 'Lobster';
     background-color: transparent;
+    margin-left: auto;
+  margin-right: auto;
+}
+ul{
+margin-left: 0;
+padding-left: 0;
+}
+li{
+margin-left: 0;
+padding-left: 0;
 }
 </style>
 <body>
@@ -79,7 +91,7 @@ input {
 <jsp:include page="NavBar.jsp" />
 	<div>
 		<form action="EditUserPhotoServlet" method="post" enctype="multipart/form-data">
-			<input type="file" name="file" />
+			<p><input type="file" name="file" /></p>
 		<p><button type="submit" name="email" value="${usuario.email}">Subir foto perfil</button>
 		</form>
 	</div>
@@ -87,27 +99,23 @@ input {
 	<form action="EditUserServlet" method="post">
 		<p> 
 		<div>Nombre:
-		<input type="text" name="nombre" id="nombre" value=""/>
+		<input type="text" name="nombre" id="nombre" value="${name }"/>
 	</div>
 		<p> 
 		<div>Primer apellido: 
-		<input type="text" name="apell1" id="apell1" value=""/>
+		<input type="text" name="apell1" id="apell1" value="${apell1}"/>
 	</div>
 		<p> 
 		<div>Segundo apellido:
-		<input type="text" name="apell2" id="apell2" value=""/>
+		<input type="text" name="apell2" id="apell2" value="${apell2 }"/>
 	</div>
 		<p> 
 		<div>Dirección:
-		<input type="text" name="direccion" id="direccion" value=""/>
+		<input type="text" name="direccion" id="direccion" value="${direccion }"/>
 	</div>
 		<p> 
 		<div>Descripción:
-		<input type="text" name="descripcion" id="descripcion" value=""/>
-	</div>
-		<p> 
-		<div>Estudios:
-		<input type="text" name="estudios" id="estudios" value=""/>
+		<input type="text" name="descripcion" id="descripcion" value="${descripcion }"/>
 	</div>
 		<p> 
 		¿Estás buscando trabajo? 

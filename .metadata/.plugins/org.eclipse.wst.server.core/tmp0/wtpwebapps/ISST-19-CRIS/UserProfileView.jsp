@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=iso-8859-1"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   <meta http-equiv="Content-Type" content="text/html; charset = iso-8859-1">
    <title>Perfil Usuario</title>
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <!-- Temas-->
@@ -33,7 +33,30 @@ body {
     left: 0;
     
 }
+.center-row{
+	display: flex;
+    justify-content: space-around;}
+    
+.center-column{
+	display: flex;
+	flex-direction:column;
+    justify-content: center;}
 
+#cont-p{
+	width:auto;
+	height:auto;
+	background-color: #F3EDED;
+    border: 15px solid #ECE8E8;
+	border-radius:8px;
+	padding: 0px 9px 0px 9px;}
+h3 {
+font-weight: bold;
+text-align: center;
+  
+  font-size: 20px;
+  font-family: 'Lobster';
+  text-transform: uppercase;    
+}
 h1 {
 text-align: center;
 padding: 13vh;
@@ -47,6 +70,7 @@ div {
 font: normal normal 16px quicksand;
 	font-size: medium;
 	font-family: 'Lobster';
+	
 	
 }
 button {
@@ -69,46 +93,65 @@ border-radius: 30px 0px 30px 0px; /*ángulos de las 4 esquinas del borde/fondo*/
 </style>
 	
 <body>
+
 <shiro:guest><jsp:forward page="LoginView.jsp"></jsp:forward></shiro:guest>
-<script>
-document.getElementById("imagenUsuario").src = "data:image/png;base64," + ${usuario.photo};
-</script>
 	<jsp:include page="NavBar.jsp" />
-	<h1>${usuario.name} ${usuario.apell1} ${usuario.apell2}</h1>
-	<div> <img id="imagenUsuario" src="data:image/jpeg;base64,${foto}" width="100" height="100" /> </div>
-	<p>
-	  <div>Estoy en búsqueda de trabajo:</div>
-	  <c:if test=" ${usuario.buscandoTrabajo== false}">
-	  No
-	  </c:if>
-	  <c:if test=" ${usuario.buscandoTrabajo == true}">
-	  Sí
-	  </c:if>
-	<p>
-	  <div>Sobre mí:</div>
-	  ${usuario.description}
-    <p>
-    <c:if test="${not empty usuario.curriculums}">
-	  <div>CVs:</div>
-	  <div>
-		<ul>
-			<c:forEach items="${ usuario.curriculums }" var="CV">
+			<h2>${usuario.name} ${usuario.apell1} ${usuario.apell2}</h2>
+	<div class="center-row">
+
+		<img id="imagenUsuario" src="data:image/jpeg;base64,${foto}" width="350" height="400" />
+		
+		<div class="center-column">
+		<div id="cont-p">
+		  <h3><li>Descripción:</li></h3>
+		  ${usuario.description}
+		  <h3><li>
+		  <c:if test="${usuario.buscandoTrabajo == false}">
+		  No estoy en búsqueda de trabajo.
+		  </c:if>
+		  <c:if test="${usuario.buscandoTrabajo == true}">
+		  Estoy en búsqueda de trabajo.
+		  </c:if></li>
+		  </h3>
+		  <h3><li>Dirección:</li></h3>
+		  ${usuario.direccion}
+
+	
+		<c:if test="${not empty usuario.curriculums}">
+		  <h3><li>CVs:</li></h3>
+	
+			<ul>
+				<c:forEach items="${ usuario.curriculums }" var="CV">
 				<li>
 					<form action="CVViewServlet" method="get">
 						<input type="hidden" name="id" value="${CV.id}" />
 						<input type="submit" value="${CV.name}" class="link" />
 					</form>
 				</li>
-			</c:forEach>
-		</ul>
-	  </div>
-	  </c:if>
-	  <div>
+				</c:forEach>
+			</ul>
+		  
+		  </c:if>
+	
+	
+		
+		<p>
 		<c:if test="${ owner }">
 			<a href="CreateUserCVPlantilla.jsp?usuario=${usuario}">Crear CV</a>
-			<p>					
-			<p><a href="EditUserProfileView.jsp?usuario=${usuario}">Modificar datos</a>
+	
+			<form action="EditUserServlet" method="get" name="FormEntrar">
+					  <input type="hidden" class="form-control" name="correo" placeholder="Correo" id="correo" aria-describedby="sizing-addon1" value="${email}">
+	
+					<button class="btn btn-lg btn-primary btn-block btn-register" type="submit">Modificar datos</button>
+			</form>
+	
+	
+	
 		</c:if>
 		</div>
+		</div>
+	</div>
+
+
 </body>
 </html>
