@@ -7,7 +7,7 @@ pageEncoding="ISO-8859-1" import="java.io.*, java.util.*, java.net.*"%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Búsqueda plantillas</title>
+<title>Búsqueda Empresas</title>
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <!-- Temas-->
@@ -121,7 +121,7 @@ border-radius: 30px 0px 30px 0px; /*ángulos de las 4 esquinas del borde/fondo*/
 	<jsp:include page="NavBar.jsp" />
 	<div id="Contenedor">
 	<div class="ContentForm">
-	<form action="SearchPlantillaServlet" method="post">
+	<form action="SearchEmpresaServlet" method="post">
 		<div class="input-group input-group-lg">
 		<span class="input-group-addon" id="sizing-addon1"></span>
 		<input type="text" class="form-control" name="nombre_empresa" placeholder="nombre de la empresa en búsqueda" id="n_empresa" aria-describedby="sizing-addon1" required>
@@ -134,11 +134,11 @@ border-radius: 30px 0px 30px 0px; /*ángulos de las 4 esquinas del borde/fondo*/
 	
 	<c:if test="${searchCompleted == 1}">
 		<ul>
-			<c:forEach items="${ Plantilla_list }" var="plantilla">
+			<c:forEach items="${ Empresa_list }" var="empresa">
 				<li>
-					<form action="FillUpPlantillaServlet" method="get">
-						<input type="hidden" name="id" value="${ plantilla.id }" />
-						<input type="submit" value="${plantilla.name} - (${ plantilla.empresa.name })" class="link" />
+					<form action="EmpresaServlet" method="get">
+						<input type="hidden" name="email" value="${ empresa.email }" />
+						<input type="submit" value="${empresa.name}" class="link" />
 					</form>
 				</li>
 				</c:forEach>

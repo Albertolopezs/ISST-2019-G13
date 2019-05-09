@@ -165,8 +165,8 @@ input[type="submit"] {
 		</form>
 	</shiro:hasRole>
 	<shiro:hasRole name="empresa">
-		<form action="SearchUserServlet" method="post">
-			<input type="hidden" name="CV_list" value="${ CV_list }" />
+		<form action="EmpresaServlet" method="get">
+			<input type="hidden" name="email" value="${ empresa_email }" />
 			<input type="submit" value="Back" />
 		</form>
 	</shiro:hasRole>

@@ -20,6 +20,7 @@ import es.upm.dit.isst.webLab.dao.PlantillaDAO;
 import es.upm.dit.isst.webLab.dao.PlantillaDAOImplementation;
 import es.upm.dit.isst.webLab.dao.UsuarioDAO;
 import es.upm.dit.isst.webLab.dao.UsuarioDAOImplementation;
+import es.upm.dit.isst.webLab.model.Empresa;
 import es.upm.dit.isst.webLab.model.Plantilla;
 import es.upm.dit.isst.webLab.model.Usuario;
 
@@ -69,6 +70,7 @@ public class FillUpPlantillaServlet extends HttpServlet {
 		int id = Integer.parseInt(req.getParameter( "id" ));
 		PlantillaDAO pdao = PlantillaDAOImplementation.getInstance();
 		Plantilla plantilla = pdao.read(id);
+		Empresa empresa = plantilla.getEmpresa();
 		UsuarioDAO udao = UsuarioDAOImplementation.getInstance();
 		Subject currentUser = SecurityUtils.getSubject();
 		String email = (String) currentUser.getPrincipal();
@@ -92,6 +94,7 @@ public class FillUpPlantillaServlet extends HttpServlet {
 		req.getSession().setAttribute( "habilidades" , habilidades );
 		req.getSession().setAttribute( "intereses" , intereses );
 		req.getSession().setAttribute( "usuario", usuario );
+		req.getSession().setAttribute( "empresa", empresa );
 		getServletContext().getRequestDispatcher( "/CreateCV.jsp" ).forward( req, resp );
 	}
 }

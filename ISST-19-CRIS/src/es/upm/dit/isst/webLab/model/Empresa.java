@@ -128,9 +128,5 @@ public class Empresa implements Serializable {
 	public void setPlantillas(Collection<Plantilla> plantillas) {
 		this.plantillas = plantillas;
 	}
-	
-	
-	
-	
 
 }

@@ -173,10 +173,6 @@ input {
         <label for="puesto" class="control-label">Puesto:</label>
         <input type="text" class="form-control" name="puesto_name" id="expL" value="" >
     </div>
-    <div class="form-group"> 
-        <label for="empresa" class="control-label">Empresa:</label>
-        <input type="text" class="form-control" name="empresa" id="empresa_name" value="" >
-    </div>
      <div class="form-group"> 
         <label for="descrip" class="control-label">Descripción:</label>
         <input type="text" class="form-control" name ="descripcion "placeholder = "Descripción del trabajo realizado" >
@@ -263,7 +259,7 @@ input {
         <input input type="text" class="form-control" name="intereses" id="intereses" value="">
     </div>
 		</c:if>
-		
+	<input type="hidden" name="empresa_email" value="${ empresa.email }" />
 	<input type="submit" value="Siguiente">
 </form>
 

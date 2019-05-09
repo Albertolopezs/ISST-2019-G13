@@ -1,6 +1,8 @@
 package es.upm.dit.isst.webLab.servlets;
 
 import java.io.IOException;
+import java.util.Collection;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,7 +14,9 @@ import org.apache.shiro.subject.Subject;
 
 import es.upm.dit.isst.webLab.dao.CVDAO;
 import es.upm.dit.isst.webLab.dao.CVDAOImplementation;
+import es.upm.dit.isst.webLab.dao.EmpresaDAOImplementation;
 import es.upm.dit.isst.webLab.model.CV;
+import es.upm.dit.isst.webLab.model.Empresa;
 
 
 @WebServlet("/CVViewServlet")
@@ -22,6 +26,8 @@ public class CVViewServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		CVDAO cdao = CVDAOImplementation.getInstance();
 		String id = req.getParameter( "id" );
+		Subject currentUser = SecurityUtils.getSubject();
+		String empresa_email = req.getParameter( "empresa_email" );
 		
 		CV CV = cdao.read( Integer.parseInt( id ) );
 		String name = CV.getName();
@@ -32,11 +38,11 @@ public class CVViewServlet extends HttpServlet {
 		String educacion_nivel = CV.getEducacionNivel();
 		String carrera = CV.getCarrera();
 		String centro = CV.getCentro();
+		String empresa = CV.getEmpresaCV();
 		String inicio_est = CV.getInicioEst();
 		String final_est = CV.getFinalEst();
 		
 		String puesto_name = CV.getPuestoNombre();
-		String empresa = CV.getEmpresaCV();
 		String descripcion = CV.getDescripcion();
 		String ini_job = CV.getInicioJob();
 		String fin_job = CV.getFinalJob();
@@ -49,7 +55,6 @@ public class CVViewServlet extends HttpServlet {
 		String intereses = CV.getIntereses();
 		
 		Boolean owner = false;
-		Subject currentUser = SecurityUtils.getSubject();
 		if (currentUser.isAuthenticated()) {
 			if (currentUser.getPrincipal().equals(email)) {
 				owner = true;
@@ -58,6 +63,7 @@ public class CVViewServlet extends HttpServlet {
 			}
 		}
 		
+		req.getSession().setAttribute( "empresa_email", empresa_email );
 		req.getSession().setAttribute( "owner", owner );
 		req.getSession().setAttribute( "name" , name );
 		req.getSession().setAttribute( "apellidos" , apellidos );
