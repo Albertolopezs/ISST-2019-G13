@@ -114,17 +114,17 @@ public class SearchUserServlet extends HttpServlet {
 				}
 				
 				
-				/*//Comprobamos la carrera
+				//Comprobamos la carrera
 				String carrera_s  = cv.getCarrera();
 				if(carrera_s != null) {
-					if(carrera_s != carrera) {
+					if(!carrera_s.contentEquals(carrera)) {
 						iterator.remove();
 						continue;
 					}
 				} else {
 					iterator.remove();
 					continue;
-				}*/
+				}
 				
 				
 				//Comprobamos el idioma
@@ -171,6 +171,10 @@ public class SearchUserServlet extends HttpServlet {
 		req.getSession().setAttribute( "carreras" , carreras );
 		req.getSession().setAttribute( "searchCompleted" , 1 );
 		req.getSession().setAttribute( "CV_list", CVColl );
+		req.getSession().setAttribute( "educ" , educ );
+		req.getSession().setAttribute( "carr" , carrera );
+		req.getSession().setAttribute( "idi" , idi );
+		req.getSession().setAttribute( "nivel" , nivel );
 		getServletContext().getRequestDispatcher( "/SearchUsers.jsp" ).forward( req, resp );
 		
 		
