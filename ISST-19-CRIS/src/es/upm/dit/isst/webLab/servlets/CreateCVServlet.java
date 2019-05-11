@@ -10,8 +10,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import es.upm.dit.isst.webLab.dao.CVDAO;
 import es.upm.dit.isst.webLab.dao.CVDAOImplementation;
+import es.upm.dit.isst.webLab.dao.EmpresaDAOImplementation;
 import es.upm.dit.isst.webLab.dao.UsuarioDAOImplementation;
 import es.upm.dit.isst.webLab.model.CV;
+import es.upm.dit.isst.webLab.model.Empresa;
 import es.upm.dit.isst.webLab.model.Usuario;
 import java.io.*;
 import java.util.*;
@@ -34,7 +36,7 @@ public class CreateCVServlet extends HttpServlet {
 	    }
 
 	    // get file from classpath, resources folder
-	    private File getFileFromResources(String fileName) {
+	    File getFileFromResources(String fileName) {
 
 	        ClassLoader classLoader = getClass().getClassLoader();
 
@@ -87,6 +89,12 @@ public class CreateCVServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String empresa_email = req.getParameter( "empresa_email" );
+		Empresa empresa = null;
+		if (empresa_email != null) {
+			empresa = EmpresaDAOImplementation.getInstance().read(empresa_email);
+		}
+		
 		String name_cv = req.getParameter("full_name");
 		//Informacion personal
 		String nombre = req.getParameter( "nombre");
@@ -101,7 +109,6 @@ public class CreateCVServlet extends HttpServlet {
 		String final_estudios = req.getParameter( "final_estudios");
 		//Experiencia laboral
 		String puesto_name = req.getParameter( "puesto_name");
-		String empresa = req.getParameter( "empresa");
 		String descripcion = req.getParameter( "descripcion");
 		String i_trabajo = req.getParameter( "inicio_trabajo");
 		String f_trabajo = req.getParameter( "final_trabajo");
@@ -131,7 +138,9 @@ public class CreateCVServlet extends HttpServlet {
 		
 		CV.setPuestoNombre(puesto_name);
 		CV.setDescripcion(descripcion);
-		CV.setEmpresaCV(empresa);
+		if (empresa_email != null) {
+			CV.setEmpresa(empresa);
+		}
 		CV.setInicioJob(i_trabajo);
 		CV.setFinalJob(f_trabajo);
 		CV.setActualidad(actualidad);

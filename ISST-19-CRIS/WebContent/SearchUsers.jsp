@@ -145,8 +145,17 @@ select {
 	</form>
 	
 	<c:if test="${searchCompleted == 1}">
-	<!-- Mostramos la lista de usuarios -->
-	
+		<ul>
+			<c:forEach items="${ Plantilla_list }" var="CV">
+				<li>
+					<form action="CVViewServlet" method="get">
+						<input type="hidden" name="id" value="${CV.id}" />
+						<input type="hidden" name="CV_list" value="${ CV_list }" />
+						<input type="submit" value="${CV.name}" class="link" />
+					</form>
+				</li>
+				</c:forEach>
+		</ul>
 	</c:if>
 </body>
 </html>

@@ -130,7 +130,6 @@ border-radius: 30px 0px 30px 0px; /*ángulos de las 4 esquinas del borde/fondo*/
 		<button class="btn btn-lg btn-primary btn-block btn-signin" id="IngresoLog" type="submit">Buscar</button>
 	</form>
 	</div>
-	</div>
 	
 	<c:if test="${searchCompleted == 1}">
 		<ul>
@@ -144,5 +143,8 @@ border-radius: 30px 0px 30px 0px; /*ángulos de las 4 esquinas del borde/fondo*/
 				</c:forEach>
 		</ul>
 	</c:if> 
+	</div>
+	
+	
 </body>
 </html>

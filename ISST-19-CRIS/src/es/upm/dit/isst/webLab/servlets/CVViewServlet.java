@@ -1,15 +1,22 @@
 package es.upm.dit.isst.webLab.servlets;
 
 import java.io.IOException;
+import java.util.Collection;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.subject.Subject;
+
 import es.upm.dit.isst.webLab.dao.CVDAO;
 import es.upm.dit.isst.webLab.dao.CVDAOImplementation;
+import es.upm.dit.isst.webLab.dao.EmpresaDAOImplementation;
 import es.upm.dit.isst.webLab.model.CV;
+import es.upm.dit.isst.webLab.model.Empresa;
 
 
 @WebServlet("/CVViewServlet")
@@ -19,6 +26,8 @@ public class CVViewServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		CVDAO cdao = CVDAOImplementation.getInstance();
 		String id = req.getParameter( "id" );
+		Subject currentUser = SecurityUtils.getSubject();
+		String empresa_email = req.getParameter( "empresa_email" );
 		
 		CV CV = cdao.read( Integer.parseInt( id ) );
 		String name = CV.getName();
@@ -26,17 +35,17 @@ public class CVViewServlet extends HttpServlet {
 		String email = CV.getEmail();
 		String nacimiento = CV.getNacimiento();
 		
-		String educacion_nivel = CV.getEducacionNivel();
+		String educacion_nivel = CV.getEducacion_nivel();
 		String carrera = CV.getCarrera();
 		String centro = CV.getCentro();
-		String inicio_est = CV.getInicioEst();
-		String final_est = CV.getFinalEst();
+		String empresa = CV.getEmpresa_cv();
+		String inicio_est = CV.getInicio_est();
+		String final_est = CV.getFinal_est();
 		
-		String puesto_name = CV.getPuestoNombre();
-		String empresa = CV.getEmpresaCV();
+		String puesto_name = CV.getPuesto_nombre();
 		String descripcion = CV.getDescripcion();
-		String ini_job = CV.getInicioJob();
-		String fin_job = CV.getFinalJob();
+		String ini_job = CV.getInicio_job();
+		String fin_job = CV.getFinal_job();
 		String actualidad = CV.getActualidad();
 		
 		String idiomas = CV.getIdiomas();
@@ -45,6 +54,17 @@ public class CVViewServlet extends HttpServlet {
 		String skills = CV.getHabilidades();
 		String intereses = CV.getIntereses();
 		
+		Boolean owner = false;
+		if (currentUser.isAuthenticated()) {
+			if (currentUser.getPrincipal().equals(email)) {
+				owner = true;
+			} else {
+				owner = false;
+			}
+		}
+		
+		req.getSession().setAttribute( "empresa_email", empresa_email );
+		req.getSession().setAttribute( "owner", owner );
 		req.getSession().setAttribute( "name" , name );
 		req.getSession().setAttribute( "apellidos" , apellidos );
 		req.getSession().setAttribute( "email" , email );

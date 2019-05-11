@@ -6,7 +6,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Collection;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,6 +16,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
 
+import es.upm.dit.isst.webLab.dao.CVDAO;
+import es.upm.dit.isst.webLab.dao.CVDAOImplementation;
 import es.upm.dit.isst.webLab.dao.PlantillaDAO;
 import es.upm.dit.isst.webLab.dao.PlantillaDAOImplementation;
 import es.upm.dit.isst.webLab.dao.UsuarioDAO;
@@ -26,10 +27,9 @@ import es.upm.dit.isst.webLab.model.Empresa;
 import es.upm.dit.isst.webLab.model.Plantilla;
 import es.upm.dit.isst.webLab.model.Usuario;
 
-
-@WebServlet("/FillUpPlantillaServlet")
-public class FillUpPlantillaServlet extends HttpServlet {     
-
+@WebServlet("/ImportCVDataServlet")
+public class ImportCVDataServlet extends HttpServlet {
+ 
 	public ArrayList<String> get_carreras() throws IOException {
 
         CreateCVServlet main = new CreateCVServlet();
@@ -69,44 +69,40 @@ public class FillUpPlantillaServlet extends HttpServlet {
     }
 	
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		int PlantillaId = Integer.parseInt(req.getParameter( "id" ));
+		int CVId	= Integer.parseInt(req.getParameter( "CV" ));
 		
-		int id = Integer.parseInt(req.getParameter( "id" ));
 		Subject currentUser = SecurityUtils.getSubject();
 		String email = (String) currentUser.getPrincipal();
 		UsuarioDAO udao = UsuarioDAOImplementation.getInstance();
 		Usuario usuario = udao.read(email);
+		CVDAO cdao = CVDAOImplementation.getInstance();
+		CV cv = cdao.read(CVId);
+		PlantillaDAO pdao = PlantillaDAOImplementation.getInstance();
+		Plantilla plantilla = pdao.read(PlantillaId);
 		
-		if (usuario.getCurriculums() != null) {
-			Collection<CV> CVs = usuario.getCurriculums();
-			req.getSession().setAttribute( "id", id );
-			req.getSession().setAttribute( "CVs", CVs );
-			getServletContext().getRequestDispatcher( "/ChooseCVView.jsp" ).forward( req, resp );
-		} else {
-			PlantillaDAO pdao = PlantillaDAOImplementation.getInstance();
-			Plantilla plantilla = pdao.read(id);
-			Empresa empresa = plantilla.getEmpresa();
-			
-			boolean educacion = plantilla.isEducacion();
-			boolean idiomas = plantilla.isIdiomas();
-			boolean expLabo = plantilla.isExpLaboral();
-			boolean habilidades = plantilla.isHabilidades();
-			boolean intereses = plantilla.isIntereses();
-			
-			//Se usa para obtener los nombres de las carreras
-			//Cambiar esto a la dirección de vuestro archivo carreras.txt. Investigaré para poner dirección relativa
+		Empresa empresa = plantilla.getEmpresa();
+		
+		boolean educacion = plantilla.isEducacion();
+		boolean idiomas = plantilla.isIdiomas();
+		boolean expLabo = plantilla.isExpLaboral();
+		boolean habilidades = plantilla.isHabilidades();
+		boolean intereses = plantilla.isIntereses();
+		
+		//Se usa para obtener los nombres de las carreras
+		//Cambiar esto a la dirección de vuestro archivo carreras.txt. Investigaré para poner dirección relativa
 
-			ArrayList<String> carreras = get_carreras();
-			
-			req.getSession().setAttribute( "carreras" , carreras );
-			req.getSession().setAttribute( "educacion" , educacion );
-			req.getSession().setAttribute( "idiomas" , idiomas );
-			req.getSession().setAttribute( "expLabo" , expLabo );
-			req.getSession().setAttribute( "habilidades" , habilidades );
-			req.getSession().setAttribute( "intereses" , intereses );
-			req.getSession().setAttribute( "usuario", usuario );
-			req.getSession().setAttribute( "empresa", empresa );
-			getServletContext().getRequestDispatcher( "/CreateCV.jsp" ).forward( req, resp );
-		}
+		ArrayList<String> carreras = get_carreras();
 		
+		req.getSession().setAttribute( "CV" , cv );
+		req.getSession().setAttribute( "carreras" , carreras );
+		req.getSession().setAttribute( "educacion" , educacion );
+		req.getSession().setAttribute( "idiomas" , idiomas );
+		req.getSession().setAttribute( "expLabo" , expLabo );
+		req.getSession().setAttribute( "habilidades" , habilidades );
+		req.getSession().setAttribute( "intereses" , intereses );
+		req.getSession().setAttribute( "usuario", usuario );
+		req.getSession().setAttribute( "empresa", empresa );
+		getServletContext().getRequestDispatcher( "/CreateCV.jsp" ).forward( req, resp );
 	}
 }

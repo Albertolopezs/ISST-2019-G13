@@ -134,17 +134,17 @@ border-radius: 30px 0px 30px 0px; /*ángulos de las 4 esquinas del borde/fondo*/
 			</li>
 		</p>
 			
-	
-		<p> 
-	
-		<c:if test="${not empty empresa.plantillas}">
-		  <h3><li>Plantillas:</h3>
+		<p>
+		<shiro:hasRole name="usuario">
+			<c:if test="${not empty empresa.plantillas}">
+		  	<h3><li>Plantillas:</h3>
 	
 			<ul>
 				<c:forEach items="${empresa.plantillas}" var="plantilla">
 					
-						<form action="PlantillaViewServlet" method="get">
-							<input type="submit" name="id" value="${plantilla.id}" />
+						<form action="FillUpPlantillaServlet" method="get">
+							<input type="submit" value="${plantilla.id}" />
+							<input type="hidden" name="id" value="${ plantilla.id }" />
 							<input type="submit" value="${plantilla.name}" class="link" />
 						</form>
 					
@@ -152,7 +152,46 @@ border-radius: 30px 0px 30px 0px; /*ángulos de las 4 esquinas del borde/fondo*/
 			</ul>
 		  </li>
 		  </c:if>
+		
+		</shiro:hasRole>
 	
+		<p> 
+		<c:if test="${ owner }">
+		<c:if test="${not empty empresa.plantillas}">
+		  <h3><li>Plantillas:</h3>
+	
+			<ul>
+				<c:forEach items="${empresa.plantillas}" var="plantilla">
+					
+						<form action="PlantillaViewServlet" method="get">
+							<input type="submit" value="${plantilla.id}" />
+							<input type="hidden" name="id" value="${ plantilla.id }" />
+							<input type="submit" value="${plantilla.name}" class="link" />
+						</form>
+					
+				</c:forEach>
+			</ul>
+		  </li>
+		  </c:if>
+		</c:if>
+		
+		<p>
+		<c:if test="${ owner }">
+			<c:if test="${ not empty CVs }">
+			<h2>CVs recibidos:</h2>
+				<ul>
+					<c:forEach items="${ CVs }" var="CV">
+					<li>
+						<form action="CVViewServlet" method="get">
+							<input type="hidden" name="id" value="${CV.id}" />
+							<input type="hidden" name="empresa_email" value="${ email }" />
+							<input type="submit" value="${CV.name}" class="link" />
+						</form>
+					</li>
+					</c:forEach>
+				</ul>
+			</c:if>
+		</c:if>
 	
 		
 		<p>
@@ -166,10 +205,9 @@ border-radius: 30px 0px 30px 0px; /*ángulos de las 4 esquinas del borde/fondo*/
 	
 					<button class="btn btn-lg btn-primary btn-block btn-register" type="submit">Modificar datos</button>
 			</form>
-	
-	
-	
 		</c:if>
+		
+		
 		</div>
 		</div>
 	</div>

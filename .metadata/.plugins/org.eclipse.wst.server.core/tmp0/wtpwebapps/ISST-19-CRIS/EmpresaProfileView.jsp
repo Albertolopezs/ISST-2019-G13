@@ -174,20 +174,6 @@ border-radius: 30px 0px 30px 0px; /*ángulos de las 4 esquinas del borde/fondo*/
 		  </li>
 		  </c:if>
 		</c:if>
-	
-		
-		<p>
-	
-		<c:if test="${ owner }">
-			<a href="CreatePlantilla.jsp?empresa=${empresa}">Crear Plantilla CV</a>
-			<p>
-	
-			<form action="EditCompanyServlet" method="get" name="FormEntrar">
-					  <input type="hidden" class="form-control" name="correo" placeholder="Correo" id="correo" aria-describedby="sizing-addon1" value="${email}">
-	
-					<button class="btn btn-lg btn-primary btn-block btn-register" type="submit">Modificar datos</button>
-			</form>
-		</c:if>
 		
 		<p>
 		<c:if test="${ owner }">
@@ -206,6 +192,21 @@ border-radius: 30px 0px 30px 0px; /*ángulos de las 4 esquinas del borde/fondo*/
 				</ul>
 			</c:if>
 		</c:if>
+	
+		
+		<p>
+	
+		<c:if test="${ owner }">
+			<a href="CreatePlantilla.jsp?empresa=${empresa}">Crear Plantilla CV</a>
+			<p>
+	
+			<form action="EditCompanyServlet" method="get" name="FormEntrar">
+					  <input type="hidden" class="form-control" name="correo" placeholder="Correo" id="correo" aria-describedby="sizing-addon1" value="${email}">
+	
+					<button class="btn btn-lg btn-primary btn-block btn-register" type="submit">Modificar datos</button>
+			</form>
+		</c:if>
+		
 		
 		</div>
 		</div>

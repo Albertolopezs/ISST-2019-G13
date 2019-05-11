@@ -80,11 +80,16 @@ input {
 <jsp:include page="NavBar.jsp" />
 
 <h1>Currículum de ${usuario.name} ${usuario.apell1} ${usuario.apell2} </h1>
+
 <h2>Rellene los siguientes datos:</h2>
+
+
+
+<c:if test="${empty CV}">
 	<form action="CreateCVServlet" method="post">
 		<div class="form-group"> <!--Name -->
         <label for="full_name_cv" class="control-label">Nombre del CV:</label>
-        <input type="text" class="form-control" id="full_name_cv" name="full_name">
+        <input type="text" class="form-control" id="full_name_cv" name="full_name" required>
     </div>
 		
 		
@@ -135,6 +140,7 @@ input {
 					    </option>
 					</select>
 					${ document.getElementById('nivel_educ').value}
+				</div>
 				</td></tr>
 				
 				
@@ -148,6 +154,7 @@ input {
 					    </option>
 					  </c:forEach>
 					</select>
+				</div>
 				</td></tr>
 				</table>
 				<div class="form-group"> 
@@ -171,13 +178,9 @@ input {
         <label for="puesto" class="control-label">Puesto:</label>
         <input type="text" class="form-control" name="puesto_name" id="expL" value="" >
     </div>
-    <div class="form-group"> 
-        <label for="empresa" class="control-label">Empresa:</label>
-        <input type="text" class="form-control" name="empresa" id="empresa_name" value="" >
-    </div>
      <div class="form-group"> 
         <label for="descrip" class="control-label">Descripción:</label>
-        <input type="text" class="form-control" name ="descripcion "placeholder = "Descripción del trabajo realizado" >
+        <input type="text" class="form-control" name ="descripcion" placeholder = "Descripción del trabajo realizado" >
     </div>
     <div class="form-group"> 
         <label for="añoi" class="control-label">Año de inicio:</label>
@@ -192,12 +195,14 @@ input {
     <button type="button">Añadir</button>
 		</c:if>
 		<div class="form-group">
+		
 		<c:if test="${idiomas}">
 		<h2>Idiomas</h2>
 		
+		<div class="form-group">
 		<table>
-			<div class="form-group">
-			<tr><td>Idioma:
+			<tr>
+			<td>Idioma:
 				<select name="idiomas">
 						<option value=0>
 					        Inglés
@@ -215,7 +220,10 @@ input {
 					        Chino
 					    </option>
 					</select>
-			</td><td>Nivel:
+				</td>
+			</tr>
+			<tr>
+				<td>Nivel:
 					<select name="nivel">
 						<option value=0>
 					        Básico
@@ -230,14 +238,17 @@ input {
 					        Nativo
 					    </option>
 					</select>
-			</td></tr>
+				</td>
+			</tr>
 			<tr><td>
 			<div class="form-group">
 				<button type="button">Añadir</button>
+			</div>
 			</td></tr>
-			
 		</table>
+		</div>
 		</c:if>
+		</div>
 		
 		
 		<c:if test="${habilidades}">
@@ -246,16 +257,209 @@ input {
         <input input type="text" class="form-control" name="skill" id="skill" value="">
     </div>
 		</c:if>
+		
 		<c:if test="${intereses}">
 		<h2>Intereses</h2>
 		<div class="form-group"> 
         <input input type="text" class="form-control" name="intereses" id="intereses" value="">
     </div>
 		</c:if>
-		
-		<input type="hidden" name="email" value="${email}" /> <br>
+	<c:if test="${ not empty empresa }">
+	<input type="hidden" name="empresa_email" value="${ empresa.email }" />
+	</c:if>
 	<input type="submit" value="Siguiente">
 </form>
+</c:if>
+
+
+
+
+
+<c:if test="${ not empty CV }">
+	<form action="CreateCVServlet" method="post">
+		<div class="form-group"> <!--Name -->
+        <label for="full_name_cv" class="control-label">Nombre del CV:</label>
+        <input type="text" class="form-control" id="full_name_cv" name="full_name" required>
+    </div>
+		
+		
+		<h2>Información personal</h2>
+		<div class="form-group"> 
+        <label for="full_name" class="control-label">Nombre:</label>
+        <input type="text" class="form-control" name="nombre" id="nombre" value="${usuario.name}">
+    </div> 
+    <div class="form-group"> 
+        <label for="apellidos" class="control-label">Apellidos:</label>
+        <input input type="text" class="form-control" name="apellidos" id="apellidos" value="${usuario.apell1}">
+    </div> 
+    <div class="form-group"> 
+        <label for="email" class="control-label">Correo:</label>
+        <input input type="email" class="form-control" name="correo" id="correo" value="${usuario.email}">
+    </div>
+    <div class="form-group"> 
+        <label for="datel" class="control-label">Fecha de nacimiento:</label>
+        <input input type="date" class="form-control" name="nacimiento" id="nacimiento" value="${ CV.nacimiento }">
+    </div>
+		
+	
+	
+		<c:if test="${educacion}">
+
+			<h2>Educación</h2>
+			
+			<table>
+			
+				<tr><td>
+				<div class="form-group">
+					Niveles de estudios: 
+					<select name="educacion_nivel", id = "nivel_educ">
+						<option value=0 ${ CV.educacion_nivel == 0 ? 'selected' : '' }>
+					        Educación primaria
+					    </option>
+					    <option value=1 ${ CV.educacion_nivel == 1 ? 'selected' : '' }>
+					        Educación secundaria
+					    </option>
+					    <option value=2 ${ CV.educacion_nivel == 2 ? 'selected' : '' }>
+					        Grado Universitario
+					    </option>
+					    <option value=3 ${ CV.educacion_nivel == 3 ? 'selected' : '' }>
+					        Máster
+					    </option>
+					    <option value=4 ${ CV.educacion_nivel == 4 ? 'selected' : '' }>
+					        Doctorado
+					    </option>
+					</select>
+					${ document.getElementById('nivel_educ').value}
+				</div>
+				</td></tr>
+				
+				
+				<tr><td>
+				<div class="form-group">
+					Grado: 
+					<select name="carreras_select">
+					  <c:forEach items="${carreras}" var="carrerasValor">
+					    <option value="${carrerasValor}" ${ carrerasValor == CV.carrera ? 'selected' : '' }>
+					        ${carrerasValor}
+					    </option>
+					  </c:forEach>
+					</select>
+				</div>
+				</td></tr>
+				</table>
+				<div class="form-group"> 
+        <label for="centro" class="control-label">Centro:</label>
+        <input type="text" class="form-control" name="centro" id="centro" value="${ CV.centro }">
+    </div> 
+    <div class="form-group"> 
+        <label for="yeari" class="control-label">Año de inicio:</label>
+        <input type="text" class="form-control" name="inicio_estudios" id="inicio_estudios" value="${ CV.inicio_est }">
+    </div>
+    <div class="form-group"> 
+        <label for="yearf" class="control-label">Año de finalización:</label>
+        <input type="text" class="form-control" name="final_estudios" id="final_estudios" value="${ CV.final_est }" >
+    </div>
+			
+		</c:if>
+		
+		<c:if test="${expLabo}">
+		<h2>Experiencia Laboral</h2>
+		<div class="form-group"> 
+        <label for="puesto" class="control-label">Puesto:</label>
+        <input type="text" class="form-control" name="puesto_name" id="expL" value="${ CV.puesto_nombre }" >
+    </div>
+     <div class="form-group"> 
+        <label for="descrip" class="control-label">Descripción:</label>
+        <input type="text" class="form-control" name ="descripcion "placeholder = "Descripción del trabajo realizado" value="${ CV.descripcion }">
+    </div>
+    <div class="form-group"> 
+        <label for="añoi" class="control-label">Año de inicio:</label>
+        <input type="text" class="form-control" name="inicio_trabajo" id="inicio_estudios" placeholder=2010 value="${ CV.inicio_job }">
+    </div>
+    <div class="form-group"> 
+        <label for="añof" class="control-label">Año de finalización:</label>
+        <input type="text" class="form-control" name="final_trabajo" id="final_estudios" placeholder="2019" value="${ CV.final_job }">
+    </div> 
+        
+        <input type="checkbox" name= "actualidad" ${ CV.actualidad == 'on' ? 'checked' : '' }>Hasta la actualidad<br>
+    <button type="button">Añadir</button>
+		</c:if>
+		<div class="form-group">
+		
+		<c:if test="${idiomas}">
+		<h2>Idiomas</h2>
+		
+		<div class="form-group">
+		<table>
+			<tr>
+				<td>Idioma:
+					<select name="idiomas">
+						<option value=0 ${ CV.idiomas == 0 ? 'selected' : '' }>
+							Inglés
+						</option>
+						<option value=1 ${ CV.idiomas == 1 ? 'selected' : '' }>
+							Español
+						</option>
+						<option value=2 ${ CV.idiomas == 2 ? 'selected' : '' }>
+							Francés
+						</option>
+						<option value=3 ${ CV.idiomas == 3 ? 'selected' : '' }>
+							Alemán
+						</option>
+						<option value=4 ${ CV.idiomas == 4 ? 'selected' : '' }>
+							Chino
+						</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>Nivel:
+					<select name="nivel">
+						<option value=0 ${ CV.nivel == 0 ? 'selected' : '' }>
+					        Básico
+					    </option>
+					    <option value=1 ${ CV.nivel == 1 ? 'selected' : '' }>
+					        Intermedio
+					    </option>
+					    <option value=2 ${ CV.nivel == 2 ? 'selected' : '' }>
+					        Alto
+					    </option>
+					    <option value=3 ${ CV.nivel == 3 ? 'selected' : '' }>
+					        Nativo
+					    </option>
+					</select>
+				</td>
+			</tr>
+			<tr><td>
+			<div class="form-group">
+				<button type="button">Añadir</button>
+			</div>
+			</td></tr>
+		</table>
+		</div>
+		</c:if>
+		</div>
+		
+		
+		<c:if test="${habilidades}">
+		<h2>Habilidades</h2>
+		<div class="form-group"> 
+        <input input type="text" class="form-control" name="skill" id="skill" value="${ CV.habilidades }">
+    </div>
+		</c:if>
+		
+		<c:if test="${intereses}">
+		<h2>Intereses</h2>
+		<div class="form-group"> 
+        <input input type="text" class="form-control" name="intereses" id="intereses" value="${ CV.intereses }">
+    </div>
+		</c:if>
+	<c:if test="${ not empty empresa }">
+	<input type="hidden" name="empresa_email" value="${ empresa.email }" />
+	</c:if>
+	<input type="submit" value="Siguiente">
+</form>
+</c:if>
 
 </body>
 </html>

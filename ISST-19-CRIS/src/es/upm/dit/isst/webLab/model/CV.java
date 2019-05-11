@@ -69,7 +69,7 @@ public class CV implements Serializable {
 		return nacimiento;
 	}
 	//Educación
-	public String getEducacionNivel() {
+	public String getEducacion_nivel() {
 		return educacion_nivel;
 	}
 	public String getCarrera() {
@@ -78,26 +78,26 @@ public class CV implements Serializable {
 	public String getCentro() {
 		return centro;
 	}
-	public String getInicioEst() {
+	public String getInicio_est() {
 		return inicio_est;
 	}
-	public String getFinalEst() {
+	public String getFinal_est() {
 		return final_est;
 	}
 	//Experiencia Laboral
-	public String getPuestoNombre() {
+	public String getPuesto_nombre() {
 		return puesto_nombre;
 	}
-	public String getEmpresaCV() {
+	public String getEmpresa_cv() {
 		return empresa_cv;
 	}
 	public String getDescripcion() {
 		return descripcion;
 	}
-	public String getInicioJob() {
+	public String getInicio_job() {
 		return inicio_job;
 	}
-	public String getFinalJob() {
+	public String getFinal_job() {
 		return final_job;
 	}
 	public String getActualidad() {
