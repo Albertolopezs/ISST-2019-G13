@@ -15,7 +15,6 @@
     <fullyQualifiedTypeName name="org.hibernate.Session"/>
     <fullyQualifiedTypeName name="java.util.Base64"/>
     <fullyQualifiedTypeName name="java.lang.String"/>
-    <fullyQualifiedTypeName name="es.upm.dit.isst.webLab.model.Empresa"/>
     <fullyQualifiedTypeName name="es.upm.dit.isst.webLab.model.CV"/>
     <fullyQualifiedTypeName name="es.upm.dit.isst.webLab.dao.CVDAOImplementation"/>
     <fullyQualifiedTypeName name="es.upm.dit.isst.webLab.dao.CVDAO"/>
@@ -27,13 +26,14 @@
     <fullyQualifiedTypeName name="java.lang.System"/>
     <fullyQualifiedTypeName name="java.io.FileInputStream"/>
     <fullyQualifiedTypeName name="java.util.Iterator"/>
-    <fullyQualifiedTypeName name="es.upm.dit.isst.webLab.dao.EmpresaDAOImplementation"/>
-    <fullyQualifiedTypeName name="es.upm.dit.isst.webLab.dao.EmpresaDAO"/>
-    <fullyQualifiedTypeName name="java.util.Collection"/>
     <fullyQualifiedTypeName name="es.upm.dit.isst.webLab.dao.PlantillaDAOImplementation"/>
     <fullyQualifiedTypeName name="es.upm.dit.isst.webLab.dao.PlantillaDAO"/>
     <fullyQualifiedTypeName name="es.upm.dit.isst.webLab.model.Plantilla"/>
     <fullyQualifiedTypeName name="es.upm.dit.isst.webLab.dao.UsuarioDAOImplementation"/>
     <fullyQualifiedTypeName name="es.upm.dit.isst.webLab.dao.UsuarioDAO"/>
     <fullyQualifiedTypeName name="es.upm.dit.isst.webLab.model.Usuario"/>
+    <fullyQualifiedTypeName name="es.upm.dit.isst.webLab.dao.EmpresaDAO"/>
+    <fullyQualifiedTypeName name="java.util.Collection"/>
+    <fullyQualifiedTypeName name="es.upm.dit.isst.webLab.model.Empresa"/>
+    <fullyQualifiedTypeName name="es.upm.dit.isst.webLab.dao.EmpresaDAOImplementation"/>
 </qualifiedTypeNameHistroy>

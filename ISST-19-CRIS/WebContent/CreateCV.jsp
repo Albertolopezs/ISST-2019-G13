@@ -135,7 +135,6 @@ input {
 					    </option>
 					</select>
 					${ document.getElementById('nivel_educ').value}
-				</div>
 				</td></tr>
 				
 				
@@ -149,7 +148,6 @@ input {
 					    </option>
 					  </c:forEach>
 					</select>
-				</div>
 				</td></tr>
 				</table>
 				<div class="form-group"> 
@@ -173,6 +171,10 @@ input {
         <label for="puesto" class="control-label">Puesto:</label>
         <input type="text" class="form-control" name="puesto_name" id="expL" value="" >
     </div>
+    <div class="form-group"> 
+        <label for="empresa" class="control-label">Empresa:</label>
+        <input type="text" class="form-control" name="empresa" id="empresa_name" value="" >
+    </div>
      <div class="form-group"> 
         <label for="descrip" class="control-label">Descripción:</label>
         <input type="text" class="form-control" name ="descripcion "placeholder = "Descripción del trabajo realizado" >
@@ -190,14 +192,12 @@ input {
     <button type="button">Añadir</button>
 		</c:if>
 		<div class="form-group">
-		
 		<c:if test="${idiomas}">
 		<h2>Idiomas</h2>
 		
-		<div class="form-group">
 		<table>
-			<tr>
-			<td>Idioma:
+			<div class="form-group">
+			<tr><td>Idioma:
 				<select name="idiomas">
 						<option value=0>
 					        Inglés
@@ -215,10 +215,7 @@ input {
 					        Chino
 					    </option>
 					</select>
-				</td>
-			</tr>
-			<tr>
-				<td>Nivel:
+			</td><td>Nivel:
 					<select name="nivel">
 						<option value=0>
 					        Básico
@@ -233,17 +230,14 @@ input {
 					        Nativo
 					    </option>
 					</select>
-				</td>
-			</tr>
+			</td></tr>
 			<tr><td>
 			<div class="form-group">
 				<button type="button">Añadir</button>
-			</div>
 			</td></tr>
+			
 		</table>
-		</div>
 		</c:if>
-		</div>
 		
 		
 		<c:if test="${habilidades}">
@@ -252,14 +246,14 @@ input {
         <input input type="text" class="form-control" name="skill" id="skill" value="">
     </div>
 		</c:if>
-		
 		<c:if test="${intereses}">
 		<h2>Intereses</h2>
 		<div class="form-group"> 
         <input input type="text" class="form-control" name="intereses" id="intereses" value="">
     </div>
 		</c:if>
-	<input type="hidden" name="empresa_email" value="${ empresa.email }" />
+		
+		<input type="hidden" name="email" value="${email}" /> <br>
 	<input type="submit" value="Siguiente">
 </form>
 

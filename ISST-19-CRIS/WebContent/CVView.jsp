@@ -157,19 +157,11 @@ input[type="submit"] {
 		<input type="hidden" name="id" value="${ id }">
 		<input type="submit" value="Elimina CV" />
 	</form>
+	<form action="UsuarioServlet" method="get">
+		<input type="hidden" name="email" value="${ email }" />
+		<input type="submit" value="Back" />
+	</form>
 	</c:if>
-	<shiro:hasRole name="usuario">
-		<form action="UsuarioServlet" method="get">
-			<input type="hidden" name="email" value="${ email }" />
-			<input type="submit" value="Back" />
-		</form>
-	</shiro:hasRole>
-	<shiro:hasRole name="empresa">
-		<form action="EmpresaServlet" method="get">
-			<input type="hidden" name="email" value="${ empresa_email }" />
-			<input type="submit" value="Back" />
-		</form>
-	</shiro:hasRole>
 	
 </body>
 </html>

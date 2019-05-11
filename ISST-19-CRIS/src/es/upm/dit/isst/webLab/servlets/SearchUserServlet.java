@@ -7,7 +7,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Iterator;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -37,7 +36,7 @@ public class SearchUserServlet extends HttpServlet {
     }
 
     // get file from classpath, resources folder
-    File getFileFromResources(String fileName) {
+    private File getFileFromResources(String fileName) {
 
         ClassLoader classLoader = getClass().getClassLoader();
 
@@ -73,105 +72,75 @@ public class SearchUserServlet extends HttpServlet {
 		req.getSession().setAttribute( "searchCompleted" , 0 );
 		getServletContext().getRequestDispatcher( "/SearchUsers.jsp" ).forward( req, resp );
 	}
-	@SuppressWarnings("unchecked")
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		//Ahora con los datos hay que crear un metodo en cv que busque segun parametros
-		int educ = 0;
-		String carrera = null;
-		int idi = 0;
-		int nivel = 0;
-		Collection<CV> aux = (Collection<CV>) req.getAttribute( "CV_list" );
 		
+		int educ = Integer.valueOf(req.getParameter( "educacion_nivel"));
+		String carrera = req.getParameter( "carreras_select");
+		int idi = Integer.valueOf(req.getParameter( "idiomas" ));
+		int nivel = Integer.valueOf(req.getParameter( "nivel"));
+		
+		//Buscamos dentro de todos los CVs los que cumplen las condiciones
 		CVDAO cdao = CVDAOImplementation.getInstance();
 		Collection<CV> CVColl = cdao.readAll();
-		
-		if (req.getParameter( "educacion_nivel") != null) {
-			educ = Integer.parseInt(req.getParameter( "educacion_nivel"));
-			carrera = req.getParameter( "carreras_select");
-			idi = Integer.parseInt(req.getParameter( "idiomas" ));
-			nivel = Integer.parseInt(req.getParameter( "nivel"));
-			
-			//Buscamos dentro de todos los CVs los que cumplen las condiciones
-			for (Iterator<CV> iterator = CVColl.iterator(); iterator.hasNext();) {
-				CV cv = iterator.next();
-				
-				//Comprobamos el nivel de educación
-				String educ_nv_s = cv.getEducacionNivel();
-				if (educ_nv_s != null) {
-					try {
-						int educ_nv_i = Integer.parseInt(educ_nv_s);
-						if (educ_nv_i < educ) {
-							iterator.remove();
-							continue;
+		for(CV cv : CVColl) {
+			System.out.println(cv.getName());
+			//Comprobamos el nivel de educación
+			String educ_nv_s  = cv.getEducacionNivel();
+			if(educ_nv_s != null) {
+				try {
+					int educ_nv_i = Integer.valueOf(educ_nv_s);
+					if(educ_nv_i >=educ) {
+						System.out.println("Educacion"+educ_nv_i);
 						}
-					} catch (NumberFormatException e) {
-						System.out.println("Not a number");
-					}
-				} else {
-					iterator.remove();
-					continue;
-				}
-				
-				
-				/*//Comprobamos la carrera
-				String carrera_s  = cv.getCarrera();
-				if(carrera_s != null) {
-					if(carrera_s != carrera) {
-						iterator.remove();
-						continue;
-					}
-				} else {
-					iterator.remove();
-					continue;
-				}*/
-				
-				
-				//Comprobamos el idioma
-				String idioma_s  = cv.getIdiomas();
-				if(idioma_s != null) {
-					try {
-						int idioma_i = Integer.parseInt(idioma_s);
-						if(idioma_i != idi) {
-							iterator.remove();
-							continue;
-						}
-					}catch (NumberFormatException e){
-					    System.out.println("not a number"); 
-					} 
-				} else {
-					iterator.remove();
-					continue;
-				}
-				
-				
-				//Comprobamos el nivel del idioma
-				String idioma_nv_s  = cv.getNivel();
-				if(idioma_nv_s != null) {
-					try {
-						int idioma_nv_i = Integer.parseInt(idioma_nv_s);
-						if(idioma_nv_i < nivel) {
-							iterator.remove();
-							continue;
-						}
-					}catch (NumberFormatException e){
-					    System.out.println("not a number"); 
-					} 
-				} else {
-					iterator.remove();
-					continue;
-				}
+					
+				}catch (NumberFormatException e){
+				    System.out.println("not a number"); 
+				} 
+
 			}
 			
-		} else {
-			CVColl = aux;
-		}	
+			//Comprobamos la carrera
+			String carrera_s  = cv.getCarrera();
+			if(carrera_s != null) {
+				if(carrera_s == carrera) {
+					System.out.println("Carrera"+carrera_s);}
+			}
+			
+			//Comprobamos el idioma
+			String idioma_s  = cv.getIdiomas();
+			if(idioma_s != null) {
+				try {
+					int idioma_i = Integer.valueOf(idioma_s);
+					if(idioma_i ==idi) {
+						System.out.println("Idioma"+idioma_i);
+						}
+					
+				}catch (NumberFormatException e){
+				    System.out.println("not a number"); 
+				} 
+				
+			}
+			
+			//Comprobamos el nivel del idioma
+			
+			String idioma_nv_s  = cv.getNivel();
+			if(idioma_nv_s != null) {
+				try {
+					int idioma_nv_i = Integer.valueOf(idioma_nv_s);
+					if(idioma_nv_i >=nivel) {
+						System.out.println("Nivel de idioma"+nivel + idioma_nv_i);
+						}
+					
+				}catch (NumberFormatException e){
+				    System.out.println("not a number"); 
+				} 
+
+			}
+        }
 		
-		ArrayList<String> carreras = get_carreras();
-		req.getSession().setAttribute( "carreras" , carreras );
-		req.getSession().setAttribute( "searchCompleted" , 1 );
-		req.getSession().setAttribute( "CV_list", CVColl );
-		getServletContext().getRequestDispatcher( "/SearchUsers.jsp" ).forward( req, resp );
+
 		
 		
 	}
