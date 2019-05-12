@@ -72,7 +72,7 @@ select {
 	margin: 50px auto;
 	background-color: #F3EDED;
         border: 15px solid #ECE8E8;
-	height: 400px;
+	height: auto;
 	border-radius:8px;
 	padding: 0px 9px 0px 9px;
 }
@@ -134,12 +134,12 @@ border-radius: 30px 0px 30px 0px; /*ángulos de las 4 esquinas del borde/fondo*/
 	<c:if test="${searchCompleted == 1}">
 		<ul>
 			<c:forEach items="${ Empresa_list }" var="empresa">
-				<li>
+				
 					<form action="EmpresaServlet" method="get">
 						<input type="hidden" name="email" value="${ empresa.email }" />
 						<input type="submit" value="${empresa.name}" class="link" />
 					</form>
-				</li>
+				
 				</c:forEach>
 		</ul>
 	</c:if> 

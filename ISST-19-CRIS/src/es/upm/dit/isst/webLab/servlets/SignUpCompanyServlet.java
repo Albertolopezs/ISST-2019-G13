@@ -49,7 +49,8 @@ public class SignUpCompanyServlet extends HttpServlet {
 		byte[] buffer = new byte[10240];
 		for (int length = 0; (length = fileContent.read(buffer)) > 0;) output.write(buffer, 0, length);
 		byte[] foto = output.toByteArray();
-		empresa.setPhoto( foto );
+		String sfoto = Base64.getEncoder().encodeToString( foto );
+		empresa.setPhoto( sfoto );
 
 		
 		EmpresaDAO edao = EmpresaDAOImplementation.getInstance();

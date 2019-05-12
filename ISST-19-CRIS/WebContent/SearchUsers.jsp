@@ -55,7 +55,8 @@ text-decoration: none;
     font-size: 15px;
     border-radius: 15px;
     font-family: 'Lobster';
-    background-color: transparent;
+    background-color: white;
+    font-weight: bold;
 }
 select {
      background: transparent;
@@ -63,7 +64,7 @@ select {
      font-size: 14px;
      height: 30px;
      padding: 5px;
-     width: 200px;
+     width: 350px;
      font-family: 'Lobster';
      font: normal normal 16px quicksand;
   }
@@ -72,7 +73,7 @@ select {
 	margin: 50px auto;
 	background-color: #F3EDED;
         border: 15px solid #ECE8E8;
-	height: 400px;
+	height: auto;
 	border-radius:8px;
 	padding: 0px 9px 0px 9px;
 }
@@ -208,13 +209,13 @@ border-radius: 30px 0px 30px 0px; /*ángulos de las 4 esquinas del borde/fondo*/
 	<c:if test="${searchCompleted == 1}">
 		<ul>
 			<c:forEach items="${ CV_list }" var="CV">
-				<li>
+				
 					<form action="CVViewServlet" method="get">
 						<input type="hidden" name="id" value="${CV.id}" />
 						<input type="hidden" name="CV_list" value="${ CV_list }" />
 						<input type="submit" value="${CV.name}" class="link" />
 					</form>
-				</li>
+				
 				</c:forEach>
 		</ul>
 	</c:if>

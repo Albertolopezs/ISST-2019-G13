@@ -25,10 +25,8 @@ public class UsuarioServlet extends HttpServlet {
 		Usuario usuario = UsuarioDAOImplementation.getInstance().read( email );
 		
 		try {
-			byte[] foto = usuario.getPhoto();
-			String sfoto;
-			sfoto = Base64.getEncoder().encodeToString( foto );
-			req.getSession().setAttribute( "foto" , sfoto );
+			String foto = usuario.getPhoto();
+			req.getSession().setAttribute( "foto" , foto );
 			}
 		catch(NullPointerException e) {
 			System.out.print(e);

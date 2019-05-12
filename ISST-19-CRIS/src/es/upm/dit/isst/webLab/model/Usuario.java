@@ -21,7 +21,7 @@ public class Usuario implements Serializable {
 	private String apell2;
 	private String direccion;
 	@Lob
-	private byte[] photo;
+	private String photo;
 
 	@Lob 
 	private byte[] photoBackground;
@@ -89,11 +89,11 @@ public class Usuario implements Serializable {
 		this.apell2 = apell2;
 	}
 
-	public byte[] getPhoto() {
+	public String getPhoto() {
 		return photo;
 	}
 
-	public void setPhoto(byte[] photo) {
+	public void setPhoto(String photo) {
 		this.photo = photo;
 	}
 

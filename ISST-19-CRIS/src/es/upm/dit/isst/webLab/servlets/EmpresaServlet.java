@@ -27,11 +27,11 @@ public class EmpresaServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String email = req.getParameter( "email" );
 		Empresa empresa = EmpresaDAOImplementation.getInstance().read( email );
-		byte[] foto = empresa.getPhoto();
+		String foto = empresa.getPhoto();
 		String sfoto;
 		if (foto != null) {
-			sfoto = Base64.getEncoder().encodeToString( foto );
-			req.getSession().setAttribute( "foto" , sfoto );
+			
+			req.getSession().setAttribute( "foto" , foto );
 		}
 		Boolean owner = false;
 		Subject currentUser = SecurityUtils.getSubject();

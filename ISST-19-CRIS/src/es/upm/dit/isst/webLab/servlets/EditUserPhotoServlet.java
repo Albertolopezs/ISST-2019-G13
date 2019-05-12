@@ -37,7 +37,8 @@ public class EditUserPhotoServlet extends HttpServlet {
 		UsuarioDAO udao = UsuarioDAOImplementation.getInstance();
 		Usuario usuario = udao.read(email);
 		byte[] foto = output.toByteArray();
-		usuario.setPhoto( foto );
+		String sfoto = Base64.getEncoder().encodeToString( foto );
+		usuario.setPhoto( sfoto );
 		udao.update( usuario );
 		
 		req.getSession().setAttribute( "usuario" , usuario );

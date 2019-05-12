@@ -38,7 +38,8 @@ public class EditCompanyPhotoServlet extends HttpServlet {
 		EmpresaDAO edao = EmpresaDAOImplementation.getInstance();
 		Empresa empresa = edao.read(email);
 		byte[] foto = output.toByteArray();
-		empresa.setPhoto( foto );
+		String sfoto = Base64.getEncoder().encodeToString( foto );
+		empresa.setPhoto( sfoto );
 		edao.update( empresa );
 	
 		req.getSession().setAttribute( "empresa", empresa );

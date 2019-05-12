@@ -20,7 +20,7 @@ public class Empresa implements Serializable {
 	private String description;
 	
 	@Lob
-	private byte[] photo;
+	private String photo;
 	@Lob
 	private byte[] photoBackground;
 	
@@ -81,11 +81,11 @@ public class Empresa implements Serializable {
 		this.description = description;
 	}
 
-	public byte[] getPhoto() {
+	public String getPhoto() {
 		return photo;
 	}
 
-	public void setPhoto(byte[] photo) {
+	public void setPhoto(String photo) {
 		this.photo = photo;
 	}
 

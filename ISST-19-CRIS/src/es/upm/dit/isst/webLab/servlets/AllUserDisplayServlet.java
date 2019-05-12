@@ -1,6 +1,7 @@
 package es.upm.dit.isst.webLab.servlets;
 
 import java.io.IOException;
+import java.util.Base64;
 import java.util.Collection;
 
 import javax.servlet.ServletException;
@@ -19,7 +20,8 @@ public class AllUserDisplayServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		UsuarioDAO udao = UsuarioDAOImplementation.getInstance();
-		req.getSession().setAttribute( "user_list", udao.readAll() );
+		Collection<Usuario> usuarios = udao.readAll();
+		req.getSession().setAttribute( "user_list", usuarios );
 		getServletContext().getRequestDispatcher( "/UserListView.jsp" ).forward( req,resp );
 	}
 }
