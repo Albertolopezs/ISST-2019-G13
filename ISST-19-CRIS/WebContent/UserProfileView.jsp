@@ -124,6 +124,7 @@ border-radius: 30px 0px 30px 0px; /*ángulos de las 4 esquinas del borde/fondo*/
 				
 					<form action="CVViewServlet" method="get">
 						<input type="hidden" name="id" value="${CV.id}" />
+						<input type="hidden" name="caller" value="/UserProfileView.jsp" />
 						<input type="submit" value="${CV.name}" class="link" />
 					</form>
 				

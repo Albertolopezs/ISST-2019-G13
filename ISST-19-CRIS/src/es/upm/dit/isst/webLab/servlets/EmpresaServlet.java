@@ -25,7 +25,16 @@ import es.upm.dit.isst.webLab.model.Empresa;
 public class EmpresaServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		doEverything(req,resp);
+	}
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		doEverything(req,resp);
+		
+	}
+	protected void doEverything (HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String email = req.getParameter( "email" );
+		System.out.println(email);
+		System.out.println(email);
 		Empresa empresa = EmpresaDAOImplementation.getInstance().read( email );
 		String foto = empresa.getPhoto();
 		String sfoto;

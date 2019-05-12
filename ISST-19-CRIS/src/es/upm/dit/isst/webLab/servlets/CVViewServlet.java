@@ -10,10 +10,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.crypto.hash.Sha256Hash;
 import org.apache.shiro.subject.Subject;
 
 import es.upm.dit.isst.webLab.dao.CVDAO;
 import es.upm.dit.isst.webLab.dao.CVDAOImplementation;
+import es.upm.dit.isst.webLab.dao.EmpresaDAO;
 import es.upm.dit.isst.webLab.dao.EmpresaDAOImplementation;
 import es.upm.dit.isst.webLab.model.CV;
 import es.upm.dit.isst.webLab.model.Empresa;
@@ -28,7 +30,8 @@ public class CVViewServlet extends HttpServlet {
 		String id = req.getParameter( "id" );
 		Subject currentUser = SecurityUtils.getSubject();
 		String empresa_email = req.getParameter( "empresa_email" );
-		
+		System.out.println(empresa_email);
+		String caller = req.getParameter( "caller" );
 		CV CV = cdao.read( Integer.parseInt( id ) );
 		String name = CV.getName();
 		String apellidos =CV.getApellidos();
@@ -85,7 +88,15 @@ public class CVViewServlet extends HttpServlet {
 		req.getSession().setAttribute( "nivel" , nivel );
 		req.getSession().setAttribute( "intereses" , intereses );
 		req.getSession().setAttribute( "id" , id );
-
+		req.getSession().setAttribute("caller", caller);
 		req.getRequestDispatcher( "/CVView.jsp" ).forward( req, resp );
+	}
+	
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String email = req.getParameter( "email" );
+		System.out.println(email);
+		String caller = req.getParameter( "caller" );
+		req.getRequestDispatcher( caller ).forward( req, resp );
+		
 	}
 }

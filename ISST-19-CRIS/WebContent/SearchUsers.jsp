@@ -213,6 +213,8 @@ border-radius: 30px 0px 30px 0px; /*ángulos de las 4 esquinas del borde/fondo*/
 					<form action="CVViewServlet" method="get">
 						<input type="hidden" name="id" value="${CV.id}" />
 						<input type="hidden" name="CV_list" value="${ CV_list }" />
+						<input type="hidden" name="empresa_email" value="${empresa_email}" />
+						<input type="hidden" name="caller" value="/SearchUsers.jsp" />
 						<input type="submit" value="${CV.name}" class="link" />
 					</form>
 				

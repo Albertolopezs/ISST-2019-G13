@@ -20,12 +20,30 @@ public class PlantillaViewServlet extends HttpServlet {
 		PlantillaDAO pdao = PlantillaDAOImplementation.getInstance();
 		
 		Plantilla plantilla = pdao.read( Integer.parseInt( id ) );
-		boolean educacion = plantilla.isEducacion();
-		boolean expLabo = plantilla.isExpLaboral();
-		boolean habilidades = plantilla.isHabilidades();
-		boolean idiomas = plantilla.isIdiomas();
-		boolean interes = plantilla.isIntereses();
-		boolean titulo = plantilla.isTitulacion();
+		int educacion = 0;
+		int expLabo = 0;
+		int habilidades = 0;
+		int idiomas = 0;
+		int interes = 0;
+		int titulo = 0;
+		if(plantilla.isEducacion()) {
+			educacion = 1;
+		}
+		if(plantilla.isExpLaboral()) {
+			expLabo = 1;
+		}
+		if(plantilla.isHabilidades()) {
+			habilidades = 1;
+		}
+		if(plantilla.isIdiomas()) {
+			idiomas = 1;
+		}
+		if(plantilla.isIntereses()) {
+			interes = 1;
+		}
+		if(plantilla.isTitulacion()) {
+			titulo = 1;
+		}
 		String name = plantilla.getName();
 		String email = plantilla.getEmpresa().getEmail();
 		
