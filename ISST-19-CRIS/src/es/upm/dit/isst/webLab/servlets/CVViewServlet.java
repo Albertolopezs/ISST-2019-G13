@@ -19,6 +19,7 @@ import es.upm.dit.isst.webLab.dao.EmpresaDAO;
 import es.upm.dit.isst.webLab.dao.EmpresaDAOImplementation;
 import es.upm.dit.isst.webLab.model.CV;
 import es.upm.dit.isst.webLab.model.Empresa;
+import es.upm.dit.isst.webLab.model.Usuario;
 
 
 @WebServlet("/CVViewServlet")
@@ -30,7 +31,6 @@ public class CVViewServlet extends HttpServlet {
 		String id = req.getParameter( "id" );
 		Subject currentUser = SecurityUtils.getSubject();
 		String empresa_email = req.getParameter( "empresa_email" );
-		System.out.println(empresa_email);
 		String caller = req.getParameter( "caller" );
 		CV CV = cdao.read( Integer.parseInt( id ) );
 		String name = CV.getName();
@@ -65,7 +65,8 @@ public class CVViewServlet extends HttpServlet {
 				owner = false;
 			}
 		}
-		
+		Usuario user = CV.getUsuario();
+		req.getSession().setAttribute( "creator_user", user );
 		req.getSession().setAttribute( "empresa_email", empresa_email );
 		req.getSession().setAttribute( "owner", owner );
 		req.getSession().setAttribute( "name" , name );

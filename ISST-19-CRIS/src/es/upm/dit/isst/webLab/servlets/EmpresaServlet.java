@@ -34,7 +34,6 @@ public class EmpresaServlet extends HttpServlet {
 	protected void doEverything (HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String email = req.getParameter( "email" );
 		System.out.println(email);
-		System.out.println(email);
 		Empresa empresa = EmpresaDAOImplementation.getInstance().read( email );
 		String foto = empresa.getPhoto();
 		String sfoto;
