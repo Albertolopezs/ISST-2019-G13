@@ -76,7 +76,7 @@ public class FillUpPlantillaServlet extends HttpServlet {
 		UsuarioDAO udao = UsuarioDAOImplementation.getInstance();
 		Usuario usuario = udao.read(email);
 		
-		if (usuario.getCurriculums() != null) {
+		if (!usuario.getCurriculums().isEmpty()) {
 			Collection<CV> CVs = usuario.getCurriculums();
 			req.getSession().setAttribute( "id", id );
 			req.getSession().setAttribute( "CVs", CVs );

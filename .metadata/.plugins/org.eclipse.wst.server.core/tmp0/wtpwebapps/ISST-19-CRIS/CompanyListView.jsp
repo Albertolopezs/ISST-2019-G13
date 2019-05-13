@@ -69,12 +69,13 @@ border-radius: 30px 0px 30px 0px; /*ángulos de las 4 esquinas del borde/fondo*/
 	<div>
 		
 			<ul><c:forEach items="${company_list}" var="company">
-				<li>
+				
 					<form action="EmpresaServlet" method="get">
 						<input type="hidden" name="email" value="${ company.email }" />
-						<input type="submit" value="${ company.name } - ${user.email}" class="link" />
+						<img id="imagenEmpresa" src="data:image/jpeg;base64,${company.photo}" width="50" height="50" />
+						<input type="submit" value="${ company.name } - ${company.email}" class="link" />
 					</form>
-				</li>
+				
 			</c:forEach>
 		</ul>
 	</div>

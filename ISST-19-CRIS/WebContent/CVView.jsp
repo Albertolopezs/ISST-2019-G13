@@ -34,6 +34,7 @@ body {
 }
 
 .caja_1 { 
+margin-left:25px;
 font-family:'Lobster'; 
 font-size: 18px; 
 font-weight: 400; 
@@ -42,6 +43,7 @@ text-align: left;
 top: 0;
     left: 0;
     display: table;
+background-color: white;
  }
  .caja_2 { 
  flex:none;
@@ -53,6 +55,7 @@ text-align: left;
 top: 0;
     left: 0;
     display: table;
+
  }
  .caja_t { 
 display:flex;
@@ -60,6 +63,7 @@ flex-direction:row;
 height:100%;
 width:100%;
 justify-content:"space-around";
+
 
 }
 .total_contenedor{
@@ -84,6 +88,14 @@ input[type="submit"] {
 	font-size: medium;
 	font-family: 'Lobster';
 	font-weight: bold;
+}
+
+h3 {
+text-align: center;
+}
+
+.subrayar {
+text-decoration: underline;
 }
 
 </style>
@@ -129,7 +141,7 @@ input[type="submit"] {
 		<c:if test="${ puesto_name != null }">
 		<h3>Experiencia laboral</h3>
 		<table>
-			<tr><td>${puesto_name }</td></tr>
+			<tr><td>Puesto: ${puesto_name }</td></tr>
 			<tr><td>Descripción del trabajo:  ${descripcion} </td></tr>
 			<tr><td>Empresa: ${empresa} </td></tr>
 			<tr><td>Inicio:  ${inicio_est }</td>
@@ -182,7 +194,7 @@ input[type="submit"] {
 		<div class="caja_2">
 			<form action="UsuarioServlet" method="get">
 						<input type="hidden" name="email" value="${ creator_user.email }" />
-						<img id="imagenUsuario" src="data:image/jpeg;base64,${creator_user.photo}" width="350" height="400" />
+						<img id="imagenUsuario" src="data:image/jpeg;base64,${creator_user.photo}" width="70" height="60" />
 						<input type="submit" value="${ creator_user.name } ${ creator_user.apell1 } ${ creator_user.apell2 } - ${creator_user.email}" class="link" />
 			</form>
 		</div>

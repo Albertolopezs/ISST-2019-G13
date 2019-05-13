@@ -100,7 +100,6 @@ border-radius: 30px 0px 30px 0px; /*ángulos de las 4 esquinas del borde/fondo*/
 	<div class="center-row">
 
 		<img id="imagenUsuario" src="data:image/jpeg;base64,${foto}" width="350" height="400" />
-		
 		<div class="center-column">
 		<div id="cont-p">
 		  <h3><li>Descripción:</li></h3>
@@ -122,12 +121,13 @@ border-radius: 30px 0px 30px 0px; /*ángulos de las 4 esquinas del borde/fondo*/
 	
 			<ul>
 				<c:forEach items="${ usuario.curriculums }" var="CV">
-				<li>
+				
 					<form action="CVViewServlet" method="get">
 						<input type="hidden" name="id" value="${CV.id}" />
+						<input type="hidden" name="caller" value="/UserProfileView.jsp" />
 						<input type="submit" value="${CV.name}" class="link" />
 					</form>
-				</li>
+				
 				</c:forEach>
 			</ul>
 		  

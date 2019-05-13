@@ -192,7 +192,6 @@ input {
     </div> 
         
         <input type="checkbox" name= "actualidad" >Hasta la actualidad<br>
-    <button type="button">Añadir</button>
 		</c:if>
 		<div class="form-group">
 		
@@ -242,7 +241,6 @@ input {
 			</tr>
 			<tr><td>
 			<div class="form-group">
-				<button type="button">Añadir</button>
 			</div>
 			</td></tr>
 		</table>
@@ -382,7 +380,6 @@ input {
     </div> 
         
         <input type="checkbox" name= "actualidad" ${ CV.actualidad == 'on' ? 'checked' : '' }>Hasta la actualidad<br>
-    <button type="button">Añadir</button>
 		</c:if>
 		<div class="form-group">
 		
@@ -432,7 +429,6 @@ input {
 			</tr>
 			<tr><td>
 			<div class="form-group">
-				<button type="button">Añadir</button>
 			</div>
 			</td></tr>
 		</table>

@@ -8,10 +8,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Lista de usuarios</title>
- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<!-- Temas-->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
 </head>
 <style type="text/css">
 body {
@@ -74,12 +70,13 @@ border-radius: 30px 0px 30px 0px; /*ángulos de las 4 esquinas del borde/fondo*/
 	<div>
 		<ul>
 			<c:forEach items="${user_list}" var="user">
-				<li>
+				
 					<form action="UsuarioServlet" method="get">
 						<input type="hidden" name="email" value="${ user.email }" />
+						<img id="imagenUsuario" src="data:image/jpeg;base64,${user.photo}" width="50" height="50" />
 						<input type="submit" value="${ user.name } ${ user.apell1 } ${ user.apell2 } - ${user.email}" class="link" />
 					</form>
-				</li>
+				
 			</c:forEach>
 		</ul>
 	</div>

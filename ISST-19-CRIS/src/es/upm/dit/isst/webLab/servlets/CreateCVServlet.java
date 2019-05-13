@@ -119,7 +119,7 @@ public class CreateCVServlet extends HttpServlet {
 		//Habilidades
 		String skill = req.getParameter( "skill" );
 		//Interes
-		String interes = req.getParameter( "interes" );
+		String interes = req.getParameter( "intereses" );
 		
 		Usuario usuario = UsuarioDAOImplementation.getInstance().read(email);
 		

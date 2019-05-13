@@ -50,12 +50,26 @@ input[type="submit"] {
 <shiro:guest><jsp:forward page="LoginView.jsp"></jsp:forward></shiro:guest>
 	<jsp:include page="NavBar.jsp" />
 	<h2>${ name }</h2>
-		<div>Educación: ${ educacion }<br></div>
-		<div>Idiomas:  ${ idiomas }<br></div>
-		<div>Experiencia laboral: ${ expLabo }<br></div>
-		<div>Habilidades: ${ habilidades }<br></div>
-		<div>Intereses: ${ interes }<br></div>
-		<div>Titulación: ${ titulo }<br></div>
+	<h3>Elementos a incluir en el CV:</h3>
+	<c:if test="${ educacion  == 1}">
+		<div>Educación<br></div>
+	</c:if>
+	<c:if test="${ idiomas == 1}">
+		<div>Idiomas<br></div>
+	</c:if>
+	<c:if test="${expLabo  == 1}">
+		<div>Experiencia laboral<br></div>
+	</c:if>	
+	<c:if test="${ habilidades  == 1}">
+		<div>Habilidades <br></div>
+	</c:if>	
+	<c:if test="${ interes == 1}">
+		<div>Intereses<br></div>
+	</c:if>	
+	<c:if test="${ titulo == 1}">
+		<div>Titulación<br></div>
+	</c:if>
+	<br>
 	<c:if test="${ owner }">
 	<form action="DeletePlantillaServlet" method="post">
 		<input type="hidden" name="id" value="${ id }" />

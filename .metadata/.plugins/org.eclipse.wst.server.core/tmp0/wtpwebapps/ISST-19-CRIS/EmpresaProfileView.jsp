@@ -45,16 +45,21 @@ body {
     justify-content: center;}
 
 #cont-p{
-	width:auto;
+	width:400;
 	height:auto;
 	background-color: #F3EDED;
     border: 15px solid #ECE8E8;
 	border-radius:8px;
-	padding: 0px 9px 0px 9px;}
+	padding: 0px 9px 0px 9px;
+	margin-right:30px;
+	margin-top:20px;}
 
 img{
 	float:left;
-	margin-left:20px;}
+	margin-left:20px;
+	margin-right:20px;
+	margin-top:20px;
+}
 
 h1 {
 text-align: center;
@@ -143,7 +148,6 @@ border-radius: 30px 0px 30px 0px; /*ángulos de las 4 esquinas del borde/fondo*/
 				<c:forEach items="${empresa.plantillas}" var="plantilla">
 					
 						<form action="FillUpPlantillaServlet" method="get">
-							<input type="submit" value="${plantilla.id}" />
 							<input type="hidden" name="id" value="${ plantilla.id }" />
 							<input type="submit" value="${plantilla.name}" class="link" />
 						</form>
@@ -164,14 +168,14 @@ border-radius: 30px 0px 30px 0px; /*ángulos de las 4 esquinas del borde/fondo*/
 				<c:forEach items="${empresa.plantillas}" var="plantilla">
 					
 						<form action="PlantillaViewServlet" method="get">
-							<input type="submit" value="${plantilla.id}" />
+							<input type="hidden" value="${plantilla.id}" />
 							<input type="hidden" name="id" value="${ plantilla.id }" />
 							<input type="submit" value="${plantilla.name}" class="link" />
 						</form>
 					
 				</c:forEach>
 			</ul>
-		  </li>
+		 
 		  </c:if>
 		</c:if>
 		
@@ -181,13 +185,14 @@ border-radius: 30px 0px 30px 0px; /*ángulos de las 4 esquinas del borde/fondo*/
 			<h2>CVs recibidos:</h2>
 				<ul>
 					<c:forEach items="${ CVs }" var="CV">
-					<li>
+					
 						<form action="CVViewServlet" method="get">
 							<input type="hidden" name="id" value="${CV.id}" />
 							<input type="hidden" name="empresa_email" value="${ email }" />
+							<input type="hidden" name="caller" value="/EmpresaServlet" />
 							<input type="submit" value="${CV.name}" class="link" />
 						</form>
-					</li>
+					
 					</c:forEach>
 				</ul>
 			</c:if>

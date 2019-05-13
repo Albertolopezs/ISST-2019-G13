@@ -69,7 +69,7 @@ public class EditUserServlet extends HttpServlet {
 		
 		req.getSession().setAttribute( "name" , name );
 		req.getSession().setAttribute( "apell1" , apell1 );
-		req.getSession().setAttribute( "apell1" , apell2 );
+		req.getSession().setAttribute( "apell2" , apell2 );
 		req.getSession().setAttribute( "email" , email );
 		req.getSession().setAttribute( "nacimiento" , nacimiento );
 		req.getSession().setAttribute( "id" , id );

@@ -73,7 +73,7 @@ nav li:hover > ul {
 						</shiro:hasRole>
 						<shiro:hasRole name="empresa">
 							<li><a href="ChangePasswordEmpresaView.jsp">Cambiar Contraseña</a></li>
-							<li><a href="SearchUserServlet">Buscar Usuarios</a></li>
+							<li><a href="SearchUserServlet">Buscar Currículums</a></li>
 						</shiro:hasRole>
 							<li><a href="LogoutServlet">Cerrar Sesión</a></li>
 					</ul>
